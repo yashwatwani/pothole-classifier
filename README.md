@@ -10,9 +10,12 @@ Open data, open-source model, runs fully offline on a laptop CPU (~3–4 ms per 
 | **Ours: MobileNetV3, fine-tuned** (default) | **89.5%** | **84.5%** | **0.885** | **3.4 ms, CPU** |
 | Ours: EfficientNet-B0, fine-tuned | 88.1% | 85.2% | 0.873 | 5.6 ms, CPU |
 | Off-the-shelf HF classifier (`punchnami/resnet50-pothole-classification`) | 65.4% | 35.4% | 0.495 | 13 ms, GPU |
+| Zero-shot Clef-flash 9B (Cloudflare, Jev-compatible, 4-bit MLX), no training | 61.1% | 18.9% | 0.318 | 389 ms, GPU |
 | Zero-shot SigLIP (`google/siglip-base-patch16-224`), no training | 58.2% | 13.1% | 0.230 | 31 ms, GPU |
 
-Full table and per-source scores: [results/RESULTS.md](results/RESULTS.md). Clef-flash (zero-shot, Jev-compatible) is downloaded and scripted but not yet scored.
+Full table and per-source scores: [results/RESULTS.md](results/RESULTS.md).
+
+Clef-flash never raised a false alarm (100% precision) but called most potholes "no". Its AUC (0.826) shows that a lower threshold would help, but it still ranks below our model (0.949), and it is ~100x slower and needs ~7 GB of memory versus our 16 MB file.
 Each `results/<model>.json` also lists every image the model got wrong.
 
 ## Data
@@ -64,5 +67,5 @@ results/                    eval outputs
 - Recall is ~85%: about 1 in 7 real potholes is missed at threshold 0.5. Lower `--threshold` to catch more, at the cost of more false alarms.
 - Weakest on Indian "normal" roads: the Kerala set has only 49 no-pothole photos, and broken edges, patches and shadows get flagged. **The fastest win is adding a few hundred photos from our own app, labelled, and retraining (about 2 minutes on this Mac).**
 - The taroii source scores lowest (F1 0.77); its images are small and low-resolution.
-- Off-the-shelf models used their default threshold, so compare them on AUC too. Ours is still best there (0.949 vs 0.872 and 0.695).
+- Off-the-shelf models used their default threshold, so compare them on AUC too. Ours is still best there (0.949 vs 0.872 ResNet50, 0.826 Clef-flash, 0.695 SigLIP).
 - A YOLO pothole detector was left out: its weights ship as a pickle (`best.pt`), which can run code when loaded, and it is AGPL-licensed.
