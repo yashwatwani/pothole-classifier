@@ -1,0 +1,14 @@
+# environments
+.venv/
+.venv-mlx/
+__pycache__/
+*.pyc
+.DS_Store
+
+# data is downloaded / rebuilt by scripts/prepare_data.py
+data/raw/
+data/images/
+
+# large or third-party weights
+models/clef-flash-4bit/
+models/*.pt

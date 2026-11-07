@@ -1,0 +1,89 @@
+"""Build one binary dataset (pothole / normal) from three open datasets.
+
+Sources (all on Hugging Face):
+  mabughali/miia-pothole-train      4,026 dashcam images, South Africa, Apache-2.0
+  taroii/pothole-detection            437 images, already split
+  Arpitraj01/Pothole_classification   ~490 images, Kerala, MIT (severity → binary)
+
+Output: data/images/{train,val,test}/{pothole,normal}/*.jpg + data/manifest.csv
+Images are resized to max 512 px and near-duplicates (perceptual hash) are dropped,
+so the same photo can't sit in both train and test.
+"""
+import csv, io, random
+from collections import Counter
+from pathlib import Path
+
+import imagehash
+import pyarrow.parquet as pq
+from PIL import Image, ImageOps
+
+ROOT = Path(__file__).resolve().parent.parent
+RAW = ROOT / "data" / "raw"
+OUT = ROOT / "data" / "images"
+MAX_SIDE = 512
+SPLIT_ORDER = {"test": 0, "val": 1, "train": 2}  # dupes keep the test/val copy
+
+
+def items():
+    # MIIA: no split given -> stratified 70/15/15
+    t = pq.read_table(RAW / "mabughali__miia-pothole-train/data/train-00000-of-00001.parquet").to_pylist()
+    rng = random.Random(42)
+    for label in (0, 1):
+        rows = [r for r in t if r["label"] == label]
+        rng.shuffle(rows)
+        n = len(rows)
+        for i, r in enumerate(rows):
+            split = "test" if i < 0.15 * n else "val" if i < 0.30 * n else "train"
+            yield "miia", split, "pothole" if label else "normal", r["image"]["path"], lambda r=r: r["image"]["bytes"]
+
+    base = RAW / "taroii__pothole-detection"
+    for split_dir, split in (("train", "train"), ("valid", "val"), ("test", "test")):
+        for cls_dir, cls in (("pothole", "pothole"), ("no pothole", "normal")):
+            for p in sorted((base / split_dir / cls_dir).glob("*")):
+                yield "taroii", split, cls, p.name, p.read_bytes
+
+    base = RAW / "Arpitraj01__Pothole_classification/datasets"
+    for split in ("train", "val", "test"):
+        for sev in ("none", "low", "medium", "severe"):
+            for p in sorted((base / split / sev).glob("*")):
+                if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
+                    yield "kerala", split, "normal" if sev == "none" else "pothole", p.name, p.read_bytes
+
+
+def main():
+    loaded = []
+    for source, split, cls, name, get in items():
+        try:
+            img = ImageOps.exif_transpose(Image.open(io.BytesIO(get()))).convert("RGB")
+        except Exception as e:
+            print("skip", source, name, e)
+            continue
+        img.thumbnail((MAX_SIDE, MAX_SIDE))
+        loaded.append((SPLIT_ORDER[split], source, split, cls, name, img, imagehash.phash(img)))
+
+    loaded.sort(key=lambda x: x[0])
+    seen, rows, dropped = [], [], Counter()
+    for _, source, split, cls, name, img, h in loaded:
+        if any(h - s <= 4 for s in seen):
+            dropped[source] += 1
+            continue
+        seen.append(h)
+        dest = OUT / split / cls / f"{source}__{Path(name).stem}.jpg"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        img.save(dest, quality=92)
+        rows.append({"path": str(dest.relative_to(ROOT)), "split": split, "label": cls, "source": source})
+
+    with open(ROOT / "data" / "manifest.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["path", "split", "label", "source"])
+        w.writeheader()
+        w.writerows(rows)
+
+    print("near-duplicates dropped:", dict(dropped))
+    for split in ("train", "val", "test"):
+        c = Counter((r["label"]) for r in rows if r["split"] == split)
+        s = Counter((r["source"]) for r in rows if r["split"] == split)
+        print(f"{split:5s} {dict(c)}  by source {dict(s)}")
+
+
+if __name__ == "__main__":
+    main()
