@@ -1,0 +1,1121 @@
+{
+  "name": "hf-resnet50",
+  "notes": "Off-the-shelf punchnami/resnet50-pothole-classification (training data unknown, may overlap our test set)",
+  "device": "mps",
+  "machine": "arm64 macOS-27.0.1",
+  "overall": {
+    "n": 607,
+    "accuracy": 0.6540362438220758,
+    "precision": 0.824,
+    "recall": 0.3539518900343643,
+    "f1": 0.4951923076923077,
+    "auc": 0.8721888729392318,
+    "confusion": {
+      "tp": 103,
+      "fp": 22,
+      "tn": 294,
+      "fn": 188
+    }
+  },
+  "by_source": {
+    "kerala": {
+      "n": 17,
+      "accuracy": 0.7647058823529411,
+      "precision": 0.7647058823529411,
+      "recall": 1.0,
+      "f1": 0.8666666666666666,
+      "auc": 0.15384615384615385,
+      "confusion": {
+        "tp": 13,
+        "fp": 4,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "miia": {
+      "n": 518,
+      "accuracy": 0.6486486486486487,
+      "precision": 1.0,
+      "recall": 0.21551724137931033,
+      "f1": 0.3546099290780142,
+      "auc": 0.9167771883289124,
+      "confusion": {
+        "tp": 50,
+        "fp": 0,
+        "tn": 286,
+        "fn": 182
+      }
+    },
+    "taroii": {
+      "n": 72,
+      "accuracy": 0.6666666666666666,
+      "precision": 0.6896551724137931,
+      "recall": 0.8695652173913043,
+      "f1": 0.7692307692307693,
+      "auc": 0.6747491638795987,
+      "confusion": {
+        "tp": 40,
+        "fp": 18,
+        "tn": 8,
+        "fn": 6
+      }
+    }
+  },
+  "latency_ms": {
+    "p50": 13.048708002315834,
+    "p95": 28.658208990236744,
+    "mean": 15.544872801116847
+  },
+  "mistakes": [
+    {
+      "path": "data/images/test/pothole/miia__OVIawXUZMHSIKGY.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1018
+    },
+    {
+      "path": "data/images/test/pothole/miia__EcIEWELHvPREBIr.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2356
+    },
+    {
+      "path": "data/images/test/pothole/miia__pDBVDNQRCcyhCMe.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3716
+    },
+    {
+      "path": "data/images/test/pothole/miia__FohRyyDGDKNoRzG.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0973
+    },
+    {
+      "path": "data/images/test/pothole/miia__HQYnjzNQXBTaoAb.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1756
+    },
+    {
+      "path": "data/images/test/pothole/miia__GvdrIVyzQKISWtY.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3426
+    },
+    {
+      "path": "data/images/test/pothole/miia__hJsWludgbFnMvAp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4258
+    },
+    {
+      "path": "data/images/test/pothole/miia__ELRTzDZluGKnOKK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4334
+    },
+    {
+      "path": "data/images/test/pothole/miia__nhbGhjgQcphhfif.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0356
+    },
+    {
+      "path": "data/images/test/pothole/miia__TbqGvlQtLPDMVwv.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4206
+    },
+    {
+      "path": "data/images/test/pothole/miia__zrOmZlCCDoLfXGJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1475
+    },
+    {
+      "path": "data/images/test/pothole/miia__HtCYIvzQvzWrSan.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3697
+    },
+    {
+      "path": "data/images/test/pothole/miia__ePepOewWrkKmPTR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4215
+    },
+    {
+      "path": "data/images/test/pothole/miia__vNZkXDyRmAFmkzd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1576
+    },
+    {
+      "path": "data/images/test/pothole/miia__ByszpLuQDbKDtga.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3447
+    },
+    {
+      "path": "data/images/test/pothole/miia__IGhoDBAGMsrHrPo.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2636
+    },
+    {
+      "path": "data/images/test/pothole/miia__uRUexZmmsHSBPUV.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4913
+    },
+    {
+      "path": "data/images/test/pothole/miia__EflYgrhJMSjYSCz.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1701
+    },
+    {
+      "path": "data/images/test/pothole/miia__tIvhHpWkeAssHiK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.467
+    },
+    {
+      "path": "data/images/test/pothole/miia__HOnIgAOIzVXYrsC.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1874
+    },
+    {
+      "path": "data/images/test/pothole/miia__IICVUjHTxWGHuKJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4348
+    },
+    {
+      "path": "data/images/test/pothole/miia__cXPNumxhuiuoLdR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1128
+    },
+    {
+      "path": "data/images/test/pothole/miia__UlYxyPHNRxAnzUc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4978
+    },
+    {
+      "path": "data/images/test/pothole/miia__FuiEBafiRJvjNnE.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4103
+    },
+    {
+      "path": "data/images/test/pothole/miia__eSpjlsZIwOMLmUS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4803
+    },
+    {
+      "path": "data/images/test/pothole/miia__DKuCqYXYboKAWvs.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0339
+    },
+    {
+      "path": "data/images/test/pothole/miia__ZNOkjVJKvRVDSeY.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2078
+    },
+    {
+      "path": "data/images/test/pothole/miia__vRSPZDVuPTvSGaJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.108
+    },
+    {
+      "path": "data/images/test/pothole/miia__nLBpPOUSPQAuhbn.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4677
+    },
+    {
+      "path": "data/images/test/pothole/miia__AWzXgJHXabPVNOF.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4169
+    },
+    {
+      "path": "data/images/test/pothole/miia__MLbIOmKXvmSjYsI.jpg",
+      "label": "pothole",
+      "p_pothole": 0.071
+    },
+    {
+      "path": "data/images/test/pothole/miia__YpYiVNwbvCVoFYp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4554
+    },
+    {
+      "path": "data/images/test/pothole/miia__ydqZLCEuxSEEJgt.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4618
+    },
+    {
+      "path": "data/images/test/pothole/miia__khHHUDXtcQyUwwy.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3846
+    },
+    {
+      "path": "data/images/test/pothole/miia__ZuTrTksrHnsJZmF.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4271
+    },
+    {
+      "path": "data/images/test/pothole/miia__bSvSKQmDweEDxcH.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3042
+    },
+    {
+      "path": "data/images/test/pothole/miia__VnymulYlFQjNLGA.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4281
+    },
+    {
+      "path": "data/images/test/pothole/miia__gaXbxPrARLoyoKS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4815
+    },
+    {
+      "path": "data/images/test/pothole/miia__cuUVpvCQUQQoqwQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4944
+    },
+    {
+      "path": "data/images/test/pothole/miia__WiMowEMJCwCxiQs.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4337
+    },
+    {
+      "path": "data/images/test/pothole/miia__CQkMnKzwBqykiUM.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3384
+    },
+    {
+      "path": "data/images/test/pothole/miia__OyWMaQmNVFAWzkj.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2335
+    },
+    {
+      "path": "data/images/test/pothole/miia__KqJDZHpBBQqUYSy.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1423
+    },
+    {
+      "path": "data/images/test/pothole/miia__pymPXyglqgskJiK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0232
+    },
+    {
+      "path": "data/images/test/pothole/miia__KHSEVmrtnoGxPXp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4924
+    },
+    {
+      "path": "data/images/test/pothole/miia__QUcVjXSkscuKzYB.jpg",
+      "label": "pothole",
+      "p_pothole": 0.198
+    },
+    {
+      "path": "data/images/test/pothole/miia__GbAPloucxgIgnvF.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3499
+    },
+    {
+      "path": "data/images/test/pothole/miia__TifhWmNGpoiCmFN.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4584
+    },
+    {
+      "path": "data/images/test/pothole/miia__MGqGiSLmVecOctr.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3983
+    },
+    {
+      "path": "data/images/test/pothole/miia__QxtFVoUMfdcvndm.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2975
+    },
+    {
+      "path": "data/images/test/pothole/miia__BOrVotINGylbEGK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3073
+    },
+    {
+      "path": "data/images/test/pothole/miia__gSXVzJdqgidaqBH.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4054
+    },
+    {
+      "path": "data/images/test/pothole/miia__menVEVXkhTCGbRa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2687
+    },
+    {
+      "path": "data/images/test/pothole/miia__xcXHTKkopRBuqcp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1701
+    },
+    {
+      "path": "data/images/test/pothole/miia__myTmeGnsIGMIYnN.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3307
+    },
+    {
+      "path": "data/images/test/pothole/miia__KvZiHqnTvymfAUw.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3579
+    },
+    {
+      "path": "data/images/test/pothole/miia__LYSrVTRObsRlXTU.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0287
+    },
+    {
+      "path": "data/images/test/pothole/miia__DiTvZoFjgILMCUu.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4888
+    },
+    {
+      "path": "data/images/test/pothole/miia__UrJTdMvzMvmwwIA.jpg",
+      "label": "pothole",
+      "p_pothole": 0.351
+    },
+    {
+      "path": "data/images/test/pothole/miia__VkoPFbCkUqXzbKG.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2822
+    },
+    {
+      "path": "data/images/test/pothole/miia__MlTtqklAMDfzKlv.jpg",
+      "label": "pothole",
+      "p_pothole": 0.476
+    },
+    {
+      "path": "data/images/test/pothole/miia__InIDUuRnQWikJpe.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3908
+    },
+    {
+      "path": "data/images/test/pothole/miia__WljQdVpgLapLheP.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4642
+    },
+    {
+      "path": "data/images/test/pothole/miia__JOcxAphgJDijJBD.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2012
+    },
+    {
+      "path": "data/images/test/pothole/miia__YhOwGIZeacMaXih.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4704
+    },
+    {
+      "path": "data/images/test/pothole/miia__NsgjHMULaFkFCpk.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2669
+    },
+    {
+      "path": "data/images/test/pothole/miia__VUqDUcHQuljRIPD.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3903
+    },
+    {
+      "path": "data/images/test/pothole/miia__AJfqEohsjxZgiQd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4501
+    },
+    {
+      "path": "data/images/test/pothole/miia__JoVxnGDIxtPRift.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4209
+    },
+    {
+      "path": "data/images/test/pothole/miia__ptJxFzLQOxTaVbe.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0219
+    },
+    {
+      "path": "data/images/test/pothole/miia__GFrJYLNPtoVhQWk.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4822
+    },
+    {
+      "path": "data/images/test/pothole/miia__jnvKdfGHqZiqvBh.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4044
+    },
+    {
+      "path": "data/images/test/pothole/miia__jOvKdUIGUjBJmDS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4333
+    },
+    {
+      "path": "data/images/test/pothole/miia__MjHRfmtHORhdjvc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3865
+    },
+    {
+      "path": "data/images/test/pothole/miia__fSNhAekXWSkGLWJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4944
+    },
+    {
+      "path": "data/images/test/pothole/miia__XggQtfmqpUuLOsQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.354
+    },
+    {
+      "path": "data/images/test/pothole/miia__jAXcYGnkEajvvRB.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1425
+    },
+    {
+      "path": "data/images/test/pothole/miia__VQNGtLPeCboSDWj.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2563
+    },
+    {
+      "path": "data/images/test/pothole/miia__bqZTxXlvvDwCJRB.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1966
+    },
+    {
+      "path": "data/images/test/pothole/miia__cALBOGPnXPbjICp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3285
+    },
+    {
+      "path": "data/images/test/pothole/miia__jaWGjYQSYKyxDcJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4916
+    },
+    {
+      "path": "data/images/test/pothole/miia__PRngAtQAZnOYYbp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3572
+    },
+    {
+      "path": "data/images/test/pothole/miia__IqOEFusBRQZwiSK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0287
+    },
+    {
+      "path": "data/images/test/pothole/miia__mrBqIIWpqKENNZi.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2503
+    },
+    {
+      "path": "data/images/test/pothole/miia__YzQhADCAQAfanta.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4045
+    },
+    {
+      "path": "data/images/test/pothole/miia__RBRJevPyeujiPKR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4292
+    },
+    {
+      "path": "data/images/test/pothole/miia__qloIxktMjDeeEzK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4356
+    },
+    {
+      "path": "data/images/test/pothole/miia__YgvYkjFqXSJxWah.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4088
+    },
+    {
+      "path": "data/images/test/pothole/miia__IPSYDXVTNOHwNYo.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4307
+    },
+    {
+      "path": "data/images/test/pothole/miia__cxPkBVOjmmUEHtQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0056
+    },
+    {
+      "path": "data/images/test/pothole/miia__XvdBQMJWmGmabSN.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4855
+    },
+    {
+      "path": "data/images/test/pothole/miia__DNPugVZnFgHqnsk.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4853
+    },
+    {
+      "path": "data/images/test/pothole/miia__iYuWrsXCvHAFvZr.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4652
+    },
+    {
+      "path": "data/images/test/pothole/miia__GWVVsAeZlWkPXul.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4673
+    },
+    {
+      "path": "data/images/test/pothole/miia__NgNYXDAnnCIudJl.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3349
+    },
+    {
+      "path": "data/images/test/pothole/miia__vUBMEYuQLZohBAQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3925
+    },
+    {
+      "path": "data/images/test/pothole/miia__tGdZDkmFeiyKgoA.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4324
+    },
+    {
+      "path": "data/images/test/pothole/miia__awlLEvaarnHKJWl.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4645
+    },
+    {
+      "path": "data/images/test/pothole/miia__YNgqcQRhIRYddKV.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4908
+    },
+    {
+      "path": "data/images/test/pothole/miia__NVLEtypbYjXJrlz.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4022
+    },
+    {
+      "path": "data/images/test/pothole/miia__vXDxiYYzAjdXAud.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2042
+    },
+    {
+      "path": "data/images/test/pothole/miia__RCPAIczIwOawXbL.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4522
+    },
+    {
+      "path": "data/images/test/pothole/miia__FPGGmBrUPWAUcbA.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1504
+    },
+    {
+      "path": "data/images/test/pothole/miia__UJUsyTODCFbOGTh.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4402
+    },
+    {
+      "path": "data/images/test/pothole/miia__dGpxNayUXYVCnxq.jpg",
+      "label": "pothole",
+      "p_pothole": 0.482
+    },
+    {
+      "path": "data/images/test/pothole/miia__jOvhpenxWBiPlhf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3744
+    },
+    {
+      "path": "data/images/test/pothole/miia__BwohAYVFUMLGfKM.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4681
+    },
+    {
+      "path": "data/images/test/pothole/miia__ZraRQbbMktpzFVx.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4823
+    },
+    {
+      "path": "data/images/test/pothole/miia__LDxOCJMPpNbBqDx.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4344
+    },
+    {
+      "path": "data/images/test/pothole/miia__HtQXdXmrAqUcvoD.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0106
+    },
+    {
+      "path": "data/images/test/pothole/miia__wYsIVddxlgpwHcW.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4026
+    },
+    {
+      "path": "data/images/test/pothole/miia__IIZVRTDWcKhAyka.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3976
+    },
+    {
+      "path": "data/images/test/pothole/miia__YUwNupMmJDfgdkJ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4653
+    },
+    {
+      "path": "data/images/test/pothole/miia__PGisRhAgUGfKlgR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3309
+    },
+    {
+      "path": "data/images/test/pothole/miia__admvBpZvBLhveEM.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2585
+    },
+    {
+      "path": "data/images/test/pothole/miia__KKtKyaIcKnkMlDl.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4848
+    },
+    {
+      "path": "data/images/test/pothole/miia__cpOrmQQUJaVOHFQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4145
+    },
+    {
+      "path": "data/images/test/pothole/miia__niNCyTjfqVUUyuR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1129
+    },
+    {
+      "path": "data/images/test/pothole/miia__WdRyqsyrfOdaLio.jpg",
+      "label": "pothole",
+      "p_pothole": 0.481
+    },
+    {
+      "path": "data/images/test/pothole/miia__iPPfXeVeweUcfJl.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3733
+    },
+    {
+      "path": "data/images/test/pothole/miia__FebPdMmkFWQmHsK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4143
+    },
+    {
+      "path": "data/images/test/pothole/miia__istVzfjzCfDlGFf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3553
+    },
+    {
+      "path": "data/images/test/pothole/miia__pbfJgQtBysuEdWp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1676
+    },
+    {
+      "path": "data/images/test/pothole/miia__bcuhgAEyKwrMKKZ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4173
+    },
+    {
+      "path": "data/images/test/pothole/miia__oWByrnwPtDRiSBy.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4976
+    },
+    {
+      "path": "data/images/test/pothole/miia__WFnQxsaVEycbyMd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3704
+    },
+    {
+      "path": "data/images/test/pothole/miia__QXLsZevELvqvodV.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4581
+    },
+    {
+      "path": "data/images/test/pothole/miia__XRtNQNgaFYOdbjS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4936
+    },
+    {
+      "path": "data/images/test/pothole/miia__ioWywMLiOFgNbHM.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0791
+    },
+    {
+      "path": "data/images/test/pothole/miia__CagieKnfcdgcocD.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3045
+    },
+    {
+      "path": "data/images/test/pothole/miia__kjaFlpYaSVumFZI.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2693
+    },
+    {
+      "path": "data/images/test/pothole/miia__bRNAZnsuVMElNpG.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4902
+    },
+    {
+      "path": "data/images/test/pothole/miia__CHqdZJafUzTYQOa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4521
+    },
+    {
+      "path": "data/images/test/pothole/miia__uUkhBeEjzlOdUHo.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4925
+    },
+    {
+      "path": "data/images/test/pothole/miia__bAkCxWGGsDRqBNa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2057
+    },
+    {
+      "path": "data/images/test/pothole/miia__RByCVUPVnqeSkKa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2297
+    },
+    {
+      "path": "data/images/test/pothole/miia__wokADxKiyKXakLa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4742
+    },
+    {
+      "path": "data/images/test/pothole/miia__QuuJPsdYTpSHiqM.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4588
+    },
+    {
+      "path": "data/images/test/pothole/miia__jwcUaPMzaBoBKDs.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3878
+    },
+    {
+      "path": "data/images/test/pothole/miia__hOmMKhzfxhcMbml.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4879
+    },
+    {
+      "path": "data/images/test/pothole/miia__bHXVtlYhACBehti.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4748
+    },
+    {
+      "path": "data/images/test/pothole/miia__iMHfqgTgrbSjNXQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3562
+    },
+    {
+      "path": "data/images/test/pothole/miia__sMktrHhJQRvajaf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0184
+    },
+    {
+      "path": "data/images/test/pothole/miia__SmwTDDyFvrNVvdO.jpg",
+      "label": "pothole",
+      "p_pothole": 0.457
+    },
+    {
+      "path": "data/images/test/pothole/miia__oISIVZIEFGgwgvm.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3214
+    },
+    {
+      "path": "data/images/test/pothole/miia__EvXDKNpGUvurxjL.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3871
+    },
+    {
+      "path": "data/images/test/pothole/miia__AffIYqcbBkdGMEv.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3082
+    },
+    {
+      "path": "data/images/test/pothole/miia__xnJFXHDrRSmgjOf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2933
+    },
+    {
+      "path": "data/images/test/pothole/miia__PTpAvuXsnNnyhZZ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.458
+    },
+    {
+      "path": "data/images/test/pothole/miia__eRKpIenuVCJTMYg.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4376
+    },
+    {
+      "path": "data/images/test/pothole/miia__NJuQFvLOEGQrXsb.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4593
+    },
+    {
+      "path": "data/images/test/pothole/miia__zTswCEAlMDnqWAP.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2462
+    },
+    {
+      "path": "data/images/test/pothole/miia__APzwcdVNkwlYDsN.jpg",
+      "label": "pothole",
+      "p_pothole": 0.435
+    },
+    {
+      "path": "data/images/test/pothole/miia__xIeWufIYHcGyfzS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3919
+    },
+    {
+      "path": "data/images/test/pothole/miia__MdlijHdJSCxLAnP.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4948
+    },
+    {
+      "path": "data/images/test/pothole/miia__KKEaIgADYCfzoCR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3578
+    },
+    {
+      "path": "data/images/test/pothole/miia__mTckbwyJjPnIOzm.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4596
+    },
+    {
+      "path": "data/images/test/pothole/miia__nvdnOWdZgJUbDqP.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3562
+    },
+    {
+      "path": "data/images/test/pothole/miia__YPwVbGREawWsnkb.jpg",
+      "label": "pothole",
+      "p_pothole": 0.456
+    },
+    {
+      "path": "data/images/test/pothole/miia__ZWNLGblAwxMRMvV.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4751
+    },
+    {
+      "path": "data/images/test/pothole/miia__fZqNxdsfmIaooow.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4156
+    },
+    {
+      "path": "data/images/test/pothole/miia__YxrQwjAnmkLDMBQ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4181
+    },
+    {
+      "path": "data/images/test/pothole/miia__HMQxqgeZotqKPZH.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0952
+    },
+    {
+      "path": "data/images/test/pothole/miia__NEiQIoOdCKppLoR.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2143
+    },
+    {
+      "path": "data/images/test/pothole/miia__cPtTQlkYjaonJef.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3335
+    },
+    {
+      "path": "data/images/test/pothole/miia__bbmMwdlWHYKQCMe.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3035
+    },
+    {
+      "path": "data/images/test/pothole/miia__voGDcENgrGFJPzE.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4809
+    },
+    {
+      "path": "data/images/test/pothole/miia__JkppSsnThNYaEDY.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2365
+    },
+    {
+      "path": "data/images/test/pothole/miia__JghwwkkBWkUnvCe.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4526
+    },
+    {
+      "path": "data/images/test/pothole/miia__lzNCrHaYylXOaHV.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3947
+    },
+    {
+      "path": "data/images/test/pothole/miia__ycgTnZjyknhFSUp.jpg",
+      "label": "pothole",
+      "p_pothole": 0.44
+    },
+    {
+      "path": "data/images/test/pothole/miia__yAzHOVYntbokDwE.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0086
+    },
+    {
+      "path": "data/images/test/pothole/miia__qDEEIfuInSWaTmW.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3573
+    },
+    {
+      "path": "data/images/test/pothole/miia__UkaSRvDEJQQqlKK.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3914
+    },
+    {
+      "path": "data/images/test/pothole/miia__smriUwnIioKdRPo.jpg",
+      "label": "pothole",
+      "p_pothole": 0.415
+    },
+    {
+      "path": "data/images/test/pothole/miia__BoriLECfPwSAItF.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4151
+    },
+    {
+      "path": "data/images/test/pothole/miia__vajntIJxGRqhxaU.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3692
+    },
+    {
+      "path": "data/images/test/pothole/miia__mqwUEKkSRnXdYRk.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4966
+    },
+    {
+      "path": "data/images/test/pothole/miia__DHHJNKIVQyAuMYv.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4418
+    },
+    {
+      "path": "data/images/test/pothole/miia__bZXIJooxCIdadqZ.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0109
+    },
+    {
+      "path": "data/images/test/pothole/miia__CBRAbFuUqfwehwS.jpg",
+      "label": "pothole",
+      "p_pothole": 0.134
+    },
+    {
+      "path": "data/images/test/pothole/miia__lGSqCVgeDwsitvf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3936
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_251_jpg.rf.80e5d937f5e571840404fe9be09aba84.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4842
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_446_jpg.rf.77156787be60b6872a8e82e002c94580.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3377
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_528_jpg.rf.ccc43bf580e5229f3e698e0afa37745b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4693
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_565_jpg.rf.b08117652bfe66ddc930acca726efb57.jpg",
+      "label": "pothole",
+      "p_pothole": 0.473
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_61_jpg.rf.5d243e3d717954b01a85cbfaa1e3e64f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4708
+    },
+    {
+      "path": "data/images/test/pothole/taroii__img_73_jpg.rf.ea0112bacac78ee0722f5c493dada978.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4725
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_255_jpg.rf.3ef777a63552789a3f678fca9b848753.jpg",
+      "label": "normal",
+      "p_pothole": 0.5045
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_295_jpg.rf.24c2e78b380d7bd837eccbe5619b8c37.jpg",
+      "label": "normal",
+      "p_pothole": 0.5174
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_308_jpg.rf.f430da2fd403d89e846955f8f6a021e2.jpg",
+      "label": "normal",
+      "p_pothole": 0.511
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_311_jpg.rf.82eb2ef40a1fcc749caa896b1a779b57.jpg",
+      "label": "normal",
+      "p_pothole": 0.5176
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_333_jpg.rf.d0cc56314626e2294185727608bbd723.jpg",
+      "label": "normal",
+      "p_pothole": 0.532
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_336_jpg.rf.e191c0aba045b7220e0b29d14023d115.jpg",
+      "label": "normal",
+      "p_pothole": 0.5084
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_370_jpg.rf.395683f937a4e45263d3feb15a6ef80c.jpg",
+      "label": "normal",
+      "p_pothole": 0.523
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_381_jpg.rf.2887c6daa0ef9c8f876a8634412bf585.jpg",
+      "label": "normal",
+      "p_pothole": 0.5314
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_388_jpg.rf.fdaf89d0c0be3d3713f1b24122cee803.jpg",
+      "label": "normal",
+      "p_pothole": 0.5306
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_410_jpg.rf.a44b3efcd4d1fc317f97e8d6f95521ca.jpg",
+      "label": "normal",
+      "p_pothole": 0.5185
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_452_jpg.rf.9b59cb9a920695896c9fffca853047ff.jpg",
+      "label": "normal",
+      "p_pothole": 0.5243
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_501_jpg.rf.2b2481c1286f8846c8deffe89c53e5a2.jpg",
+      "label": "normal",
+      "p_pothole": 0.523
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_523_jpg.rf.6c00e1b28e071632839ccad4648edf9f.jpg",
+      "label": "normal",
+      "p_pothole": 0.5101
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_536_jpg.rf.5005924ac0169531745e35561c7cb744.jpg",
+      "label": "normal",
+      "p_pothole": 0.5052
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_543_jpg.rf.a0da41ba197badf919f166e5ed9eab5f.jpg",
+      "label": "normal",
+      "p_pothole": 0.5338
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_545_jpg.rf.6b899e5bce02fb51bbc2aad62c720f2e.jpg",
+      "label": "normal",
+      "p_pothole": 0.508
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_566_jpg.rf.69f58d4968cc480a4f200434e3ad1498.jpg",
+      "label": "normal",
+      "p_pothole": 0.5263
+    },
+    {
+      "path": "data/images/test/normal/taroii__img_570_jpg.rf.7e81a80c3ee99d76b0adc49b2ed0349d.jpg",
+      "label": "normal",
+      "p_pothole": 0.5294
+    },
+    {
+      "path": "data/images/test/normal/kerala__IMG_1291.jpg",
+      "label": "normal",
+      "p_pothole": 0.5341
+    },
+    {
+      "path": "data/images/test/normal/kerala__IMG_1293.jpg",
+      "label": "normal",
+      "p_pothole": 0.5379
+    },
+    {
+      "path": "data/images/test/normal/kerala__IMG_1294.jpg",
+      "label": "normal",
+      "p_pothole": 0.5354
+    },
+    {
+      "path": "data/images/test/normal/kerala__IMG_1295.jpg",
+      "label": "normal",
+      "p_pothole": 0.5428
+    }
+  ]
+}

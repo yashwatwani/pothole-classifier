@@ -82,6 +82,7 @@ def load_yolo(repo="keremberke/yolov8n-pothole-segmentation"):
 
 LOADERS = {
     "ours": load_ours,
+    "ours-effnet": lambda: load_ours("efficientnet_b0", 256),
     "siglip-zeroshot": load_siglip,
     "hf-resnet50": load_hf_resnet50,
     "yolov8n-pothole": load_yolo,
