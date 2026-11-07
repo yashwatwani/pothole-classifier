@@ -12,7 +12,7 @@ Open data, open-source model, runs fully offline on a laptop CPU (~3–4 ms per 
 | Off-the-shelf HF classifier (`punchnami/resnet50-pothole-classification`) | 65.4% | 35.4% | 0.495 | 13 ms, GPU |
 | Zero-shot SigLIP (`google/siglip-base-patch16-224`), no training | 58.2% | 13.1% | 0.230 | 31 ms, GPU |
 
-Full table, per-source scores and the zero-shot Clef-flash run: [results/RESULTS.md](results/RESULTS.md).
+Full table and per-source scores: [results/RESULTS.md](results/RESULTS.md). Clef-flash (zero-shot, Jev-compatible) is downloaded and scripted but not yet scored.
 Each `results/<model>.json` also lists every image the model got wrong.
 
 ## Data
