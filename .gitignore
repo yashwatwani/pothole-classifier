@@ -12,3 +12,4 @@ data/images/
 # large or third-party weights
 models/clef-flash-4bit/
 models/*.pt
+results/gallery.html
