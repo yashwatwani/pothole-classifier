@@ -86,7 +86,7 @@ select { font: 500 14px var(--body); color: var(--ink); background: var(--surfac
 .meter .top b { font-family: var(--mono); font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
 .bar { position: relative; height: 8px; border-radius: 4px; background: var(--bg); overflow: hidden; }
 .bar i { position: absolute; inset: 0 auto 0 0; background: var(--marking); border-radius: 4px; }
-.bar::after { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 2px; background: var(--ink); opacity: .55; }
+.bar::after { content: ""; position: absolute; left: var(--cut, 50%); top: -2px; bottom: -2px; width: 2px; background: var(--ink); opacity: .55; }
 dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 13px; }
 dt { color: var(--muted); }
 dd { margin: 0; font-weight: 500; }
@@ -112,7 +112,7 @@ dd.miss { color: var(--bad); }
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Held-out test set · MobileNetV3 · threshold 50%</div>
+    <div class="eyebrow">Held-out test set · v2 model, 384 px · cutoff set per camera</div>
     <h1>Pothole Test Gallery</h1>
     <p class="lede" id="lede"></p>
   </header>
@@ -120,12 +120,15 @@ dd.miss { color: var(--bad); }
   <div class="matrix" id="matrix" role="group" aria-label="Filter by outcome"></div>
 
   <div class="controls">
-    <label for="source">Source
+    <label for="source">Photos
       <select id="source">
-        <option value="all">All sources</option>
-        <option value="miia">MIIA dashcam (South Africa)</option>
-        <option value="kerala">Kerala roads</option>
-        <option value="taroii">taroii mixed set</option>
+        <option value="all">All photos</option>
+        <option value="cam:vehicle">All vehicle cameras</option>
+        <option value="cam:handheld">All handheld phones</option>
+        <option value="rdd_india">India, vehicle camera (RDD2022)</option>
+        <option value="miia">South Africa dashcam (MIIA)</option>
+        <option value="kerala">Kerala, handheld</option>
+        <option value="taroii">taroii, handheld</option>
       </select>
     </label>
     <label for="sort">Sort
@@ -136,8 +139,10 @@ dd.miss { color: var(--bad); }
         <option value="low">Pothole chance: low to high</option>
       </select>
     </label>
+    <button class="chip" id="fixed" type="button" aria-pressed="false">Fixed since old model</button>
+    <button class="chip" id="worse" type="button" aria-pressed="false">Worse than old model</button>
     <button class="chip" id="disagree" type="button" aria-pressed="false">Clef-flash disagrees</button>
-    <span class="legend"><span class="tick"></span> 50% line: above it we say pothole</span>
+    <span class="legend"><span class="tick"></span> line = cutoff for that camera; above it we say pothole</span>
     <span class="count" id="count"></span>
   </div>
 
@@ -148,18 +153,21 @@ dd.miss { color: var(--bad); }
 <script>
 const DATA = /*DATA*/[];
 const PAGE = 48;
-const SOURCE_NAME = { miia: "MIIA dashcam", kerala: "Kerala", taroii: "taroii" };
+const SOURCE_NAME = { miia: "South Africa dashcam", kerala: "Kerala, handheld", taroii: "taroii, handheld", rdd_india: "India, vehicle camera" };
 const OUTCOMES = [
-  { id: "tp", k: "Potholes caught", d: "pothole, we said pothole", cls: "ok", test: i => i.truth && i.pred },
-  { id: "fn", k: "Potholes missed", d: "pothole, we said no", cls: "err", test: i => i.truth && !i.pred },
-  { id: "fp", k: "False alarms", d: "normal road, we said pothole", cls: "err", test: i => !i.truth && i.pred },
-  { id: "tn", k: "Normal roads cleared", d: "normal road, we said no", cls: "ok", test: i => !i.truth && !i.pred },
+  { id: "tp", k: "Potholes caught", d: "pothole, model said pothole", cls: "ok", test: i => i.truth && i.pred },
+  { id: "fn", k: "Potholes missed", d: "pothole, model said no", cls: "err", test: i => i.truth && !i.pred },
+  { id: "fp", k: "False alarms", d: "normal road, model said pothole", cls: "err", test: i => !i.truth && i.pred },
+  { id: "tn", k: "Normal roads cleared", d: "normal road, model said no", cls: "ok", test: i => !i.truth && !i.pred },
 ];
-const state = { outcome: null, source: "all", sort: "wrong", disagree: false, shown: PAGE };
+const state = { outcome: null, source: "all", sort: "wrong", disagree: false, fixed: false, worse: false, shown: PAGE };
 const $ = id => document.getElementById(id);
 const pct = p => (p * 100).toFixed(p >= 0.995 || p <= 0.005 ? 1 : 0) + "%";
 
-function inSource(i) { return state.source === "all" || i.source === state.source; }
+function inSource(i) {
+  if (state.source === "all") return true;
+  return state.source.startsWith("cam:") ? i.camera === state.source.slice(4) : i.source === state.source;
+}
 
 function renderMatrix() {
   const pool = DATA.filter(inSource);
@@ -180,9 +188,11 @@ function filtered() {
   let rows = DATA.filter(inSource);
   if (state.outcome) rows = rows.filter(OUTCOMES.find(o => o.id === state.outcome).test);
   if (state.disagree) rows = rows.filter(i => i.clef !== null && i.clef !== i.pred);
+  if (state.fixed) rows = rows.filter(i => i.old !== i.truth && i.pred === i.truth);
+  if (state.worse) rows = rows.filter(i => i.old === i.truth && i.pred !== i.truth);
   const by = {
-    wrong: (a, b) => ((a.pred === a.truth) - (b.pred === b.truth)) || (Math.abs(b.p - 0.5) - Math.abs(a.p - 0.5)),
-    unsure: (a, b) => Math.abs(a.p - 0.5) - Math.abs(b.p - 0.5),
+    wrong: (a, b) => ((a.pred === a.truth) - (b.pred === b.truth)) || (Math.abs(b.p - b.cut) - Math.abs(a.p - a.cut)),
+    unsure: (a, b) => Math.abs(a.p - a.cut) - Math.abs(b.p - b.cut),
     high: (a, b) => b.p - a.p,
     low: (a, b) => a.p - b.p,
   }[state.sort];
@@ -191,8 +201,8 @@ function filtered() {
 
 function card(i) {
   const wrong = i.pred !== i.truth;
-  const clef = i.clef === null ? "not run" : i.clef ? "Pothole" : "No pothole";
-  const clefCls = i.clef === null ? "" : i.clef === i.truth ? "right" : "miss";
+  const clef = i.clef == null ? "not run" : i.clef ? "Pothole" : "No pothole";
+  const clefCls = i.clef == null ? "" : i.clef === i.truth ? "right" : "miss";
   return `<article class="card${wrong ? " wrong" : ""}">
     <div class="ph">
       <img src="${i.img}" alt="${i.truth ? "Road with a pothole" : "Road without a pothole"}, ${SOURCE_NAME[i.source]} set">
@@ -202,10 +212,11 @@ function card(i) {
     <div class="body">
       <div class="meter">
         <div class="top"><span>Pothole chance</span><b>${pct(i.p)}</b></div>
-        <div class="bar"><i style="width:${(i.p * 100).toFixed(1)}%"></i></div>
+        <div class="bar" style="--cut:${(i.cut * 100).toFixed(1)}%"><i style="width:${(i.p * 100).toFixed(1)}%"></i></div>
       </div>
       <dl>
         <dt>Actually</dt><dd>${i.truth ? "Pothole" : "Normal road"}</dd>
+        <dt>Old model</dt><dd class="${i.old === i.truth ? "right" : "miss"}">${i.old ? "Pothole" : "No pothole"}</dd>
         <dt>Clef-flash</dt><dd class="${clefCls}">${clef}</dd>
         <dt>Source</dt><dd>${SOURCE_NAME[i.source]}</dd>
       </dl>
@@ -233,13 +244,15 @@ $("matrix").addEventListener("click", e => {
 });
 $("source").addEventListener("change", e => { state.source = e.target.value; state.shown = PAGE; render(); });
 $("sort").addEventListener("change", e => { state.sort = e.target.value; state.shown = PAGE; render(); });
-$("disagree").addEventListener("click", e => {
-  state.disagree = !state.disagree;
-  e.currentTarget.setAttribute("aria-pressed", state.disagree);
-  state.shown = PAGE;
-  render();
-});
+for (const key of ["disagree", "fixed", "worse"]) {
+  $(key).addEventListener("click", e => {
+    state[key] = !state[key];
+    e.currentTarget.setAttribute("aria-pressed", state[key]);
+    state.shown = PAGE;
+    render();
+  });
+}
 $("more").addEventListener("click", () => { state.shown += PAGE; render(); });
-if (!DATA.some(i => i.clef !== null)) $("disagree").hidden = true;
+if (!DATA.some(i => i.clef != null)) $("disagree").hidden = true;
 render();
 </script>

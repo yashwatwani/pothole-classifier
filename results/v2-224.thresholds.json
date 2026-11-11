@@ -1,0 +1,8 @@
+{
+  "target_recall": 0.95,
+  "chosen_on": "val",
+  "cutoffs": {
+    "handheld": 0.0192,
+    "vehicle": 0.086
+  }
+}

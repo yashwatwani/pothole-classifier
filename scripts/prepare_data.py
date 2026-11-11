@@ -1,9 +1,12 @@
-"""Build one binary dataset (pothole / normal) from three open datasets.
+"""Build one binary dataset (pothole / normal) from four open datasets.
 
 Sources (all on Hugging Face):
   mabughali/miia-pothole-train      4,026 dashcam images, South Africa, Apache-2.0
   taroii/pothole-detection            437 images, already split
   Arpitraj01/Pothole_classification   ~490 images, Kerala, MIT (severity → binary)
+  aiswarya9302/RDD_2022India        7,706 vehicle-camera images, India, from RDD2022
+                                    (Arya et al. 2022), CC BY-SA 4.0. Pothole = any D40 box;
+                                    crack-only and undamaged photos count as normal.
 
 Output: data/images/{train,val,test}/{pothole,normal}/*.jpg + data/manifest.csv
 Images are resized to max 512 px and near-duplicates (perceptual hash) are dropped,
@@ -14,6 +17,7 @@ from collections import Counter
 from pathlib import Path
 
 import imagehash
+import numpy as np
 import pyarrow.parquet as pq
 from PIL import Image, ImageOps
 
@@ -49,6 +53,13 @@ def items():
                 if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
                     yield "kerala", split, "normal" if sev == "none" else "pothole", p.name, p.read_bytes
 
+    base = RAW / "rdd2022_india"
+    for split in ("train", "val", "test"):
+        for p in sorted((base / split / "images").glob("*.jpg")):
+            boxes = (base / split / "labels" / f"{p.stem}.txt").read_text().split("\n")
+            pothole = any(b.split()[:1] == ["3"] for b in boxes)
+            yield "rdd_india", split, "pothole" if pothole else "normal", p.name, p.read_bytes
+
 
 def main():
     loaded = []
@@ -59,15 +70,17 @@ def main():
             print("skip", source, name, e)
             continue
         img.thumbnail((MAX_SIDE, MAX_SIDE))
-        loaded.append((SPLIT_ORDER[split], source, split, cls, name, img, imagehash.phash(img)))
+        h = int(str(imagehash.phash(img)), 16)
+        loaded.append((SPLIT_ORDER[split], source, split, cls, name, img, h))
 
     loaded.sort(key=lambda x: x[0])
-    seen, rows, dropped = [], [], Counter()
+    seen, n_seen, rows, dropped = np.zeros(len(loaded), dtype=np.uint64), 0, [], Counter()
     for _, source, split, cls, name, img, h in loaded:
-        if any(h - s <= 4 for s in seen):
+        if n_seen and np.bitwise_count(seen[:n_seen] ^ np.uint64(h)).min() <= 4:
             dropped[source] += 1
             continue
-        seen.append(h)
+        seen[n_seen] = h
+        n_seen += 1
         dest = OUT / split / cls / f"{source}__{Path(name).stem}.jpg"
         dest.parent.mkdir(parents=True, exist_ok=True)
         img.save(dest, quality=92)

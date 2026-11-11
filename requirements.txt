@@ -13,6 +13,8 @@ scikit-learn==1.9.1
 fastapi==0.162.0
 uvicorn==0.54.0
 python-multipart==0.0.33
+# reading video files in predict.py
+opencv-python==5.0.0.93
 # only for the SigLIP / HF ResNet50 baselines in scripts/eval.py
 transformers==5.22.2
 sentencepiece==0.2.3

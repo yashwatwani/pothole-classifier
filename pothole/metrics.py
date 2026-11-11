@@ -9,6 +9,8 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
+# How each source's photos were taken (checked by looking at samples).
+CAPTURE = {"kerala": "handheld", "taroii": "handheld", "miia": "vehicle", "rdd_india": "vehicle"}
 
 
 def test_rows(split="test", limit=None):
@@ -53,8 +55,8 @@ def score(ys, ps, threshold=0.5):
     }
 
 
-def run(name, predict, notes="", device="", limit=None, warmup=3):
-    rows = test_rows(limit=limit)
+def run(name, predict, notes="", device="", limit=None, warmup=3, split="test", threshold=0.5):
+    rows = test_rows(split=split, limit=limit)
     for r in rows[:warmup]:
         predict(Image.open(ROOT / r["path"]).convert("RGB"))
 
@@ -74,8 +76,11 @@ def run(name, predict, notes="", device="", limit=None, warmup=3):
         "notes": notes,
         "device": device,
         "machine": platform.machine() + " " + platform.platform(terse=True),
-        "overall": score(ys, ps),
+        "split": split,
+        "threshold": threshold,
+        "overall": score(ys, ps, threshold),
         "by_source": {},
+        "by_capture": {},
         "latency_ms": {
             "p50": statistics.median(ms),
             "p95": sorted(ms)[int(0.95 * (len(ms) - 1))],
@@ -83,14 +88,16 @@ def run(name, predict, notes="", device="", limit=None, warmup=3):
         },
         "mistakes": [
             {"path": r["path"], "label": r["label"], "p_pothole": round(p, 4)}
-            for r, y, p in zip(rows, ys, ps) if int(p >= 0.5) != y
+            for r, y, p in zip(rows, ys, ps) if int(p >= threshold) != y
         ],
+        "scores": [[r["path"], y, round(p, 5)] for r, y, p in zip(rows, ys, ps)],
     }
-    for src in sorted({r["source"] for r in rows}):
-        idx = [i for i, r in enumerate(rows) if r["source"] == src]
-        result["by_source"][src] = score([ys[i] for i in idx], [ps[i] for i in idx])
+    for key, group in (("by_source", lambda r: r["source"]), ("by_capture", lambda r: CAPTURE[r["source"]])):
+        for g in sorted({group(r) for r in rows}):
+            idx = [i for i, r in enumerate(rows) if group(r) == g]
+            result[key][g] = score([ys[i] for i in idx], [ps[i] for i in idx], threshold)
 
-    out = ROOT / "results" / f"{name}.json"
+    out = ROOT / "results" / (f"{name}.json" if split == "test" else f"{name}.{split}.json")
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(result, indent=2))
     o, l = result["overall"], result["latency_ms"]

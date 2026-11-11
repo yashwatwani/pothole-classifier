@@ -2,8 +2,10 @@
 
   python scripts/gallery.py
 Writes results/predictions_test.csv (every photo, label, probability) and
-results/gallery.html (self-contained page with thumbnails; not in git, ~7 MB).
-Clef-flash's verdict is taken from results/clef-flash-zeroshot.json when present.
+results/gallery.html (self-contained page with thumbnails; not in git, ~11 MB).
+Uses the default model with its per-camera cutoffs, and shows what the original v1 model
+said (cutoff 0.5). Clef-flash's verdict comes from results/clef-flash-zeroshot.json when
+that run covers the current test split.
 """
 import base64, csv, io, json, sys
 from pathlib import Path
@@ -13,47 +15,48 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from pothole import metrics
-from pothole.predictors import load_ours
+from pothole.metrics import CAPTURE
+from pothole.predictors import LOADERS, cutoffs, load_ours
 
-THRESHOLD = 0.5
-THUMB = 300
+THUMB = 200  # 1,770 photos must fit in a 16 MB page
 
 
 def thumb(img):
     t = img.copy()
     t.thumbnail((THUMB, THUMB))
     buf = io.BytesIO()
-    t.save(buf, "JPEG", quality=72)
+    t.save(buf, "JPEG", quality=62)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 def main():
     predict, _, _ = load_ours()
+    predict_v1, _, _ = LOADERS["v1"]()
+    cut = cutoffs()
     clef_file = ROOT / "results/clef-flash-zeroshot.json"
-    clef_wrong = None
+    clef = {}
     if clef_file.exists():
-        clef_wrong = {m["path"] for m in json.loads(clef_file.read_text())["mistakes"]}
+        clef = {path: p >= 0.5 for path, _, p in json.loads(clef_file.read_text()).get("scores", [])}
 
     items = []
     for r in metrics.test_rows():
         img = Image.open(ROOT / r["path"]).convert("RGB")
         p = predict(img)
-        truth = r["label"] == "pothole"
-        clef = None
-        if clef_wrong is not None:
-            clef = (not truth) if r["path"] in clef_wrong else truth
+        camera = CAPTURE[r["source"]]
         items.append({
-            "file": Path(r["path"]).name, "source": r["source"], "truth": truth,
-            "p": round(p, 4), "pred": p >= THRESHOLD, "clef": clef, "img": thumb(img),
+            "file": Path(r["path"]).name, "source": r["source"], "camera": camera,
+            "truth": r["label"] == "pothole", "p": round(p, 4), "cut": cut[camera], "pred": p >= cut[camera],
+            "old": predict_v1(img) >= 0.5, "clef": clef.get(r["path"]), "img": thumb(img),
         })
 
     with open(ROOT / "results/predictions_test.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["file", "source", "label", "p_pothole", "predicted", "correct", "clef_flash_predicted"])
+        w.writerow(["file", "source", "camera", "label", "p_pothole", "cutoff", "predicted", "correct",
+                    "v1_predicted", "clef_flash_predicted"])
+        name = lambda b: "" if b is None else "pothole" if b else "normal"
         for i in items:
-            w.writerow([i["file"], i["source"], "pothole" if i["truth"] else "normal", i["p"],
-                        "pothole" if i["pred"] else "normal", i["pred"] == i["truth"],
-                        "" if i["clef"] is None else "pothole" if i["clef"] else "normal"])
+            w.writerow([i["file"], i["source"], i["camera"], name(i["truth"]), i["p"], i["cut"], name(i["pred"]),
+                        i["pred"] == i["truth"], name(i["old"]), name(i["clef"])])
 
     template = (ROOT / "scripts/gallery_template.html").read_text()
     html = template.replace("/*DATA*/[]", json.dumps(items, separators=(",", ":")))

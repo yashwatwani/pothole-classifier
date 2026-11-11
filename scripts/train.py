@@ -50,12 +50,18 @@ def main():
     ap.add_argument("--epochs", type=int, default=10)
     ap.add_argument("--size", type=int, default=224)
     ap.add_argument("--lr", type=float, default=3e-4)
+    ap.add_argument("--name", help="output file name in models/ (default: the model name)")
     a = ap.parse_args()
+    a.name = a.name or a.model
 
     device = "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
     train_tf = T.Compose([
-        T.RandomResizedCrop(a.size, scale=(0.6, 1.0)),
+        # Mild crops only: vehicle-camera potholes cover ~1.5% of the frame and a big crop cuts them out.
+        T.RandomResizedCrop(a.size, scale=(0.85, 1.0), ratio=(0.9, 1.1)),
         T.RandomHorizontalFlip(),
+        # Handheld photos arrive sideways or upside down; some are shaky.
+        T.RandomChoice([T.RandomRotation((0, 0)), T.RandomRotation((90, 90)), T.RandomRotation((180, 180)), T.RandomRotation((270, 270))], p=[0.7, 0.1, 0.1, 0.1]),
+        T.RandomApply([T.GaussianBlur(5, sigma=(0.1, 2.0))], p=0.2),
         T.ColorJitter(0.3, 0.3, 0.3, 0.05),
         T.ToTensor(), T.Normalize(MEAN, STD),
     ])
@@ -87,16 +93,16 @@ def main():
         print(f"epoch {ep:2d}  loss {total / len(train.dataset):.3f}  val acc {acc:.3f}  f1 {f1:.3f}  ({time.time() - t0:.0f}s)")
         if f1 > best:
             best = f1
-            torch.save({"model": a.model, "size": a.size, "classes": CLASSES, "state": model.state_dict()}, out / f"{a.model}.pt")
+            torch.save({"model": a.model, "size": a.size, "classes": CLASSES, "state": model.state_dict()}, out / f"{a.name}.pt")
 
-    ckpt = torch.load(out / f"{a.model}.pt")
+    ckpt = torch.load(out / f"{a.name}.pt")
     model.load_state_dict(ckpt["state"])
     model.cpu().eval()
-    torch.onnx.export(model, torch.randn(1, 3, a.size, a.size), out / f"{a.model}.onnx",
+    torch.onnx.export(model, torch.randn(1, 3, a.size, a.size), out / f"{a.name}.onnx",
                       input_names=["image"], output_names=["logits"],
                       dynamic_axes={"image": {0: "batch"}, "logits": {0: "batch"}}, dynamo=False)
-    (out / f"{a.model}.train.json").write_text(json.dumps({"best_val_f1": best, "history": history}, indent=2))
-    print(f"best val f1 {best:.3f} -> models/{a.model}.pt / .onnx")
+    (out / f"{a.name}.train.json").write_text(json.dumps({"best_val_f1": best, "history": history}, indent=2))
+    print(f"best val f1 {best:.3f} -> models/{a.name}.pt / .onnx")
 
 
 if __name__ == "__main__":

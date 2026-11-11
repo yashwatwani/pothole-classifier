@@ -14,8 +14,10 @@ from pothole import metrics, predictors
 ap = argparse.ArgumentParser()
 ap.add_argument("models", nargs="+", help=f"{list(predictors.LOADERS)} or 'all'")
 ap.add_argument("--limit", type=int)
+ap.add_argument("--split", default="test", choices=["test", "val"])
+ap.add_argument("--threshold", type=float, default=0.5)
 a = ap.parse_args()
 
 for name in list(predictors.LOADERS) if a.models == ["all"] else a.models:
     predict, device, notes = predictors.LOADERS[name]()
-    metrics.run(name, predict, notes=notes, device=device, limit=a.limit)
+    metrics.run(name, predict, notes=notes, device=device, limit=a.limit, split=a.split, threshold=a.threshold)
