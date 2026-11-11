@@ -34,7 +34,7 @@ Near-duplicate photos are removed with a perceptual hash (1,365 MIIA dashcam fra
 
 ```bash
 uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python torch torchvision timm onnx onnxruntime pillow pyarrow huggingface_hub scikit-learn imagehash fastapi uvicorn python-multipart transformers
+uv pip install --python .venv/bin/python -r requirements.txt
 
 .venv/bin/python predict.py photo.jpg             # or a folder; --json for machine output
 .venv/bin/uvicorn serve:app --port 8000           # POST an image to /predict
@@ -44,10 +44,11 @@ curl -F file=@photo.jpg localhost:8000/predict    # {"pothole": true, "probabili
 Rebuild from scratch:
 
 ```bash
-.venv/bin/python scripts/prepare_data.py          # download sources into data/raw first (see script docstring)
+.venv/bin/python scripts/download_data.py         # ~450 MB into data/raw/ (add --clef for the 6.2 GB Clef-flash weights)
+.venv/bin/python scripts/prepare_data.py
 .venv/bin/python scripts/train.py --model mobilenetv3_large_100 --epochs 10
 .venv/bin/python scripts/eval.py ours siglip-zeroshot hf-resnet50
-.venv-mlx/bin/python scripts/eval_clef.py         # zero-shot Clef-flash, needs models/clef-flash-4bit
+.venv-mlx/bin/python scripts/eval_clef.py         # zero-shot Clef-flash; env setup in requirements-clef.txt
 .venv/bin/python scripts/compare.py               # writes results/RESULTS.md
 ```
 
@@ -69,3 +70,7 @@ results/                    eval outputs
 - The taroii source scores lowest (F1 0.77); its images are small and low-resolution.
 - Off-the-shelf models used their default threshold, so compare them on AUC too. Ours is still best there (0.949 vs 0.872 ResNet50, 0.826 Clef-flash, 0.695 SigLIP).
 - A YOLO pothole detector was left out: its weights ship as a pickle (`best.pt`), which can run code when loaded, and it is AGPL-licensed.
+
+## Licence
+
+Code: MIT (see [LICENSE](LICENSE)). The datasets keep their own licences, listed under Data above.
