@@ -90,11 +90,57 @@ def load_yolo(repo="keremberke/yolov8n-pothole-segmentation"):
     return predict, "auto (ultralytics)", f"Off-the-shelf detector {repo}, AGPL-3.0 (ultralytics)"
 
 
+def load_detector(device="cpu"):
+    """Box detector used as a photo classifier: P(pothole) = its most confident box (0 if none)."""
+    from pothole import detector
+
+    detect = detector.load(device)
+
+    def predict(img):
+        boxes = detect(img)
+        return boxes[0][0] if boxes else 0.0
+
+    return predict, device, "Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India boxes; photo score = top box"
+
+
+def load_camera_models():
+    """What predict.py and serve.py run. Returns analyze(img, camera) -> dict.
+
+    handheld: the classifier with its handheld cutoff.
+    vehicle:  max(classifier, detector) with the cutoff in models/vehicle.json, plus the boxes
+              the detector drew at that cutoff. Falls back to the classifier alone if the
+              detector weights or models/vehicle.json are missing.
+    """
+    import json
+
+    from pothole import detector
+
+    classify, _, _ = load_ours()
+    cut = cutoffs()
+    vehicle_cfg = ROOT / "models/vehicle.json"
+    detect = None
+    if detector.WEIGHTS.exists() and vehicle_cfg.exists():
+        detect = detector.load()
+        cut = {**cut, "vehicle": json.loads(vehicle_cfg.read_text())["cutoff"]}
+
+    def analyze(img, camera="handheld"):
+        p = classify(img)
+        boxes = []
+        if camera == "vehicle" and detect:
+            found = detect(img)
+            p = max(p, found[0][0] if found else 0.0)
+            boxes = [{"score": round(s, 3), "box": b} for s, b in found if s >= cut["vehicle"]]
+        return {"pothole": p >= cut[camera], "probability": round(p, 4), "camera": camera, "boxes": boxes}
+
+    return analyze
+
+
 LOADERS = {
     "v1": lambda: load_ours("mobilenetv3_large_100", 224),  # original model, before Indian data
     "v2-224": lambda: load_ours("v2-mnv3-224", 224),
     "v2-384": lambda: load_ours("v2-mnv3-384", 384),
     "v1-effnet": lambda: load_ours("efficientnet_b0", 256),
+    "detector": load_detector,
     "siglip-zeroshot": load_siglip,
     "hf-resnet50": load_hf_resnet50,
     "yolov8n-pothole": load_yolo,

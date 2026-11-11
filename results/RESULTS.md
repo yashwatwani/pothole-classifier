@@ -13,6 +13,7 @@ Sorted by AUC, which compares models without picking a cutoff (0.5 = coin flip, 
 | v1 | 0.647 | 48.6% | 30.4% | 82.5% | 0.444 | 4.9 ms | cpu (onnxruntime) | Ours: mobilenetv3_large_100 (v1, no Indian data) fine-tuned on our train split |
 | hf-resnet50 | 0.644 | 72.0% | 41.0% | 29.1% | 0.340 | 14.1 ms | mps | Off-the-shelf punchnami/resnet50-pothole-classification (training data unknown, may overlap our test set) |
 | clef-flash-zeroshot | 0.623 | 75.6% | 53.6% | 13.6% | 0.217 | 515.2 ms | mps (mlx, 4-bit) | Zero-shot Cloudflare clef-flash 9B (Qwen3.5-9B), 4-bit MLX, one yes/no question, no training |
+| detector | 0.559 | 76.9% | 63.7% | 16.4% | 0.260 | 80.0 ms | cpu | Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India boxes; photo score = top box |
 
 ## By camera type (AUC / accuracy)
 
@@ -25,6 +26,7 @@ Sorted by AUC, which compares models without picking a cutoff (0.5 = coin flip, 
 | v1 | 0.828 / 76.4% | 0.648 / 47.2% |
 | hf-resnet50 | 0.635 / 68.5% | 0.609 / 72.2% |
 | clef-flash-zeroshot | 0.884 / 73.0% | 0.591 / 75.7% |
+| detector | 0.564 / 34.8% | 0.572 / 79.1% |
 
 ## By data source (AUC / accuracy)
 
@@ -37,3 +39,4 @@ Sorted by AUC, which compares models without picking a cutoff (0.5 = coin flip, 
 | v1 | 1.000 / 88.2% | 0.972 / 91.7% | 0.472 / 27.3% | 0.804 / 73.6% |
 | hf-resnet50 | 0.154 / 76.5% | 0.917 / 64.9% | 0.549 / 75.4% | 0.675 / 66.7% |
 | clef-flash-zeroshot | 0.923 / 52.9% | 0.812 / 59.1% | 0.477 / 83.1% | 0.885 / 77.8% |
+| detector | 0.500 / 23.5% | 0.502 / 55.2% | 0.859 / 89.8% | 0.589 / 37.5% |

@@ -3,8 +3,9 @@
   python scripts/gallery.py
 Writes results/predictions_test.csv (every photo, label, probability) and
 results/gallery.html (self-contained page with thumbnails; not in git, ~11 MB).
-Uses the default model with its per-camera cutoffs, and shows what the original v1 model
-said (cutoff 0.5). Clef-flash's verdict comes from results/clef-flash-zeroshot.json when
+Uses what predict.py runs (handheld: classifier; vehicle: classifier + detector, with boxes)
+and shows what the original v1 model said (cutoff 0.5). On Indian photos it also draws the
+annotators' pothole boxes, so model boxes can be checked against them. Clef-flash's verdict comes from results/clef-flash-zeroshot.json when
 that run covers the current test split.
 """
 import base64, csv, io, json, sys
@@ -16,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from pothole import metrics
 from pothole.metrics import CAPTURE
-from pothole.predictors import LOADERS, cutoffs, load_ours
+from pothole.predictors import LOADERS, load_camera_models
 
 THUMB = 200  # 1,770 photos must fit in a 16 MB page
 
@@ -29,10 +30,26 @@ def thumb(img):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
+def labelled_boxes(row):
+    """Annotators' pothole boxes for an RDD2022 India photo, as fractions of the frame."""
+    if row["source"] != "rdd_india":
+        return []
+    stem = Path(row["path"]).stem.split("__", 1)[1]
+    label = ROOT / "data/raw/rdd2022_india" / row["split"] / "labels" / f"{stem}.txt"
+    out = []
+    for line in label.read_text().splitlines():
+        parts = line.split()
+        if parts[:1] == ["3"]:
+            cx, cy, bw, bh = (float(x) for x in parts[1:5])
+            out.append([round(cx - bw / 2, 4), round(cy - bh / 2, 4), round(cx + bw / 2, 4), round(cy + bh / 2, 4)])
+    return out
+
+
 def main():
-    predict, _, _ = load_ours()
+    analyze = load_camera_models()
     predict_v1, _, _ = LOADERS["v1"]()
-    cut = cutoffs()
+    cut = {"handheld": json.loads((ROOT / "models/v2-mnv3-384.thresholds.json").read_text())["cutoffs"]["handheld"],
+           "vehicle": json.loads((ROOT / "models/vehicle.json").read_text())["cutoff"]}
     clef_file = ROOT / "results/clef-flash-zeroshot.json"
     clef = {}
     if clef_file.exists():
@@ -41,12 +58,15 @@ def main():
     items = []
     for r in metrics.test_rows():
         img = Image.open(ROOT / r["path"]).convert("RGB")
-        p = predict(img)
         camera = CAPTURE[r["source"]]
+        res = analyze(img, camera)
+        w, h = img.size
         items.append({
             "file": Path(r["path"]).name, "source": r["source"], "camera": camera,
-            "truth": r["label"] == "pothole", "p": round(p, 4), "cut": cut[camera], "pred": p >= cut[camera],
+            "truth": r["label"] == "pothole", "p": res["probability"], "cut": cut[camera], "pred": res["pothole"],
             "old": predict_v1(img) >= 0.5, "clef": clef.get(r["path"]), "img": thumb(img),
+            "boxes": [[round(v, 4) for v in (b[0] / w, b[1] / h, b[2] / w, b[3] / h)] for b in (x["box"] for x in res["boxes"])],
+            "gt": labelled_boxes(r),
         })
 
     with open(ROOT / "results/predictions_test.csv", "w", newline="") as f:

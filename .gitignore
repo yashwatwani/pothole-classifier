@@ -13,3 +13,4 @@ data/images/
 models/clef-flash-4bit/
 models/*.pt
 results/gallery.html
+models/det-frcnn-mnv3.pth

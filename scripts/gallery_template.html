@@ -75,7 +75,14 @@ select { font: 500 14px var(--body); color: var(--ink); background: var(--surfac
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
 .card.wrong { border-color: var(--bad); }
-.ph { position: relative; aspect-ratio: 4 / 3; max-width: 100%; background: var(--line); }
+.ph { position: relative; aspect-ratio: 1 / 1; max-width: 100%; background: var(--line); }
+.ph svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ph rect { fill: none; stroke-width: 0.012; vector-effect: none; }
+.ph rect.gt { stroke: var(--good); stroke-dasharray: 0.025 0.015; }
+.ph rect.det { stroke: var(--marking); }
+.key { display: inline-block; width: 14px; height: 10px; border: 2px solid; vertical-align: -1px; }
+.key.gt { border-color: var(--good); border-style: dashed; }
+.key.det { border-color: var(--marking); }
 .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .verdict { position: absolute; top: 8px; left: 8px; font-family: var(--display); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; padding: 2px 8px; border-radius: 4px; background: var(--marking); color: var(--marking-ink); }
 .verdict.no { background: var(--surface); color: var(--ink); }
@@ -112,7 +119,7 @@ dd.miss { color: var(--bad); }
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Held-out test set · v2 model, 384 px · cutoff set per camera</div>
+    <div class="eyebrow">Held-out test set · v2 model · vehicle photos also use the box detector</div>
     <h1>Pothole Test Gallery</h1>
     <p class="lede" id="lede"></p>
   </header>
@@ -142,7 +149,8 @@ dd.miss { color: var(--bad); }
     <button class="chip" id="fixed" type="button" aria-pressed="false">Fixed since old model</button>
     <button class="chip" id="worse" type="button" aria-pressed="false">Worse than old model</button>
     <button class="chip" id="disagree" type="button" aria-pressed="false">Clef-flash disagrees</button>
-    <span class="legend"><span class="tick"></span> line = cutoff for that camera; above it we say pothole</span>
+    <span class="legend"><span class="tick"></span> line = cutoff for that camera</span>
+    <span class="legend"><span class="key gt"></span> pothole marked by annotators <span class="key det"></span> pothole found by model</span>
     <span class="count" id="count"></span>
   </div>
 
@@ -199,6 +207,10 @@ function filtered() {
   return rows.slice().sort(by);
 }
 
+function rect(b, cls) {
+  return `<rect class="${cls}" x="${b[0]}" y="${b[1]}" width="${b[2] - b[0]}" height="${b[3] - b[1]}"/>`;
+}
+
 function card(i) {
   const wrong = i.pred !== i.truth;
   const clef = i.clef == null ? "not run" : i.clef ? "Pothole" : "No pothole";
@@ -206,6 +218,7 @@ function card(i) {
   return `<article class="card${wrong ? " wrong" : ""}">
     <div class="ph">
       <img src="${i.img}" alt="${i.truth ? "Road with a pothole" : "Road without a pothole"}, ${SOURCE_NAME[i.source]} set">
+      ${(i.gt.length || i.boxes.length) ? `<svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">${i.gt.map(b => rect(b, "gt")).join("")}${i.boxes.map(b => rect(b, "det")).join("")}</svg>` : ""}
       <span class="verdict${i.pred ? "" : " no"}">${i.pred ? "Pothole" : "No pothole"}</span>
       ${wrong ? `<span class="flag">${i.truth ? "Missed" : "False alarm"}</span>` : ""}
     </div>

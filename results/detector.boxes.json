@@ -1,0 +1,32 @@
+{
+  "photos": 1163,
+  "potholes": 201,
+  "box_ap50": 0.3553979694843292,
+  "score_cutoff_0.3": {
+    "found_by_size": {
+      "small (<0.8% of frame)": "22/51 (43%)",
+      "medium (0.8-2%)": "32/77 (42%)",
+      "large (>2%)": "36/73 (49%)"
+    },
+    "found_total": "90/201",
+    "boxes_per_100_clean_photos": 9.7
+  },
+  "score_cutoff_0.5": {
+    "found_by_size": {
+      "small (<0.8% of frame)": "18/51 (35%)",
+      "medium (0.8-2%)": "29/77 (38%)",
+      "large (>2%)": "31/73 (42%)"
+    },
+    "found_total": "78/201",
+    "boxes_per_100_clean_photos": 5.2
+  },
+  "score_cutoff_0.7": {
+    "found_by_size": {
+      "small (<0.8% of frame)": "13/51 (25%)",
+      "medium (0.8-2%)": "25/77 (32%)",
+      "large (>2%)": "27/73 (37%)"
+    },
+    "found_total": "65/201",
+    "boxes_per_100_clean_photos": 3.6
+  }
+}
