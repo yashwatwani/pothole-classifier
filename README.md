@@ -137,7 +137,7 @@ results/                    eval outputs
 ## Known limits
 
 - **Night and low light** are the main weakness: from a vehicle in the dark it catches under half the potholes. It needs night-time training photos.
-- **Small, distant potholes from vehicles.** Even with the box detector, about 6 in 10 Indian potholes don't get a correctly placed box, and vehicle mode catches 68% of Indian potholes at the default cutoff. More box-labelled data (and longer training: validation AP was still rising at epoch 14) is the next lever.
+- **Small, distant potholes from vehicles.** Even with the box detector, about 6 in 10 Indian potholes don't get a correctly placed box, and vehicle mode catches 68% of Indian potholes at the default cutoff. More box-labelled data is the next lever; training longer (24 epochs) scored lower on validation (AP 0.450 vs 0.465), so the 14-epoch detector is kept.
 - **The detector only knows Indian vehicle footage.** Handheld mode doesn't use it, and it adds nothing on other countries' dashcams yet.
 - **Heavy video compression** costs accuracy (vehicle AUC 0.79 at JPEG quality 15). Upload frames at a reasonable quality.
 - **Few handheld test photos** (89), so handheld numbers are less certain than vehicle ones.
