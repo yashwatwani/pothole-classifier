@@ -10,7 +10,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 # How each source's photos were taken (checked by looking at samples).
-CAPTURE = {"kerala": "handheld", "taroii": "handheld", "miia": "vehicle", "rdd_india": "vehicle"}
+CAPTURE = {"kerala": "handheld", "taroii": "handheld", "pune": "handheld", "miia": "vehicle", "rdd_india": "vehicle",
+           "rdd_japan": "vehicle"}
 
 
 def test_rows(split="test", limit=None):

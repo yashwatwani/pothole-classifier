@@ -14,7 +14,7 @@ from pothole import metrics, predictors
 ap = argparse.ArgumentParser()
 ap.add_argument("models", nargs="+", help=f"{list(predictors.LOADERS)} or 'all'")
 ap.add_argument("--limit", type=int)
-ap.add_argument("--split", default="test", choices=["test", "val"])
+ap.add_argument("--split", default="test", choices=["test", "val", "field"])
 ap.add_argument("--threshold", type=float, default=0.5)
 a = ap.parse_args()
 

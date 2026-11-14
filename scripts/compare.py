@@ -16,14 +16,15 @@ def cell(groups, key):
 
 
 out = ["# Test-set results", "",
-       f"Held-out test split: {rows[0]['overall']['n']} images (pothole + normal), never seen in training. "
+       "Held-out test split (pothole + normal), never seen in training. Models scored before RDD2022 Japan was "
+       "added show the original 1,770-image test set in the Images column. "
        "Cutoff 0.5 for every model here; per-camera cutoffs for the default model are in README.", "",
        "Sorted by AUC, which compares models without picking a cutoff (0.5 = coin flip, 1.0 = perfect).", "",
-       "| Model | AUC | Accuracy | Precision | Recall | F1 | p50 latency | Device | Notes |",
-       "|---|---|---|---|---|---|---|---|---|"]
+       "| Model | Images | AUC | Accuracy | Precision | Recall | F1 | p50 latency | Device | Notes |",
+       "|---|---|---|---|---|---|---|---|---|---|"]
 for r in rows:
     o, l = r["overall"], r["latency_ms"]
-    out.append(f"| {r['name']} | {o['auc']:.3f} | {o['accuracy']:.1%} | {o['precision']:.1%} | {o['recall']:.1%} | "
+    out.append(f"| {r['name']} | {o['n']:,} | {o['auc']:.3f} | {o['accuracy']:.1%} | {o['precision']:.1%} | {o['recall']:.1%} | "
                f"{o['f1']:.3f} | {l['p50']:.1f} ms | {r['device']} | {r['notes']} |")
 out += ["", "## By camera type (AUC / accuracy)", "", "| Model | " + " | ".join(captures) + " |",
         "|---|" + "---|" * len(captures)]

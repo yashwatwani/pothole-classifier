@@ -1,32 +1,66 @@
 {
-  "photos": 1163,
-  "potholes": 201,
-  "box_ap50": 0.3553979694843292,
-  "score_cutoff_0.3": {
-    "found_by_size": {
-      "small (<0.8% of frame)": "22/51 (43%)",
-      "medium (0.8-2%)": "32/77 (42%)",
-      "large (>2%)": "36/73 (49%)"
+  "india": {
+    "photos": 1163,
+    "potholes": 201,
+    "box_ap50": 0.34424272179603577,
+    "score_cutoff_0.3": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "22/51 (43%)",
+        "medium (0.8-2%)": "28/77 (36%)",
+        "large (>2%)": "32/73 (44%)"
+      },
+      "found_total": "82/201",
+      "boxes_per_100_clean_photos": 8.0
     },
-    "found_total": "90/201",
-    "boxes_per_100_clean_photos": 9.7
+    "score_cutoff_0.5": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "17/51 (33%)",
+        "medium (0.8-2%)": "24/77 (31%)",
+        "large (>2%)": "24/73 (33%)"
+      },
+      "found_total": "65/201",
+      "boxes_per_100_clean_photos": 5.6
+    },
+    "score_cutoff_0.7": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "14/51 (27%)",
+        "medium (0.8-2%)": "21/77 (27%)",
+        "large (>2%)": "20/73 (27%)"
+      },
+      "found_total": "55/201",
+      "boxes_per_100_clean_photos": 3.3
+    }
   },
-  "score_cutoff_0.5": {
-    "found_by_size": {
-      "small (<0.8% of frame)": "18/51 (35%)",
-      "medium (0.8-2%)": "29/77 (38%)",
-      "large (>2%)": "31/73 (42%)"
+  "japan": {
+    "photos": 1599,
+    "potholes": 332,
+    "box_ap50": 0.49368274211883545,
+    "score_cutoff_0.3": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "117/233 (50%)",
+        "medium (0.8-2%)": "39/66 (59%)",
+        "large (>2%)": "18/33 (55%)"
+      },
+      "found_total": "174/332",
+      "boxes_per_100_clean_photos": 4.5
     },
-    "found_total": "78/201",
-    "boxes_per_100_clean_photos": 5.2
-  },
-  "score_cutoff_0.7": {
-    "found_by_size": {
-      "small (<0.8% of frame)": "13/51 (25%)",
-      "medium (0.8-2%)": "25/77 (32%)",
-      "large (>2%)": "27/73 (37%)"
+    "score_cutoff_0.5": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "103/233 (44%)",
+        "medium (0.8-2%)": "37/66 (56%)",
+        "large (>2%)": "15/33 (45%)"
+      },
+      "found_total": "155/332",
+      "boxes_per_100_clean_photos": 2.4
     },
-    "found_total": "65/201",
-    "boxes_per_100_clean_photos": 3.6
+    "score_cutoff_0.7": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "83/233 (36%)",
+        "medium (0.8-2%)": "32/66 (48%)",
+        "large (>2%)": "14/33 (42%)"
+      },
+      "found_total": "129/332",
+      "boxes_per_100_clean_photos": 1.1
+    }
   }
 }

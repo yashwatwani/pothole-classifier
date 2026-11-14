@@ -2,31 +2,43 @@
   "rule": "max(classifier, detector)",
   "chosen_on": "val",
   "target_recall": 0.85,
-  "cutoff": 0.4002,
+  "cutoff": 0.3877,
   "test": {
     "india_classifier_only": {
-      "auc": 0.872,
-      "caught": 0.591,
-      "alerts_real": 0.503,
-      "false_alarms_per_100_normal": 8.6
+      "auc": 0.876,
+      "caught": 0.691,
+      "alerts_real": 0.505,
+      "false_alarms_per_100_normal": 10.0
     },
     "india_combined": {
-      "auc": 0.892,
-      "caught": 0.678,
-      "alerts_real": 0.513,
-      "false_alarms_per_100_normal": 9.5
+      "auc": 0.887,
+      "caught": 0.658,
+      "alerts_real": 0.516,
+      "false_alarms_per_100_normal": 9.1
+    },
+    "japan_classifier_only": {
+      "auc": 0.939,
+      "caught": 0.816,
+      "alerts_real": 0.69,
+      "false_alarms_per_100_normal": 5.5
+    },
+    "japan_combined": {
+      "auc": 0.963,
+      "caught": 0.889,
+      "alerts_real": 0.705,
+      "false_alarms_per_100_normal": 5.5
     },
     "all_vehicle_classifier_only": {
       "auc": 0.943,
-      "caught": 0.819,
-      "alerts_real": 0.75,
-      "false_alarms_per_100_normal": 8.0
+      "caught": 0.85,
+      "alerts_real": 0.707,
+      "false_alarms_per_100_normal": 7.7
     },
     "all_vehicle_combined": {
-      "auc": 0.949,
-      "caught": 0.845,
-      "alerts_real": 0.751,
-      "false_alarms_per_100_normal": 8.2
+      "auc": 0.955,
+      "caught": 0.859,
+      "alerts_real": 0.734,
+      "false_alarms_per_100_normal": 6.8
     }
   }
 }

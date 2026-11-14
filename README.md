@@ -2,23 +2,29 @@
 
 One job: look at a road photo or video frame and say **pothole / no pothole**.
 Open data, open-source models, runs fully offline on a laptop CPU. No image ever leaves the machine.
-Works for **handheld phone photos** (classifier, ~7.5 ms per image) and **vehicle cameras** (dashcam or a phone mounted
-in a car, including video): there a box detector also runs (~80 ms per frame) and marks where each pothole is.
+Works for **handheld phone photos** (classifier, ~7 ms per image) and **vehicle cameras** (dashcam or a phone mounted
+in a car, including video): there a box detector also runs (~90 ms per frame) and marks where each pothole is.
 
-## Results (held-out test set, 1,770 images, never seen in training)
+## Results (held-out test set, 3,369 images, never seen in training)
 
 AUC compares models without picking a cutoff: 0.5 is a coin flip, 1.0 is perfect.
 
-| Model | All photos AUC | Indian vehicle camera: AUC / accuracy | Speed per image |
-|---|---|---|---|
-| **Ours v2: MobileNetV3, 384 px, trained with Indian data** (default) | **0.927** | **0.872 / 89.3%** | 7.5 ms, CPU |
-| Ours: box detector alone (Faster R-CNN MobileNetV3, trained on Indian boxes only) | 0.559 | 0.859 / 89.8% | 80 ms, CPU |
-| Ours v2, 224 px | 0.908 | 0.834 / 87.7% | 3.9 ms, CPU |
-| Ours v1: original model (no Indian data, 224 px) | 0.647 | 0.472 / 27.3% | 3.4 ms, CPU |
-| Ours v1, EfficientNet-B0 | 0.715 | see RESULTS.md | 7.2 ms, CPU |
-| Zero-shot Clef-flash 9B (Cloudflare, Jev-compatible, 4-bit MLX) | 0.623 | 0.477 / 83.1% (catches only 3% of potholes) | ~515 ms, GPU |
-| Zero-shot SigLIP (`google/siglip-base-patch16-224`) | 0.665 | see RESULTS.md | 32 ms, GPU |
-| Off-the-shelf HF classifier (`punchnami/resnet50-pothole-classification`) | 0.644 | see RESULTS.md | 14 ms, GPU |
+| Model | All photos AUC | Indian vehicle camera: AUC / accuracy | Japanese vehicle camera AUC | Speed per image |
+|---|---|---|---|---|
+| **Ours v3: MobileNetV3, 384 px, trained with Indian and Japanese data** (default) | **0.935** | **0.876 / 89.9%** | **0.939** | 7.3 ms, CPU |
+| Ours: box detector alone (Faster R-CNN MobileNetV3, trained on Indian and Japanese boxes) | 0.715 | 0.861 / 89.1% | 0.943 | 89 ms, CPU |
+| Ours v2: same, Indian data only | 0.834 | 0.872 / 89.3% | 0.612 | 7.5 ms, CPU |
+| Ours v2, 224 px | 0.815 | 0.834 / 87.7% | 0.616 | 3.9 ms, CPU |
+| Ours v1: original model (neither, 224 px) | 0.668 | 0.472 / 27.3% | 0.656 | 3.6 ms, CPU |
+| Ours v1, EfficientNet-B0 | 0.677 | 0.440 / 45.2% | 0.604 | 6.6 ms, CPU |
+| Zero-shot Clef-flash 9B (Cloudflare, Jev-compatible, 4-bit MLX)* | 0.623 | 0.477 / 83.1% (catches only 3% of potholes) | not scored | ~515 ms, GPU |
+| Zero-shot SigLIP (`google/siglip-base-patch16-224`) | 0.601 | 0.420 / 87.2% | 0.650 | 32 ms, GPU |
+| Off-the-shelf HF classifier (`punchnami/resnet50-pothole-classification`) | 0.622 | 0.549 / 75.4% | 0.718 | 11 ms, GPU |
+
+\* Scored on the original 1,770-photo test set, before the Japanese photos were added (about 30 minutes to re-run).
+
+On 389 phone photos of potholes taken on Pune streets (test only, see Data), v3 flags 99.7% at the handheld cutoff
+(v2: 94.6%). The set has no pothole-free photos, so this measures catch rate, not false alarms.
 
 Full tables by camera type and by source: [results/RESULTS.md](results/RESULTS.md). Each `results/<model>.json` lists every photo's score and every mistake.
 
@@ -32,62 +38,84 @@ v2 fixes most of that:
 - random rotations and blur, for sideways and shaky phone photos
 - 384 px input instead of 224
 
+### What changed between v2 and v3
+
+v3 is the same recipe with 10,506 more vehicle-camera photos from RDD2022 Japan. Japanese roads went from AUC 0.61
+to 0.94; Indian roads stayed level or better (AUC 0.872 → 0.876); on the original 1,770 test photos AUC went
+0.927 → 0.929. At the vehicle cutoff the classifier alone now catches 69% of Indian potholes (v2: 59%) with the
+same share of alerts real (50%).
+
 ### Pothole boxes (vehicle cameras)
 
 The classifier judges a whole frame; on Indian vehicle footage it partly learns "what a bad road scene looks like".
 So vehicle mode also runs a detector that draws a box around each pothole: Faster R-CNN with a MobileNetV3-Large FPN
-backbone (torchvision, BSD licence, COCO-pretrained), trained on RDD2022 India's pothole boxes at 720 px
-(`scripts/train_detector.py`, 14 epochs, ~55 min on an M5 Pro).
+backbone (torchvision, BSD licence, COCO-pretrained), trained on RDD2022 India's and Japan's pothole boxes at 720 px
+(`scripts/train_detector.py`, 14 epochs, ~2 h on an M5 Pro). Gradient clipping keeps training stable: without it,
+one oversized update near the peak learning rate turned every weight into NaN.
 
-On the 1,163 Indian test photos (201 potholes), `scripts/eval_detector.py`:
+`scripts/eval_detector.py`, potholes found with a correctly placed box (IoU ≥ 0.5):
 
-| Box score cutoff | Potholes found with a correctly placed box (IoU ≥ 0.5) | Small / medium / large | Boxes per 100 pothole-free photos |
+| Box score cutoff | India: 1,163 photos, 201 potholes | Japan: 1,599 photos, 332 potholes | Boxes per 100 pothole-free photos (India / Japan) |
 |---|---|---|---|
-| 0.3 | 90 / 201 (45%) | 43% / 42% / 49% | 9.7 |
-| 0.5 | 78 / 201 (39%) | 35% / 38% / 42% | 5.2 |
-| 0.7 | 65 / 201 (32%) | 25% / 32% / 37% | 3.6 |
+| 0.3 | 82 (41%) | 174 (52%) | 8.0 / 4.5 |
+| 0.5 | 65 (32%) | 155 (47%) | 5.6 / 2.4 |
+| 0.7 | 55 (27%) | 129 (39%) | 3.3 / 1.1 |
 
-Box AP@0.5: 0.36 on test, 0.47 on validation. It only knows Indian vehicle footage: on handheld close-ups and the
-South African dashcam set it is at chance, because those datasets have no boxes to train on.
+Box AP@0.5 on test: India 0.34 (the India-only detector: 0.35), Japan 0.49 (India-only: 0.00); 0.41 on validation.
+Small, medium and large potholes are found at similar rates. It only knows Indian and Japanese vehicle footage: on
+handheld close-ups and the South African dashcam set it is near chance, because those datasets have no boxes to train on.
 
 ### Camera modes and cutoffs
 
 | Camera | What runs | Cutoff (chosen on validation) | On test: potholes caught | Alerts that are real | False alarms per 100 normal photos |
 |---|---|---|---|---|---|
-| Handheld (someone photographs a pothole) | classifier | 0.050, to catch ~90% | 81% | 84% | 30 |
-| Vehicle (dashcam / mounted phone) | max(classifier, detector) + boxes | 0.400, to catch ~85% | 85% | 75% | 8.2 |
-| Vehicle, Indian footage only | same | same | 68% (classifier alone: 59%) | 51% | 9.5 |
+| Handheld (someone photographs a pothole) | classifier | 0.057, to catch ~90% | 88% | 80% | 43 (of only 30 normal photos) |
+| Vehicle (dashcam / mounted phone) | max(classifier, detector) + boxes | 0.388, to catch ~85% | 86% | 73% | 6.8 |
+| Vehicle, Indian footage only | same | same | 66% | 52% | 9.1 |
+| Vehicle, Japanese footage only | same | same | 89% | 71% | 5.5 |
 
-Handheld cutoffs come from `scripts/tune_threshold.py` (`models/v2-mnv3-384.thresholds.json`), the vehicle cutoff from
-`scripts/combine_vehicle.py` (`models/vehicle.json`). "Pothole if either model is confident" beat both models alone and
-a 50/50 average across all vehicle photos (AUC 0.949 vs 0.943 classifier only). The handheld cutoff is aggressive on
-purpose: someone reporting a pothole is worse to reject than a false alarm a reviewer dismisses.
+Handheld cutoffs come from `scripts/tune_threshold.py` (`models/v3-mnv3-384.thresholds.json`), the vehicle cutoff from
+`scripts/combine_vehicle.py` (`models/vehicle.json`). "Pothole if either model is confident" ranks vehicle photos
+better than the classifier alone (AUC 0.955 vs 0.943; India 0.887 vs 0.876; Japan 0.963 vs 0.939). The handheld cutoff
+is aggressive on purpose: someone reporting a pothole is worse to reject than a false alarm a reviewer dismisses.
 
-The trade-off is still steep on Indian vehicle footage: catching 90% of potholes there means flagging about 1 in 3 normal frames.
+The trade-off is still steep on Indian vehicle footage: catching 90% of potholes there means flagging about 1 in 3
+normal frames (36 per 100; on Japanese footage, 6 per 100).
 
 ### Robustness (classifier AUC, `scripts/robustness.py`)
 
-| Condition | Handheld v1 → v2 | Vehicle v1 → v2 |
+| Condition | Handheld v2 → v3 | Vehicle v2 → v3 |
 |---|---|---|
-| Clean | 0.83 → 0.87 | 0.65 → 0.94 |
-| Motion blur | 0.85 → 0.82 | 0.67 → 0.91 |
-| Low resolution (1/4) | 0.68 → 0.89 | 0.69 → 0.90 |
-| Heavy JPEG (q=15) | 0.86 → 0.88 | 0.68 → 0.79 |
-| Rotated 90° | 0.83 → 0.88 | not applicable |
-| **Low light + noise** | 0.74 → **0.64** | 0.65 → **0.71** |
+| Clean | 0.87 → 0.88 | 0.84 → 0.94 |
+| Motion blur | 0.82 → 0.86 | 0.81 → 0.92 |
+| Low resolution (1/4) | 0.89 → 0.89 | 0.80 → 0.92 |
+| Heavy JPEG (q=15) | 0.88 → 0.84 | 0.74 → 0.87 |
+| Rotated 90° | 0.88 → 0.85 | not applicable |
+| **Low light + noise** | 0.64 → **0.77** | 0.66 → **0.73** |
+
+On the current test set, which now includes Japanese vehicle photos.
 
 ## Data
 
-Four open datasets, merged into one binary set by `scripts/prepare_data.py`:
+Open datasets, merged into one binary set by `scripts/prepare_data.py`:
 
 | Source | Camera | What | Licence |
 |---|---|---|---|
 | [mabughali/miia-pothole-train](https://huggingface.co/datasets/mabughali/miia-pothole-train) | vehicle | 4,026 dashcam images (South Africa) | Apache-2.0 |
 | [aiswarya9302/RDD_2022India](https://huggingface.co/datasets/aiswarya9302/RDD_2022India) | vehicle | 7,706 images from RDD2022 India (Arya et al. 2022). Pothole = any D40 box; crack-only and undamaged photos count as normal. | CC BY-SA 4.0 |
+| [RDD2022 Japan](https://figshare.com/articles/dataset/RDD2022_-_The_multi-national_Road_Damage_Dataset_released_through_CRDDC_2022/21431547) | vehicle | 10,506 images, same labels. No split is given and neighbouring photos come from the same drive, so blocks of 100 consecutive photos go to train / val / test. | CC BY-SA 4.0 |
 | [taroii/pothole-detection](https://huggingface.co/datasets/taroii/pothole-detection) | handheld | 437 images, pre-split | not stated |
 | [Arpitraj01/Pothole_classification](https://huggingface.co/datasets/Arpitraj01/Pothole_classification) | handheld | ~490 images from 50 km of Kerala roads, severity labels → binary | MIT |
+| [QR4Change](https://data.mendeley.com/datasets/zndzygc3p3) (test only) | handheld | 389 pothole photos taken on two phones in Pune | CC BY 4.0 |
 
-Near-duplicate photos are removed with a perceptual hash (1,365 MIIA and 86 RDD frames were near-copies), so no photo sits in both train and test. Final split: 7,459 train / 1,874 val / 1,770 test.
+Near-duplicate photos are removed with a perceptual hash (1,365 MIIA, 86 RDD India and 83 RDD Japan frames were
+near-copies), so no photo sits in both train and test. Final split: 14,687 train / 3,470 val / 3,369 test, plus the
+389 Pune photos.
+
+Looked at and not used: the rest of QR4Change (its pothole photos are mostly web stock images and its no-pothole
+photos come from other cameras, so a model would learn the camera); a "multi-weather" set whose night photos are
+software-darkened day photos; the Nighttime Pothole Dataset (non-commercial licence); BharatPotHole, 7,000+ Indian
+dashcam frames (CC BY-SA 4.0, needs a Kaggle login; a good next addition).
 
 ## Run it
 
@@ -106,17 +134,18 @@ curl -F file=@frame.jpg "localhost:8000/predict?camera=vehicle"
 Rebuild from scratch:
 
 ```bash
-.venv/bin/python scripts/download_data.py         # ~900 MB into data/raw/ (add --clef for the 6.2 GB Clef-flash weights)
+.venv/bin/python scripts/download_data.py         # ~3.5 GB into data/raw/ (add --clef for the 6.2 GB Clef-flash weights)
 .venv/bin/python scripts/prepare_data.py
-.venv/bin/python scripts/train.py --model mobilenetv3_large_100 --size 384 --epochs 12 --name v2-mnv3-384
-.venv/bin/python scripts/eval.py v2-384 --split val && .venv/bin/python scripts/eval.py v2-384
-.venv/bin/python scripts/tune_threshold.py v2-384 --recall-handheld 0.90 --recall-vehicle 0.85
-.venv/bin/python scripts/robustness.py v2-384
+.venv/bin/python scripts/train.py --model mobilenetv3_large_100 --size 384 --epochs 12 --name v3-mnv3-384
+.venv/bin/python scripts/eval.py v3-384 --split val && .venv/bin/python scripts/eval.py v3-384
+.venv/bin/python scripts/eval.py v3-384 --split field  # Pune street photos
+.venv/bin/python scripts/tune_threshold.py v3-384 --recall-handheld 0.90 --recall-vehicle 0.85  # copy to models/v3-mnv3-384.thresholds.json
+.venv/bin/python scripts/robustness.py v3-384
 .venv/bin/python scripts/train_detector.py --epochs 14   # then save a half-precision copy as models/det-frcnn-mnv3.fp16.pth
 .venv/bin/python scripts/eval_detector.py
 .venv/bin/python scripts/eval.py detector --split val && .venv/bin/python scripts/eval.py detector
 .venv/bin/python scripts/combine_vehicle.py --recall 0.85  # writes models/vehicle.json
-.venv/bin/python scripts/eval.py v1 siglip-zeroshot hf-resnet50
+.venv/bin/python scripts/eval.py v1 v2-384 siglip-zeroshot hf-resnet50
 .venv-mlx/bin/python scripts/eval_clef.py         # zero-shot Clef-flash; env setup in requirements-clef.txt
 .venv/bin/python scripts/compare.py               # writes results/RESULTS.md
 ```
@@ -136,11 +165,11 @@ results/                    eval outputs
 
 ## Known limits
 
-- **Night and low light** are the main weakness: from a vehicle in the dark it catches under half the potholes. It needs night-time training photos.
-- **Small, distant potholes from vehicles.** Even with the box detector, about 6 in 10 Indian potholes don't get a correctly placed box, and vehicle mode catches 68% of Indian potholes at the default cutoff. More box-labelled data is the next lever; training longer (24 epochs) scored lower on validation (AP 0.450 vs 0.465), so the 14-epoch detector is kept.
-- **The detector only knows Indian vehicle footage.** Handheld mode doesn't use it, and it adds nothing on other countries' dashcams yet.
-- **Heavy video compression** costs accuracy (vehicle AUC 0.79 at JPEG quality 15). Upload frames at a reasonable quality.
-- **Few handheld test photos** (89), so handheld numbers are less certain than vehicle ones.
+- **Night and low light** are the main weakness (vehicle AUC 0.73 when darkened and noisy). It needs real night-time training photos; the open "night" sets found so far were either non-commercial or software-darkened.
+- **Small, distant potholes from Indian vehicles.** About 2 in 3 Indian potholes don't get a correctly placed box, and vehicle mode catches 66% of Indian potholes at the default cutoff (89% of Japanese ones). More Indian box-labelled data (BharatPotHole) is the next lever. Training longer (24 epochs) scored lower on validation (AP 0.450 vs 0.465).
+- **The detector only knows Indian and Japanese vehicle footage.** Handheld mode doesn't use it.
+- **Heavy video compression** costs accuracy (vehicle AUC 0.87 at JPEG quality 15). Upload frames at a reasonable quality.
+- **Few handheld test photos** (89, of which 30 are pothole-free), so handheld numbers, especially false alarms, are less certain than vehicle ones. The Pune photos add catch-rate evidence but no false-alarm evidence.
 - Off-the-shelf models are compared at their default cutoff; compare them on AUC.
 - A YOLO pothole detector was left out: its weights ship as a pickle (`best.pt`), which can run code when loaded, and it is AGPL-licensed.
 

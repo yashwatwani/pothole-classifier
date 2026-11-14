@@ -4,8 +4,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
-# Default model: retrained with Indian vehicle-camera photos (RDD2022), 384 px input.
-DEFAULT_MODEL, DEFAULT_SIZE = "v2-mnv3-384", 384
+# Default model: trained with Indian and Japanese vehicle-camera photos (RDD2022), 384 px input.
+DEFAULT_MODEL, DEFAULT_SIZE = "v3-mnv3-384", 384
 MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 
@@ -100,7 +100,7 @@ def load_detector(device="cpu"):
         boxes = detect(img)
         return boxes[0][0] if boxes else 0.0
 
-    return predict, device, "Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India boxes; photo score = top box"
+    return predict, device, "Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India and Japan boxes; photo score = top box"
 
 
 def load_camera_models():
@@ -139,6 +139,7 @@ LOADERS = {
     "v1": lambda: load_ours("mobilenetv3_large_100", 224),  # original model, before Indian data
     "v2-224": lambda: load_ours("v2-mnv3-224", 224),
     "v2-384": lambda: load_ours("v2-mnv3-384", 384),
+    "v3-384": lambda: load_ours("v3-mnv3-384", 384),  # + RDD2022 Japan
     "v1-effnet": lambda: load_ours("efficientnet_b0", 256),
     "detector": load_detector,
     "siglip-zeroshot": load_siglip,

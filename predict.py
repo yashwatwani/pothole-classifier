@@ -5,7 +5,7 @@
   python predict.py frame.jpg --camera vehicle      # vehicle: classifier + detector, with boxes
   python predict.py dashcam.mp4                     # video: vehicle mode, 2 frames/s, pothole events
   python predict.py dashcam.mp4 --draw out/         # also save each event's best frame with boxes drawn
-Cutoffs come from models/v2-mnv3-384.thresholds.json (handheld) and models/vehicle.json (vehicle).
+Cutoffs come from models/v3-mnv3-384.thresholds.json (handheld) and models/vehicle.json (vehicle).
 """
 import argparse, json, sys, time
 from pathlib import Path

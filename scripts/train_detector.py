@@ -1,13 +1,14 @@
-"""Train a pothole detector (draws a box around each pothole) on RDD2022 India.
+"""Train a pothole detector (draws a box around each pothole) on RDD2022 India and Japan.
 
   python scripts/train_detector.py --epochs 14
 Faster R-CNN with a MobileNetV3-Large FPN backbone (torchvision, BSD licence, COCO-pretrained).
-Uses the same India train/val/test photos as data/manifest.csv (after de-duplication) at full
+Uses the same India and Japan train/val/test photos as data/manifest.csv (after de-duplication) at
 720 px, with RDD2022's D40 pothole boxes. Photos without potholes are kept as negatives.
 Saves models/det-frcnn-mnv3.pth (best validation box AP) and a training log. To ship it, save a
 half-precision copy as models/det-frcnn-mnv3.fp16.pth (what pothole/detector.py loads).
 """
 import argparse, csv, json, random, sys, time
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import torch
@@ -20,32 +21,45 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from pothole.detector import build_model
 
-RAW = ROOT / "data/raw/rdd2022_india"
+RAW = ROOT / "data/raw"
 SIZE = 720
-POTHOLE = 3  # D40 in RDD2022's YOLO labels
 
 
-def india_rows(split):
-    """(image path, label path) for the India photos the manifest keeps in this split."""
+def box_rows(split, sources=("rdd_india", "rdd_japan")):
+    """(image path, label path) for the RDD2022 photos the manifest keeps in this split."""
     with open(ROOT / "data/manifest.csv") as f:
-        stems = [Path(r["path"]).stem.split("__", 1)[1] for r in csv.DictReader(f)
-                 if r["source"] == "rdd_india" and r["split"] == split]
-    return [(RAW / split / "images" / f"{s}.jpg", RAW / split / "labels" / f"{s}.txt") for s in stems]
+        rows = [(r["source"], Path(r["path"]).stem.split("__", 1)[1]) for r in csv.DictReader(f)
+                if r["source"] in sources and r["split"] == split]
+    out = []
+    for source, stem in rows:
+        if source == "rdd_india":  # YOLO labels, original split
+            out.append((RAW / "rdd2022_india" / split / "images" / f"{stem}.jpg", RAW / "rdd2022_india" / split / "labels" / f"{stem}.txt"))
+        else:  # Pascal VOC labels, all in the released train folder
+            base = RAW / "rdd2022_world/Japan/train"
+            out.append((base / "images" / f"{stem}.jpg", base / "annotations/xmls" / f"{stem}.xml"))
+    return out
 
 
 def pothole_boxes(label_path, w, h):
+    """D40 (pothole) boxes in pixels, from a YOLO .txt (class 3) or a Pascal VOC .xml label."""
     boxes = []
-    for line in label_path.read_text().splitlines():
-        parts = line.split()
-        if parts[:1] == [str(POTHOLE)]:
-            cx, cy, bw, bh = (float(x) for x in parts[1:5])
-            boxes.append([(cx - bw / 2) * w, (cy - bh / 2) * h, (cx + bw / 2) * w, (cy + bh / 2) * h])
+    if label_path.suffix == ".xml":
+        for o in ET.parse(label_path).getroot().iter("object"):
+            if o.findtext("name") == "D40":
+                b = o.find("bndbox")
+                boxes.append([float(b.findtext(k)) for k in ("xmin", "ymin", "xmax", "ymax")])
+    else:
+        for line in label_path.read_text().splitlines():
+            parts = line.split()
+            if parts[:1] == ["3"]:
+                cx, cy, bw, bh = (float(x) for x in parts[1:5])
+                boxes.append([(cx - bw / 2) * w, (cy - bh / 2) * h, (cx + bw / 2) * w, (cy + bh / 2) * h])
     return torch.tensor(boxes, dtype=torch.float32).reshape(-1, 4)
 
 
 class Potholes(torch.utils.data.Dataset):
     def __init__(self, split, train=False):
-        self.rows, self.train = india_rows(split), train
+        self.rows, self.train = box_rows(split), train
         self.jitter = ColorJitter(0.3, 0.3, 0.3, 0.05)
 
     def __len__(self):
@@ -141,6 +155,7 @@ def main():
             loss = sum(model(imgs, targets).values())
             opt.zero_grad()
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(params, 10.0)  # near the peak learning rate a rare spike (~50x) blew up to NaN
             opt.step()
             sched.step()
             total += float(loss)
