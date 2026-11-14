@@ -1,7 +1,7 @@
-"""Score the pothole detector on the India and Japan test photos: are the boxes in the right place?
+"""Score the pothole detector on the RDD2022 India and Japan and BharatPotHole test photos: are the boxes in the right place?
 
   python scripts/eval_detector.py
-Per country: box AP@0.5, plus the share of potholes found (a box with IoU >= 0.5 scoring at least
+Per dataset: box AP@0.5, plus the share of potholes found (a box with IoU >= 0.5 scoring at least
 the cutoff) by pothole size, and how many boxes it draws on photos without potholes.
 Writes results/detector.boxes.json. (Photo-level scores: python scripts/eval.py detector)
 """
@@ -9,14 +9,13 @@ import json, sys
 from pathlib import Path
 
 import torch
-from PIL import Image
 from torchvision.ops import box_iou
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 from pothole import detector
-from train_detector import average_precision, box_rows, pothole_boxes
+from train_detector import average_precision, box_rows, load_photo, pothole_boxes
 
 SIZES = {"small (<0.8% of frame)": (0, 0.008), "medium (0.8-2%)": (0.008, 0.02), "large (>2%)": (0.02, 1)}
 
@@ -26,7 +25,7 @@ detect = detector.load("mps" if torch.backends.mps.is_available() else "cpu")
 def evaluate(rows):
     photos = []  # (ground-truth boxes, [(score, box)], frame area)
     for img_path, label_path in rows:
-        img = Image.open(img_path).convert("RGB")
+        img = load_photo(img_path)
         photos.append((pothole_boxes(label_path, *img.size), [(s, torch.tensor(b)) for s, b in detect(img)], img.width * img.height))
 
     gts = {k: g for k, (g, _, _) in enumerate(photos)}
@@ -55,6 +54,6 @@ def evaluate(rows):
     return report
 
 
-report = {country: evaluate(box_rows("test", (source,))) for country, source in (("india", "rdd_india"), ("japan", "rdd_japan"))}
+report = {name: evaluate(box_rows("test", (source,))) for name, source in (("india", "rdd_india"), ("japan", "rdd_japan"), ("india_bharat", "bharat"))}
 (ROOT / "results/detector.boxes.json").write_text(json.dumps(report, indent=2))
 print(json.dumps(report, indent=2))

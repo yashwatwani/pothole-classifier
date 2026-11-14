@@ -1,0 +1,2428 @@
+{
+  "name": "v4-384",
+  "notes": "Ours: v4-mnv3-384 fine-tuned on our train split",
+  "device": "cpu (onnxruntime)",
+  "machine": "arm64 macOS-27.0.1",
+  "split": "field",
+  "threshold": 0.5,
+  "overall": {
+    "n": 389,
+    "accuracy": 0.7840616966580977,
+    "precision": 1.0,
+    "recall": 0.7840616966580977,
+    "f1": 0.8789625360230546,
+    "auc": null,
+    "confusion": {
+      "tp": 305,
+      "fp": 0,
+      "tn": 0,
+      "fn": 84
+    }
+  },
+  "by_source": {
+    "pune": {
+      "n": 389,
+      "accuracy": 0.7840616966580977,
+      "precision": 1.0,
+      "recall": 0.7840616966580977,
+      "f1": 0.8789625360230546,
+      "auc": null,
+      "confusion": {
+        "tp": 305,
+        "fp": 0,
+        "tn": 0,
+        "fn": 84
+      }
+    }
+  },
+  "by_capture": {
+    "handheld": {
+      "n": 389,
+      "accuracy": 0.7840616966580977,
+      "precision": 1.0,
+      "recall": 0.7840616966580977,
+      "f1": 0.8789625360230546,
+      "auc": null,
+      "confusion": {
+        "tp": 305,
+        "fp": 0,
+        "tn": 0,
+        "fn": 84
+      }
+    }
+  },
+  "latency_ms": {
+    "p50": 10.363999987021089,
+    "p95": 12.845415971241891,
+    "mean": 10.716501664092577
+  },
+  "mistakes": [
+    {
+      "path": "data/images/field/pothole/pune__008bc81b-7e90-4262-b6d8-78506a064d2e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4289
+    },
+    {
+      "path": "data/images/field/pothole/pune__009949bf-7044-4216-933f-958d4a853333.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4663
+    },
+    {
+      "path": "data/images/field/pothole/pune__051ea66a-498e-4cba-9ce2-61ceb175ab90.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1712
+    },
+    {
+      "path": "data/images/field/pothole/pune__05ca2778-84bc-441e-a4d8-89d3d9aa582e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4537
+    },
+    {
+      "path": "data/images/field/pothole/pune__0cfdc9aa-cbc9-49f4-ae25-def027ad886c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3454
+    },
+    {
+      "path": "data/images/field/pothole/pune__0eefcb8f-7dba-454e-a8c9-7ba8067a6816.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2691
+    },
+    {
+      "path": "data/images/field/pothole/pune__115e0006-3676-433d-aa6d-b21c1e5d9013.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2921
+    },
+    {
+      "path": "data/images/field/pothole/pune__129abe2c-b937-44be-9a51-ded44d477e40.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3412
+    },
+    {
+      "path": "data/images/field/pothole/pune__17a57dab-3756-4c3a-8a5f-38e95fc3dc2f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1491
+    },
+    {
+      "path": "data/images/field/pothole/pune__186a2d26-753c-4ec0-bc58-c766f4937e8c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3303
+    },
+    {
+      "path": "data/images/field/pothole/pune__194c6f7b-c129-47c6-acf7-0f2bb481a311.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0673
+    },
+    {
+      "path": "data/images/field/pothole/pune__19d04280-949b-4033-89f5-e3847d0ac7cd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0789
+    },
+    {
+      "path": "data/images/field/pothole/pune__1a7c45bd-be0b-41f9-90d0-cdb6a9af36dc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.275
+    },
+    {
+      "path": "data/images/field/pothole/pune__1dce21ae-3dc2-44f5-96fd-12f6b24797c1.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4844
+    },
+    {
+      "path": "data/images/field/pothole/pune__1f525bdb-2d84-4535-9e87-83e842e73076.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1417
+    },
+    {
+      "path": "data/images/field/pothole/pune__21dbd29b-ea4c-4825-a919-5626a90d1bcc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4376
+    },
+    {
+      "path": "data/images/field/pothole/pune__232384de-d80e-4fe2-81d7-4398ed4c488c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2193
+    },
+    {
+      "path": "data/images/field/pothole/pune__24d99945-4db0-4604-a64b-826778baa9d2.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4908
+    },
+    {
+      "path": "data/images/field/pothole/pune__24f7f152-cc3a-44ea-ba20-7efe76651ad8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0582
+    },
+    {
+      "path": "data/images/field/pothole/pune__2a0f6244-45a7-4aca-953a-5797c9baa293.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1986
+    },
+    {
+      "path": "data/images/field/pothole/pune__2a474264-ae9e-4071-951b-e9637979bfe0.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1736
+    },
+    {
+      "path": "data/images/field/pothole/pune__2cc0a7a8-467f-4fe3-b401-9b6e7dac0b36.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3571
+    },
+    {
+      "path": "data/images/field/pothole/pune__2f3902c8-1a69-4e64-8811-20d637655eab.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1327
+    },
+    {
+      "path": "data/images/field/pothole/pune__3008b21f-e098-4eeb-9444-231d8af4ab26.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4746
+    },
+    {
+      "path": "data/images/field/pothole/pune__309f5f44-f833-43c8-b5e4-27821de59329.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4946
+    },
+    {
+      "path": "data/images/field/pothole/pune__3175f92a-44a6-47dd-9d3a-4771056a7587.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3163
+    },
+    {
+      "path": "data/images/field/pothole/pune__332fbd15-55fe-475d-adcf-88576dea8980.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2524
+    },
+    {
+      "path": "data/images/field/pothole/pune__39b9b99f-f70e-4b65-a1c5-7da65efff566.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4713
+    },
+    {
+      "path": "data/images/field/pothole/pune__3db54ecc-aa8d-4120-a753-eb4a28be9958.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1776
+    },
+    {
+      "path": "data/images/field/pothole/pune__405ce207-8358-4214-85c8-ac79b2ebcfa0.jpg",
+      "label": "pothole",
+      "p_pothole": 0.187
+    },
+    {
+      "path": "data/images/field/pothole/pune__4685746a-6ad6-473d-9c97-6b872b554cbd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4047
+    },
+    {
+      "path": "data/images/field/pothole/pune__469bb74a-ec5d-437f-a970-1747ef4a6b1e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1554
+    },
+    {
+      "path": "data/images/field/pothole/pune__46dab599-aee9-4cbf-be74-f4751086c23d.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3918
+    },
+    {
+      "path": "data/images/field/pothole/pune__49ee9e87-c156-4ee3-b6f6-069e9b71b9b3.jpg",
+      "label": "pothole",
+      "p_pothole": 0.271
+    },
+    {
+      "path": "data/images/field/pothole/pune__4bafd0ee-3f64-401b-b2bf-30a86f364b61.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1381
+    },
+    {
+      "path": "data/images/field/pothole/pune__4cb08284-fa97-444e-9ce0-1e69ce571803.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2647
+    },
+    {
+      "path": "data/images/field/pothole/pune__5c4da77c-617d-4113-b176-cad1b9dfffe7.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4705
+    },
+    {
+      "path": "data/images/field/pothole/pune__6a343b43-7b3b-464e-ad49-bf0b52c6064f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3559
+    },
+    {
+      "path": "data/images/field/pothole/pune__6becc227-db9b-4fb2-bb82-8fd90c0b8224.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2236
+    },
+    {
+      "path": "data/images/field/pothole/pune__6c9867dc-7163-45b2-8cd8-680b5afc6f91.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3709
+    },
+    {
+      "path": "data/images/field/pothole/pune__6d534826-b553-4933-83bd-9accacd034a9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3855
+    },
+    {
+      "path": "data/images/field/pothole/pune__6ec2daf5-0076-42a1-9bf7-71aebe18600b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3482
+    },
+    {
+      "path": "data/images/field/pothole/pune__71e84442-e421-40b8-843d-3c9ea39aaa73.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0384
+    },
+    {
+      "path": "data/images/field/pothole/pune__769f89ca-5376-4877-9d58-eb474c7e45d7.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4169
+    },
+    {
+      "path": "data/images/field/pothole/pune__780e33f3-4114-4260-a20b-67cabae074d5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4173
+    },
+    {
+      "path": "data/images/field/pothole/pune__7f959eca-4d16-44e1-b845-88f47bc393a8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2743
+    },
+    {
+      "path": "data/images/field/pothole/pune__80d9166c-2c34-42a7-a072-f961a69ad66f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2117
+    },
+    {
+      "path": "data/images/field/pothole/pune__8ee73221-fd13-41fc-8148-98f36fda83e9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.037
+    },
+    {
+      "path": "data/images/field/pothole/pune__91c1de7b-7b56-44f0-a132-180ddebd7a46.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3187
+    },
+    {
+      "path": "data/images/field/pothole/pune__9f5f5399-8049-456a-988b-168ac3638baa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2143
+    },
+    {
+      "path": "data/images/field/pothole/pune__a0c4d5e0-8023-4e11-867b-7a514d941df8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3341
+    },
+    {
+      "path": "data/images/field/pothole/pune__a67e17f5-4d95-4e9a-b95d-0f634e06c0f2.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2477
+    },
+    {
+      "path": "data/images/field/pothole/pune__a6c61457-18f1-48a6-bca8-ead806300b70.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3192
+    },
+    {
+      "path": "data/images/field/pothole/pune__a7f2676c-6166-4bce-9479-16e895051cf0.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4882
+    },
+    {
+      "path": "data/images/field/pothole/pune__a9491cbe-fbc0-4c26-b416-483981aa9c14.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3372
+    },
+    {
+      "path": "data/images/field/pothole/pune__a9511042-6d03-4e25-8a08-2a98c79ed989.jpg",
+      "label": "pothole",
+      "p_pothole": 0.433
+    },
+    {
+      "path": "data/images/field/pothole/pune__b2165bf9-8b9a-4974-bfe6-4f4a48d17332.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2127
+    },
+    {
+      "path": "data/images/field/pothole/pune__b58f05b6-734f-4e47-9222-beecf1964636.jpg",
+      "label": "pothole",
+      "p_pothole": 0.285
+    },
+    {
+      "path": "data/images/field/pothole/pune__b5e47335-075b-4492-b89b-7b1b37621274.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4182
+    },
+    {
+      "path": "data/images/field/pothole/pune__b93cf22e-04fc-408f-b377-999eb5695b16.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4228
+    },
+    {
+      "path": "data/images/field/pothole/pune__bf532d84-d80b-410e-967d-4fd02e172743.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1835
+    },
+    {
+      "path": "data/images/field/pothole/pune__c0c6a9f9-bbad-4996-805a-0a22430c637f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3531
+    },
+    {
+      "path": "data/images/field/pothole/pune__c2355b57-786e-4c9f-a03e-341ffb87d271.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1687
+    },
+    {
+      "path": "data/images/field/pothole/pune__c25fb738-cd39-42f0-8c0a-40eb8404f155.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1979
+    },
+    {
+      "path": "data/images/field/pothole/pune__c3477444-9c46-48f9-90a2-99d2bdfab42b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0957
+    },
+    {
+      "path": "data/images/field/pothole/pune__c3eab654-8276-4a32-ba37-f3c58ea7ca0e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0524
+    },
+    {
+      "path": "data/images/field/pothole/pune__c3f573e5-b571-4012-aed8-ce44fd93882b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4899
+    },
+    {
+      "path": "data/images/field/pothole/pune__c859afd0-aec1-476b-b023-7fb392fc1d84.jpg",
+      "label": "pothole",
+      "p_pothole": 0.268
+    },
+    {
+      "path": "data/images/field/pothole/pune__d14f60b2-d9a3-4fbc-b628-043ad7827b02.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4775
+    },
+    {
+      "path": "data/images/field/pothole/pune__d3014c94-8076-4fd5-9219-d08f3d057126.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3264
+    },
+    {
+      "path": "data/images/field/pothole/pune__d857cf04-439c-411d-a217-0256ab16504e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4702
+    },
+    {
+      "path": "data/images/field/pothole/pune__d91756fa-3359-48dc-8909-82b9895d0435.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4123
+    },
+    {
+      "path": "data/images/field/pothole/pune__dd8ad175-89ab-401a-b709-80b3c2b9a2c9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.137
+    },
+    {
+      "path": "data/images/field/pothole/pune__e1cab0e8-1045-4345-a09e-d1d941f56b10.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3032
+    },
+    {
+      "path": "data/images/field/pothole/pune__e44ee596-7d7e-4a06-876d-645d209bbe02.jpg",
+      "label": "pothole",
+      "p_pothole": 0.237
+    },
+    {
+      "path": "data/images/field/pothole/pune__e54c3314-b2d7-478d-acbb-c6e02ece1b04.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3394
+    },
+    {
+      "path": "data/images/field/pothole/pune__e661e0ee-d2b2-42be-9734-69e6e0b16a92.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1333
+    },
+    {
+      "path": "data/images/field/pothole/pune__e741d570-3055-4683-8dd4-dd85b47b00f7.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4112
+    },
+    {
+      "path": "data/images/field/pothole/pune__e7ed96c4-de67-4be8-850e-e00c5f5636ab.jpg",
+      "label": "pothole",
+      "p_pothole": 0.4044
+    },
+    {
+      "path": "data/images/field/pothole/pune__ebff0ec9-6f24-4587-996a-acfd29228932.jpg",
+      "label": "pothole",
+      "p_pothole": 0.2595
+    },
+    {
+      "path": "data/images/field/pothole/pune__ecb399f6-75fb-454a-9070-a09803e26977.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0987
+    },
+    {
+      "path": "data/images/field/pothole/pune__ecc04732-ee79-4b79-8dd3-0d9fe2aa2981.jpg",
+      "label": "pothole",
+      "p_pothole": 0.1637
+    },
+    {
+      "path": "data/images/field/pothole/pune__fe346497-4ac9-4b47-a7e4-c8e7c6e1fbe9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3265
+    },
+    {
+      "path": "data/images/field/pothole/pune__fec32916-2c46-4ae5-a110-7b8b47f46fff.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3925
+    }
+  ],
+  "scores": [
+    [
+      "data/images/field/pothole/pune__003f2fb6-ec2a-4286-bb97-8e8096c0d605.jpg",
+      1,
+      0.83394
+    ],
+    [
+      "data/images/field/pothole/pune__008bc81b-7e90-4262-b6d8-78506a064d2e.jpg",
+      1,
+      0.42888
+    ],
+    [
+      "data/images/field/pothole/pune__009401cc-3b48-4eef-a098-70c638f49c1b.jpg",
+      1,
+      0.87889
+    ],
+    [
+      "data/images/field/pothole/pune__009949bf-7044-4216-933f-958d4a853333.jpg",
+      1,
+      0.46628
+    ],
+    [
+      "data/images/field/pothole/pune__00e44bb7-4c3f-4190-84ea-890e59544337.jpg",
+      1,
+      0.86043
+    ],
+    [
+      "data/images/field/pothole/pune__01bdc1db-d0e9-4827-bc94-a04dea962087.jpg",
+      1,
+      0.53137
+    ],
+    [
+      "data/images/field/pothole/pune__02886f62-f14b-40d5-b850-a40b9c1ed1ab.jpg",
+      1,
+      0.93395
+    ],
+    [
+      "data/images/field/pothole/pune__02cf00d7-40fa-4680-9e23-5334d39e7e0d.jpg",
+      1,
+      0.5855
+    ],
+    [
+      "data/images/field/pothole/pune__0387bac7-99ec-48c1-b83e-734cf14089b8.jpg",
+      1,
+      0.59782
+    ],
+    [
+      "data/images/field/pothole/pune__03e2fa50-1648-49e4-b2e4-5900123b0218.jpg",
+      1,
+      0.64811
+    ],
+    [
+      "data/images/field/pothole/pune__04edb656-8d20-4a8d-aa3c-52a22e51ed2a.jpg",
+      1,
+      0.93057
+    ],
+    [
+      "data/images/field/pothole/pune__051ea66a-498e-4cba-9ce2-61ceb175ab90.jpg",
+      1,
+      0.17124
+    ],
+    [
+      "data/images/field/pothole/pune__05696f5e-a836-4018-a04d-485b6a33285a.jpg",
+      1,
+      0.98213
+    ],
+    [
+      "data/images/field/pothole/pune__05ca2778-84bc-441e-a4d8-89d3d9aa582e.jpg",
+      1,
+      0.45372
+    ],
+    [
+      "data/images/field/pothole/pune__06269119-a229-4814-9389-efb87d676572.jpg",
+      1,
+      0.88343
+    ],
+    [
+      "data/images/field/pothole/pune__08c8bd6c-fe42-4434-839b-b7bc4013d55b.jpg",
+      1,
+      0.75355
+    ],
+    [
+      "data/images/field/pothole/pune__08e8e18f-af25-47e3-9f19-57e159da83de.jpg",
+      1,
+      0.9715
+    ],
+    [
+      "data/images/field/pothole/pune__0ad51283-8470-45a5-8529-414cb18bc2a6.jpg",
+      1,
+      0.85003
+    ],
+    [
+      "data/images/field/pothole/pune__0b271562-e1f4-4bce-a7e0-11f856f7b2fd.jpg",
+      1,
+      0.69962
+    ],
+    [
+      "data/images/field/pothole/pune__0c0e8126-4f23-4760-83be-1caad3cebeed.jpg",
+      1,
+      0.56224
+    ],
+    [
+      "data/images/field/pothole/pune__0cfdc9aa-cbc9-49f4-ae25-def027ad886c.jpg",
+      1,
+      0.34537
+    ],
+    [
+      "data/images/field/pothole/pune__0db19b00-cb41-4a07-af0d-c0e807c200ea.jpg",
+      1,
+      0.96551
+    ],
+    [
+      "data/images/field/pothole/pune__0eefcb8f-7dba-454e-a8c9-7ba8067a6816.jpg",
+      1,
+      0.26915
+    ],
+    [
+      "data/images/field/pothole/pune__114ec01a-a3a2-40e6-b30a-0131019a2994.jpg",
+      1,
+      0.73944
+    ],
+    [
+      "data/images/field/pothole/pune__115e0006-3676-433d-aa6d-b21c1e5d9013.jpg",
+      1,
+      0.29205
+    ],
+    [
+      "data/images/field/pothole/pune__1177e665-4128-4eea-a5fe-79415215df57.jpg",
+      1,
+      0.85965
+    ],
+    [
+      "data/images/field/pothole/pune__129abe2c-b937-44be-9a51-ded44d477e40.jpg",
+      1,
+      0.34124
+    ],
+    [
+      "data/images/field/pothole/pune__12e292ed-5f43-42ae-b9ba-efae9138b401.jpg",
+      1,
+      0.6167
+    ],
+    [
+      "data/images/field/pothole/pune__130f6721-86d3-4d99-8726-cab28051c617.jpg",
+      1,
+      0.80697
+    ],
+    [
+      "data/images/field/pothole/pune__13a9e322-455d-471b-b5ce-a1f0e1a384ad.jpg",
+      1,
+      0.50942
+    ],
+    [
+      "data/images/field/pothole/pune__13ae618b-2bb1-427a-be52-cc991ade9b1f.jpg",
+      1,
+      0.57881
+    ],
+    [
+      "data/images/field/pothole/pune__14986556-fb79-4e64-b5f4-fc4a332f662f.jpg",
+      1,
+      0.80389
+    ],
+    [
+      "data/images/field/pothole/pune__14fe44fa-8da1-4355-8e96-702028c73c33.jpg",
+      1,
+      0.751
+    ],
+    [
+      "data/images/field/pothole/pune__150368eb-bbb0-4646-a0b7-2b3df3d9beca.jpg",
+      1,
+      0.96506
+    ],
+    [
+      "data/images/field/pothole/pune__160f1365-d46a-4c20-b668-0ea1a139eb9a.jpg",
+      1,
+      0.56196
+    ],
+    [
+      "data/images/field/pothole/pune__17a57dab-3756-4c3a-8a5f-38e95fc3dc2f.jpg",
+      1,
+      0.14911
+    ],
+    [
+      "data/images/field/pothole/pune__186a2d26-753c-4ec0-bc58-c766f4937e8c.jpg",
+      1,
+      0.33033
+    ],
+    [
+      "data/images/field/pothole/pune__194c6f7b-c129-47c6-acf7-0f2bb481a311.jpg",
+      1,
+      0.06731
+    ],
+    [
+      "data/images/field/pothole/pune__19d04280-949b-4033-89f5-e3847d0ac7cd.jpg",
+      1,
+      0.0789
+    ],
+    [
+      "data/images/field/pothole/pune__1a7c45bd-be0b-41f9-90d0-cdb6a9af36dc.jpg",
+      1,
+      0.27501
+    ],
+    [
+      "data/images/field/pothole/pune__1ab08ce0-71a9-46aa-bd05-b709aa9774fb.jpg",
+      1,
+      0.70836
+    ],
+    [
+      "data/images/field/pothole/pune__1dce21ae-3dc2-44f5-96fd-12f6b24797c1.jpg",
+      1,
+      0.48438
+    ],
+    [
+      "data/images/field/pothole/pune__1e43c992-55a8-4aac-86ac-724a1bb452e6.jpg",
+      1,
+      0.61751
+    ],
+    [
+      "data/images/field/pothole/pune__1f1ebb15-fb15-485b-b86c-b397661445a8.jpg",
+      1,
+      0.93283
+    ],
+    [
+      "data/images/field/pothole/pune__1f525bdb-2d84-4535-9e87-83e842e73076.jpg",
+      1,
+      0.14166
+    ],
+    [
+      "data/images/field/pothole/pune__1fd6f77e-4a03-49da-998d-b2d593b4b175.jpg",
+      1,
+      0.91193
+    ],
+    [
+      "data/images/field/pothole/pune__201d6f71-d7b9-4dd4-8ffa-e5571db27ac3.jpg",
+      1,
+      0.97671
+    ],
+    [
+      "data/images/field/pothole/pune__2163bf35-7033-41a8-9570-fb469a98e158.jpg",
+      1,
+      0.69011
+    ],
+    [
+      "data/images/field/pothole/pune__21ca3e30-498f-4563-825b-50ca7c29560d.jpg",
+      1,
+      0.61285
+    ],
+    [
+      "data/images/field/pothole/pune__21dbd29b-ea4c-4825-a919-5626a90d1bcc.jpg",
+      1,
+      0.43763
+    ],
+    [
+      "data/images/field/pothole/pune__232384de-d80e-4fe2-81d7-4398ed4c488c.jpg",
+      1,
+      0.21926
+    ],
+    [
+      "data/images/field/pothole/pune__23be22a2-72df-489b-b6db-7590a27c9eef.jpg",
+      1,
+      0.6212
+    ],
+    [
+      "data/images/field/pothole/pune__24d99945-4db0-4604-a64b-826778baa9d2.jpg",
+      1,
+      0.49078
+    ],
+    [
+      "data/images/field/pothole/pune__24f7f152-cc3a-44ea-ba20-7efe76651ad8.jpg",
+      1,
+      0.05818
+    ],
+    [
+      "data/images/field/pothole/pune__25394582-4d46-4e15-a3b6-624586cee8d1.jpg",
+      1,
+      0.76345
+    ],
+    [
+      "data/images/field/pothole/pune__25a153aa-986e-48e0-9018-46c2964fbac5.jpg",
+      1,
+      0.82782
+    ],
+    [
+      "data/images/field/pothole/pune__2634545a-6455-4495-8e83-1747ef357a6b.jpg",
+      1,
+      0.88375
+    ],
+    [
+      "data/images/field/pothole/pune__2670debd-eab2-4f56-82e4-a823b3fa8fb0.jpg",
+      1,
+      0.76106
+    ],
+    [
+      "data/images/field/pothole/pune__267cd535-a2b8-4999-8edb-7b3d7ed8c620.jpg",
+      1,
+      0.69011
+    ],
+    [
+      "data/images/field/pothole/pune__27eb52c7-c2f6-4fdb-9289-16848f1ea92d.jpg",
+      1,
+      0.54927
+    ],
+    [
+      "data/images/field/pothole/pune__281876cb-b823-4a3c-83f1-c9d93f5b2603.jpg",
+      1,
+      0.71849
+    ],
+    [
+      "data/images/field/pothole/pune__2a08f7e3-d416-4f48-b441-075701499a2c.jpg",
+      1,
+      0.53377
+    ],
+    [
+      "data/images/field/pothole/pune__2a0f6244-45a7-4aca-953a-5797c9baa293.jpg",
+      1,
+      0.19855
+    ],
+    [
+      "data/images/field/pothole/pune__2a474264-ae9e-4071-951b-e9637979bfe0.jpg",
+      1,
+      0.17359
+    ],
+    [
+      "data/images/field/pothole/pune__2a7080cb-7b28-4763-969e-df354c10a34d.jpg",
+      1,
+      0.66827
+    ],
+    [
+      "data/images/field/pothole/pune__2ab9e301-c1cb-42df-8c41-9417b8d15583.jpg",
+      1,
+      0.67432
+    ],
+    [
+      "data/images/field/pothole/pune__2ac9b338-ba9a-4dec-901a-d8baa497cfa9.jpg",
+      1,
+      0.57137
+    ],
+    [
+      "data/images/field/pothole/pune__2ae860ea-a64f-4112-a82c-d4253a7b45e0.jpg",
+      1,
+      0.93131
+    ],
+    [
+      "data/images/field/pothole/pune__2b10135a-2423-45b9-b44a-53d566bf6d6d.jpg",
+      1,
+      0.68788
+    ],
+    [
+      "data/images/field/pothole/pune__2b17309b-2efc-4def-b56f-49b7ffb0360e.jpg",
+      1,
+      0.927
+    ],
+    [
+      "data/images/field/pothole/pune__2cc0a7a8-467f-4fe3-b401-9b6e7dac0b36.jpg",
+      1,
+      0.35705
+    ],
+    [
+      "data/images/field/pothole/pune__2d1a3eb2-2c2b-4b0b-b69d-9377d2c4f211.jpg",
+      1,
+      0.94424
+    ],
+    [
+      "data/images/field/pothole/pune__2d89429c-def3-4802-8202-eda7c502a8b5.jpg",
+      1,
+      0.90975
+    ],
+    [
+      "data/images/field/pothole/pune__2f3902c8-1a69-4e64-8811-20d637655eab.jpg",
+      1,
+      0.13268
+    ],
+    [
+      "data/images/field/pothole/pune__3008b21f-e098-4eeb-9444-231d8af4ab26.jpg",
+      1,
+      0.47462
+    ],
+    [
+      "data/images/field/pothole/pune__309f5f44-f833-43c8-b5e4-27821de59329.jpg",
+      1,
+      0.49464
+    ],
+    [
+      "data/images/field/pothole/pune__3144ef1b-ac0f-4174-b257-83b28ecc3e44.jpg",
+      1,
+      0.96664
+    ],
+    [
+      "data/images/field/pothole/pune__3175f92a-44a6-47dd-9d3a-4771056a7587.jpg",
+      1,
+      0.31628
+    ],
+    [
+      "data/images/field/pothole/pune__31ced0e7-2008-4f4b-93a6-5e59ab9ee959.jpg",
+      1,
+      0.95778
+    ],
+    [
+      "data/images/field/pothole/pune__328833ed-6ca0-4ee6-8930-59fb8be49051.jpg",
+      1,
+      0.64577
+    ],
+    [
+      "data/images/field/pothole/pune__332fbd15-55fe-475d-adcf-88576dea8980.jpg",
+      1,
+      0.2524
+    ],
+    [
+      "data/images/field/pothole/pune__3361aef8-77c2-4954-8215-d045b25e24de.jpg",
+      1,
+      0.97246
+    ],
+    [
+      "data/images/field/pothole/pune__3408a0cd-aca0-4e16-b3db-9de86d74e475.jpg",
+      1,
+      0.94511
+    ],
+    [
+      "data/images/field/pothole/pune__36248fcd-eb0f-4836-a6a2-d326c1c44dd0.jpg",
+      1,
+      0.6322
+    ],
+    [
+      "data/images/field/pothole/pune__3695d1ff-d83e-4fc9-ab8a-27889a6bdc08.jpg",
+      1,
+      0.98701
+    ],
+    [
+      "data/images/field/pothole/pune__3859348f-a7c8-4480-ae97-f78c4a73cb2d.jpg",
+      1,
+      0.63688
+    ],
+    [
+      "data/images/field/pothole/pune__39b9b99f-f70e-4b65-a1c5-7da65efff566.jpg",
+      1,
+      0.47132
+    ],
+    [
+      "data/images/field/pothole/pune__39f4298d-fbca-43f6-a4f2-fe2380958bef.jpg",
+      1,
+      0.8695
+    ],
+    [
+      "data/images/field/pothole/pune__3a4747dc-b254-43c7-8e8e-214c62ded0e0.jpg",
+      1,
+      0.87418
+    ],
+    [
+      "data/images/field/pothole/pune__3b64c775-34bd-4c1d-8a2c-ce8e72eff0e9.jpg",
+      1,
+      0.7944
+    ],
+    [
+      "data/images/field/pothole/pune__3c334038-f48f-4776-9598-6e121e89048b.jpg",
+      1,
+      0.97103
+    ],
+    [
+      "data/images/field/pothole/pune__3c9190e8-6e1d-4ed5-9e25-0a6f886215b3.jpg",
+      1,
+      0.94625
+    ],
+    [
+      "data/images/field/pothole/pune__3ca08bd6-8d60-43fb-9e70-aa94453edde5.jpg",
+      1,
+      0.64558
+    ],
+    [
+      "data/images/field/pothole/pune__3db54ecc-aa8d-4120-a753-eb4a28be9958.jpg",
+      1,
+      0.1776
+    ],
+    [
+      "data/images/field/pothole/pune__3ddf6a80-718a-4077-87cf-a98899cc0050.jpg",
+      1,
+      0.65079
+    ],
+    [
+      "data/images/field/pothole/pune__3de38a75-2c76-40a0-a5f5-73a185fdfe94.jpg",
+      1,
+      0.9418
+    ],
+    [
+      "data/images/field/pothole/pune__3ea18d76-e127-4e71-a190-52d73adc6763.jpg",
+      1,
+      0.8314
+    ],
+    [
+      "data/images/field/pothole/pune__3f04ac94-21b0-4925-b7d2-05445474072a.jpg",
+      1,
+      0.93241
+    ],
+    [
+      "data/images/field/pothole/pune__3f315b7b-e2f9-4065-901a-a1aab29702c2.jpg",
+      1,
+      0.87529
+    ],
+    [
+      "data/images/field/pothole/pune__3fc811de-1126-49f5-abe0-25c1c2fe9249.jpg",
+      1,
+      0.97563
+    ],
+    [
+      "data/images/field/pothole/pune__3ffa2e56-3bc5-4f26-9ae9-abec7154418b.jpg",
+      1,
+      0.82895
+    ],
+    [
+      "data/images/field/pothole/pune__405ce207-8358-4214-85c8-ac79b2ebcfa0.jpg",
+      1,
+      0.18704
+    ],
+    [
+      "data/images/field/pothole/pune__40d12616-3e19-4dbe-ba43-00b9eaa1c3ee.jpg",
+      1,
+      0.79732
+    ],
+    [
+      "data/images/field/pothole/pune__40f4c966-df8d-4dcd-99a4-d8941d2b3594.jpg",
+      1,
+      0.5286
+    ],
+    [
+      "data/images/field/pothole/pune__4258739d-3108-4e86-b16a-460ed109409b.jpg",
+      1,
+      0.51111
+    ],
+    [
+      "data/images/field/pothole/pune__4364beb7-4ce8-491f-979b-02ba38ac53b4.jpg",
+      1,
+      0.93609
+    ],
+    [
+      "data/images/field/pothole/pune__4379ebb2-e93c-4b97-bf62-34432a4132d1.jpg",
+      1,
+      0.99078
+    ],
+    [
+      "data/images/field/pothole/pune__4685746a-6ad6-473d-9c97-6b872b554cbd.jpg",
+      1,
+      0.4047
+    ],
+    [
+      "data/images/field/pothole/pune__469bb74a-ec5d-437f-a970-1747ef4a6b1e.jpg",
+      1,
+      0.15539
+    ],
+    [
+      "data/images/field/pothole/pune__46dab599-aee9-4cbf-be74-f4751086c23d.jpg",
+      1,
+      0.3918
+    ],
+    [
+      "data/images/field/pothole/pune__484e59b5-f199-4dea-bc15-4b9cf69e6c7a.jpg",
+      1,
+      0.6659
+    ],
+    [
+      "data/images/field/pothole/pune__485c67b4-3fbb-4416-932d-4d9111dd64fb.jpg",
+      1,
+      0.82006
+    ],
+    [
+      "data/images/field/pothole/pune__49c74ca7-9d5f-44c5-8158-17aba0ea34ce.jpg",
+      1,
+      0.90952
+    ],
+    [
+      "data/images/field/pothole/pune__49ee9e87-c156-4ee3-b6f6-069e9b71b9b3.jpg",
+      1,
+      0.27104
+    ],
+    [
+      "data/images/field/pothole/pune__49f7a0ac-d33b-4f7b-bc22-9f6618d1f831.jpg",
+      1,
+      0.99819
+    ],
+    [
+      "data/images/field/pothole/pune__4a399b3e-ae10-4e4b-85f0-59d7a6a782c7.jpg",
+      1,
+      0.98266
+    ],
+    [
+      "data/images/field/pothole/pune__4a4d57c0-13a9-4aff-950b-54c46d15281a.jpg",
+      1,
+      0.73243
+    ],
+    [
+      "data/images/field/pothole/pune__4abdf8d4-f158-4c43-bab7-c80f2cb13a06.jpg",
+      1,
+      0.50797
+    ],
+    [
+      "data/images/field/pothole/pune__4b2225df-2490-4f08-8fdf-1b0c15e6f54e.jpg",
+      1,
+      0.9869
+    ],
+    [
+      "data/images/field/pothole/pune__4bafd0ee-3f64-401b-b2bf-30a86f364b61.jpg",
+      1,
+      0.13809
+    ],
+    [
+      "data/images/field/pothole/pune__4be1a65e-647b-4b12-acc1-05d4455c4d34.jpg",
+      1,
+      0.67262
+    ],
+    [
+      "data/images/field/pothole/pune__4cb08284-fa97-444e-9ce0-1e69ce571803.jpg",
+      1,
+      0.26473
+    ],
+    [
+      "data/images/field/pothole/pune__4d7f6196-5364-4ca8-8f64-43f0039deced.jpg",
+      1,
+      0.84903
+    ],
+    [
+      "data/images/field/pothole/pune__4d83f474-ee28-49c5-bda0-684692f8ac0c.jpg",
+      1,
+      0.66458
+    ],
+    [
+      "data/images/field/pothole/pune__4dcdd0c2-a74d-43b4-8134-00748d4fde36.jpg",
+      1,
+      0.97294
+    ],
+    [
+      "data/images/field/pothole/pune__4e248175-387b-4b34-82ee-65ef3881947b.jpg",
+      1,
+      0.5001
+    ],
+    [
+      "data/images/field/pothole/pune__4e8b69d8-74fe-46a5-bfb7-b3261830c311.jpg",
+      1,
+      0.75767
+    ],
+    [
+      "data/images/field/pothole/pune__4ec97281-ed16-4d8c-9111-886f50ea3b6b.jpg",
+      1,
+      0.84297
+    ],
+    [
+      "data/images/field/pothole/pune__50a4ca12-9970-4d0f-8187-de1f1d726546.jpg",
+      1,
+      0.96067
+    ],
+    [
+      "data/images/field/pothole/pune__50da4ad8-7fb3-466f-83ce-6bb738fb9714.jpg",
+      1,
+      0.98198
+    ],
+    [
+      "data/images/field/pothole/pune__51e4c96d-7381-43fe-894a-278b94e378b5.jpg",
+      1,
+      0.55814
+    ],
+    [
+      "data/images/field/pothole/pune__51ecb2ce-f578-4133-ac75-56fcc0ebc365.jpg",
+      1,
+      0.75258
+    ],
+    [
+      "data/images/field/pothole/pune__545f12da-d371-4397-8db7-f5ca1a3cc7d9.jpg",
+      1,
+      0.86591
+    ],
+    [
+      "data/images/field/pothole/pune__561c52d2-9903-454c-8311-760a14faddcc.jpg",
+      1,
+      0.92723
+    ],
+    [
+      "data/images/field/pothole/pune__5a63a381-e53e-464e-95ce-4b0c58f3b37b.jpg",
+      1,
+      0.92679
+    ],
+    [
+      "data/images/field/pothole/pune__5c0416f9-e351-4a00-a095-0df85c32e535.jpg",
+      1,
+      0.5791
+    ],
+    [
+      "data/images/field/pothole/pune__5c4da77c-617d-4113-b176-cad1b9dfffe7.jpg",
+      1,
+      0.47049
+    ],
+    [
+      "data/images/field/pothole/pune__5c9ac01f-cdf4-4a41-a91c-6b12ef8a8204.jpg",
+      1,
+      0.96445
+    ],
+    [
+      "data/images/field/pothole/pune__5d2d4731-2544-4625-95dc-bba81ae9ae99.jpg",
+      1,
+      0.90141
+    ],
+    [
+      "data/images/field/pothole/pune__5f4702b7-e5bc-4cae-a382-29564807eca8.jpg",
+      1,
+      0.8915
+    ],
+    [
+      "data/images/field/pothole/pune__5f673749-8e59-431b-ad9f-67f73458ebb3.jpg",
+      1,
+      0.9929
+    ],
+    [
+      "data/images/field/pothole/pune__5fdab823-e424-4004-9f67-86de407ae861.jpg",
+      1,
+      0.9726
+    ],
+    [
+      "data/images/field/pothole/pune__609ab9df-9b8b-4ff7-afe4-842209bd4dcf.jpg",
+      1,
+      0.79887
+    ],
+    [
+      "data/images/field/pothole/pune__6171a9a5-c64f-4597-b8ba-01278f9e2980.jpg",
+      1,
+      0.96709
+    ],
+    [
+      "data/images/field/pothole/pune__6504c529-7a2d-4e09-b1d1-6b7c2804a217.jpg",
+      1,
+      0.93171
+    ],
+    [
+      "data/images/field/pothole/pune__653259be-4d7a-4235-985b-77550551eee2.jpg",
+      1,
+      0.99192
+    ],
+    [
+      "data/images/field/pothole/pune__65d3a846-fdaa-4f13-bab2-03529d05d35d.jpg",
+      1,
+      0.63624
+    ],
+    [
+      "data/images/field/pothole/pune__6849e12b-f06c-4254-84d2-9b89a13214a6.jpg",
+      1,
+      0.86254
+    ],
+    [
+      "data/images/field/pothole/pune__684ebf57-7169-4918-9708-9744ddeed394.jpg",
+      1,
+      0.86264
+    ],
+    [
+      "data/images/field/pothole/pune__688adc6d-df19-4945-bca5-ca8b145a09c3.jpg",
+      1,
+      0.9172
+    ],
+    [
+      "data/images/field/pothole/pune__6a343b43-7b3b-464e-ad49-bf0b52c6064f.jpg",
+      1,
+      0.35592
+    ],
+    [
+      "data/images/field/pothole/pune__6b72fe85-1f22-44c5-a070-f4d4db0ad138.jpg",
+      1,
+      0.96139
+    ],
+    [
+      "data/images/field/pothole/pune__6ba6c26c-0969-428d-8550-a449e61e0ea6.jpg",
+      1,
+      0.83417
+    ],
+    [
+      "data/images/field/pothole/pune__6becc227-db9b-4fb2-bb82-8fd90c0b8224.jpg",
+      1,
+      0.22357
+    ],
+    [
+      "data/images/field/pothole/pune__6c3ffc1d-a01f-4e5a-b08e-879338fb7891.jpg",
+      1,
+      0.67113
+    ],
+    [
+      "data/images/field/pothole/pune__6c9867dc-7163-45b2-8cd8-680b5afc6f91.jpg",
+      1,
+      0.37088
+    ],
+    [
+      "data/images/field/pothole/pune__6d534826-b553-4933-83bd-9accacd034a9.jpg",
+      1,
+      0.38547
+    ],
+    [
+      "data/images/field/pothole/pune__6e575aa1-2d29-48d0-b964-9a292e6896da.jpg",
+      1,
+      0.88813
+    ],
+    [
+      "data/images/field/pothole/pune__6e9b15a4-d2ec-4ecf-a98f-51e026e3b703.jpg",
+      1,
+      0.95441
+    ],
+    [
+      "data/images/field/pothole/pune__6ec1a95f-2418-44a8-8d7d-cced8e784746.jpg",
+      1,
+      0.70036
+    ],
+    [
+      "data/images/field/pothole/pune__6ec2daf5-0076-42a1-9bf7-71aebe18600b.jpg",
+      1,
+      0.34824
+    ],
+    [
+      "data/images/field/pothole/pune__701b38cf-ddff-4166-ab62-adb5a97cc3ae.jpg",
+      1,
+      0.52341
+    ],
+    [
+      "data/images/field/pothole/pune__70d7d716-a220-4d28-ae79-4db2b54ff75f.jpg",
+      1,
+      0.94063
+    ],
+    [
+      "data/images/field/pothole/pune__71e84442-e421-40b8-843d-3c9ea39aaa73.jpg",
+      1,
+      0.03844
+    ],
+    [
+      "data/images/field/pothole/pune__73622268-3b84-45c6-b72e-0a690a9f4f0e.jpg",
+      1,
+      0.95251
+    ],
+    [
+      "data/images/field/pothole/pune__7389f849-bd5d-4400-9356-7654dbedf068.jpg",
+      1,
+      0.88381
+    ],
+    [
+      "data/images/field/pothole/pune__760c1126-6ef2-4737-84c7-98bcda1f8b9d.jpg",
+      1,
+      0.86147
+    ],
+    [
+      "data/images/field/pothole/pune__769f89ca-5376-4877-9d58-eb474c7e45d7.jpg",
+      1,
+      0.41691
+    ],
+    [
+      "data/images/field/pothole/pune__77b4542d-24ad-4396-a4d8-7a88d0fdb405.jpg",
+      1,
+      0.79577
+    ],
+    [
+      "data/images/field/pothole/pune__780e33f3-4114-4260-a20b-67cabae074d5.jpg",
+      1,
+      0.41734
+    ],
+    [
+      "data/images/field/pothole/pune__78ed7c22-fca1-4d58-907d-8434ccc25e52.jpg",
+      1,
+      0.96164
+    ],
+    [
+      "data/images/field/pothole/pune__791b882e-8b79-48bd-9f89-cc7b803098d0.jpg",
+      1,
+      0.98815
+    ],
+    [
+      "data/images/field/pothole/pune__79e746ef-adf1-46d5-ad52-507dff137876.jpg",
+      1,
+      0.66623
+    ],
+    [
+      "data/images/field/pothole/pune__79fef545-a559-480e-9e75-dc1a9255aab8.jpg",
+      1,
+      0.76732
+    ],
+    [
+      "data/images/field/pothole/pune__7a2d630d-a44c-497b-bd4b-11cdd15e8c8d.jpg",
+      1,
+      0.95696
+    ],
+    [
+      "data/images/field/pothole/pune__7c993717-ee66-422a-accc-706a35364240.jpg",
+      1,
+      0.89612
+    ],
+    [
+      "data/images/field/pothole/pune__7f510616-8ee6-40cf-ba1e-403631c0565d.jpg",
+      1,
+      0.81644
+    ],
+    [
+      "data/images/field/pothole/pune__7f959eca-4d16-44e1-b845-88f47bc393a8.jpg",
+      1,
+      0.27427
+    ],
+    [
+      "data/images/field/pothole/pune__7ff41efb-294d-45e6-8a0c-3ece81df9405.jpg",
+      1,
+      0.94121
+    ],
+    [
+      "data/images/field/pothole/pune__7ff7b904-1ed5-4b5f-b806-9b25a46e726d.jpg",
+      1,
+      0.84692
+    ],
+    [
+      "data/images/field/pothole/pune__809f5dfe-504d-4ad0-8da2-d08102a58580.jpg",
+      1,
+      0.51397
+    ],
+    [
+      "data/images/field/pothole/pune__80d9166c-2c34-42a7-a072-f961a69ad66f.jpg",
+      1,
+      0.21175
+    ],
+    [
+      "data/images/field/pothole/pune__8274fb33-2928-4f2b-8110-619cfc521698.jpg",
+      1,
+      0.94213
+    ],
+    [
+      "data/images/field/pothole/pune__83123670-ca3d-4319-b4e8-0a1b7256eaf0.jpg",
+      1,
+      0.70196
+    ],
+    [
+      "data/images/field/pothole/pune__849475af-95a2-412d-ba20-9f15603d8a86.jpg",
+      1,
+      0.94389
+    ],
+    [
+      "data/images/field/pothole/pune__85c6d6c1-9ff4-42e6-8fb2-9167e54e82f5.jpg",
+      1,
+      0.90564
+    ],
+    [
+      "data/images/field/pothole/pune__87950d4f-4dfb-44e5-acaa-87100e391459.jpg",
+      1,
+      0.68538
+    ],
+    [
+      "data/images/field/pothole/pune__88ca8aae-fa0d-4d79-88b4-a59ca41892af.jpg",
+      1,
+      0.74115
+    ],
+    [
+      "data/images/field/pothole/pune__8933c73a-95b0-404b-af6c-c6646ac02e22.jpg",
+      1,
+      0.97861
+    ],
+    [
+      "data/images/field/pothole/pune__89891c5e-1e9d-44a4-a7f0-13d2bc0b17e5.jpg",
+      1,
+      0.95148
+    ],
+    [
+      "data/images/field/pothole/pune__89930282-f262-41b3-8083-90fece7590d7.jpg",
+      1,
+      0.93553
+    ],
+    [
+      "data/images/field/pothole/pune__8997d9a6-7f81-466c-861b-3700d6bfaa32.jpg",
+      1,
+      0.88824
+    ],
+    [
+      "data/images/field/pothole/pune__89aeb460-5e34-487f-8c5d-ce73fd1bb945.jpg",
+      1,
+      0.50279
+    ],
+    [
+      "data/images/field/pothole/pune__8a6051cb-0b6d-43b1-a050-dd32b474311c.jpg",
+      1,
+      0.85904
+    ],
+    [
+      "data/images/field/pothole/pune__8a68b668-1037-44d5-9ff8-6f9576a970c3.jpg",
+      1,
+      0.86257
+    ],
+    [
+      "data/images/field/pothole/pune__8ac0cb2a-1fba-4539-9a11-1bd26601a9dd.jpg",
+      1,
+      0.76787
+    ],
+    [
+      "data/images/field/pothole/pune__8b468816-b1b5-436a-92ad-4ccebbebc9fb.jpg",
+      1,
+      0.53996
+    ],
+    [
+      "data/images/field/pothole/pune__8b6ceb07-ae7a-4ee4-9368-2b8bd6228855.jpg",
+      1,
+      0.65287
+    ],
+    [
+      "data/images/field/pothole/pune__8c7fb28a-6eae-46b3-8504-6c7816743ba1.jpg",
+      1,
+      0.73215
+    ],
+    [
+      "data/images/field/pothole/pune__8c947806-297c-43e8-800a-ee68b4d0cf87.jpg",
+      1,
+      0.95235
+    ],
+    [
+      "data/images/field/pothole/pune__8d264822-2976-4b2d-b49d-0e5db3425ff2.jpg",
+      1,
+      0.68666
+    ],
+    [
+      "data/images/field/pothole/pune__8e692193-30d6-4d2c-b574-f400303d9559.jpg",
+      1,
+      0.98474
+    ],
+    [
+      "data/images/field/pothole/pune__8ed46ad3-4d91-4c55-b59b-6743b5bb5adb.jpg",
+      1,
+      0.77443
+    ],
+    [
+      "data/images/field/pothole/pune__8ee73221-fd13-41fc-8148-98f36fda83e9.jpg",
+      1,
+      0.03705
+    ],
+    [
+      "data/images/field/pothole/pune__8f300204-c0f8-4ebd-bf79-6407e4b809fc.jpg",
+      1,
+      0.66917
+    ],
+    [
+      "data/images/field/pothole/pune__8f82854e-f677-4260-a106-84c1db2b7814.jpg",
+      1,
+      0.96907
+    ],
+    [
+      "data/images/field/pothole/pune__90b83894-8601-4810-8321-2aaab408d1c9.jpg",
+      1,
+      0.61604
+    ],
+    [
+      "data/images/field/pothole/pune__91c1de7b-7b56-44f0-a132-180ddebd7a46.jpg",
+      1,
+      0.31873
+    ],
+    [
+      "data/images/field/pothole/pune__92bd2b1b-c998-40fd-bac2-d2e81e5bb048.jpg",
+      1,
+      0.88063
+    ],
+    [
+      "data/images/field/pothole/pune__92c5cb7c-b330-4032-a552-82de6c957b7e.jpg",
+      1,
+      0.79674
+    ],
+    [
+      "data/images/field/pothole/pune__9315a45b-ba4b-4096-83e7-db7d20ac7edc.jpg",
+      1,
+      0.90452
+    ],
+    [
+      "data/images/field/pothole/pune__938499ee-b0ce-4201-839c-a42345283734.jpg",
+      1,
+      0.98499
+    ],
+    [
+      "data/images/field/pothole/pune__93ee2603-06c9-4310-b14d-1d955be2ca59.jpg",
+      1,
+      0.81287
+    ],
+    [
+      "data/images/field/pothole/pune__95378a7b-8e95-473d-9b2e-dde6fb6cfbaa.jpg",
+      1,
+      0.97046
+    ],
+    [
+      "data/images/field/pothole/pune__95f40f68-7c49-4cbb-bd1d-f4aef954bc39.jpg",
+      1,
+      0.97031
+    ],
+    [
+      "data/images/field/pothole/pune__96544ebf-a802-4d1f-906d-798b7bb8be2e.jpg",
+      1,
+      0.94538
+    ],
+    [
+      "data/images/field/pothole/pune__966bef6e-3a74-47e8-adc3-3d01b81384a1.jpg",
+      1,
+      0.9749
+    ],
+    [
+      "data/images/field/pothole/pune__96db8853-ccb3-4495-b8ab-b40c9061c9d2.jpg",
+      1,
+      0.56281
+    ],
+    [
+      "data/images/field/pothole/pune__974d6551-605e-47cd-a369-7b448b6fc925.jpg",
+      1,
+      0.97299
+    ],
+    [
+      "data/images/field/pothole/pune__980397c6-b54f-4ef7-a401-3f0465726263.jpg",
+      1,
+      0.60373
+    ],
+    [
+      "data/images/field/pothole/pune__98f3affc-efd0-4aae-b599-9c1292e5508e.jpg",
+      1,
+      0.69399
+    ],
+    [
+      "data/images/field/pothole/pune__9afd5c73-d50c-41f2-bcf4-c12899539159.jpg",
+      1,
+      0.9696
+    ],
+    [
+      "data/images/field/pothole/pune__9c1eb35b-0ef8-4ef3-be08-998a3811b6a5.jpg",
+      1,
+      0.81039
+    ],
+    [
+      "data/images/field/pothole/pune__9cd4a315-c36b-477a-ae2d-40deaed1c959.jpg",
+      1,
+      0.89896
+    ],
+    [
+      "data/images/field/pothole/pune__9cef7fc1-d9c1-40ac-bcca-5fe230937b06.jpg",
+      1,
+      0.94343
+    ],
+    [
+      "data/images/field/pothole/pune__9d311755-a768-4318-850e-41a6bb6451eb.jpg",
+      1,
+      0.88184
+    ],
+    [
+      "data/images/field/pothole/pune__9d8ad4d4-d510-47d8-b64c-69a68feef0eb.jpg",
+      1,
+      0.75727
+    ],
+    [
+      "data/images/field/pothole/pune__9db02a47-0282-4454-93ef-2ef2eb6ab553.jpg",
+      1,
+      0.81837
+    ],
+    [
+      "data/images/field/pothole/pune__9ec9c600-dcbd-4018-8a31-4d6921dfcecd.jpg",
+      1,
+      0.88852
+    ],
+    [
+      "data/images/field/pothole/pune__9f25b330-78a4-4e1a-a0ef-9576531a5c14.jpg",
+      1,
+      0.71845
+    ],
+    [
+      "data/images/field/pothole/pune__9f5f5399-8049-456a-988b-168ac3638baa.jpg",
+      1,
+      0.21427
+    ],
+    [
+      "data/images/field/pothole/pune__a010dfce-88da-494a-ab8d-23fa56f983b3.jpg",
+      1,
+      0.81599
+    ],
+    [
+      "data/images/field/pothole/pune__a0c4d5e0-8023-4e11-867b-7a514d941df8.jpg",
+      1,
+      0.33411
+    ],
+    [
+      "data/images/field/pothole/pune__a0ec6047-3aba-4134-952a-154f574bcb1c.jpg",
+      1,
+      0.98279
+    ],
+    [
+      "data/images/field/pothole/pune__a12dbaba-80cd-4493-b7b5-8aaa902ddd5e.jpg",
+      1,
+      0.75969
+    ],
+    [
+      "data/images/field/pothole/pune__a14bddf3-7068-4f4d-8a98-891dc84d1e4a.jpg",
+      1,
+      0.96931
+    ],
+    [
+      "data/images/field/pothole/pune__a199c598-eae1-4f62-b9a2-d5d2e1a5a55f.jpg",
+      1,
+      0.78718
+    ],
+    [
+      "data/images/field/pothole/pune__a3d742db-1304-4d37-a612-7f638a81a163.jpg",
+      1,
+      0.93209
+    ],
+    [
+      "data/images/field/pothole/pune__a4337077-c336-45d7-9ec9-e2987584aa20.jpg",
+      1,
+      0.69692
+    ],
+    [
+      "data/images/field/pothole/pune__a576d37c-0f32-4425-a036-e9f7e1f2d758.jpg",
+      1,
+      0.89071
+    ],
+    [
+      "data/images/field/pothole/pune__a5d1113f-0619-4cdf-902f-2ca4bc874b9f.jpg",
+      1,
+      0.96814
+    ],
+    [
+      "data/images/field/pothole/pune__a6299e19-b957-40cf-86a1-7f28d0b31a9f.jpg",
+      1,
+      0.96996
+    ],
+    [
+      "data/images/field/pothole/pune__a67e17f5-4d95-4e9a-b95d-0f634e06c0f2.jpg",
+      1,
+      0.24771
+    ],
+    [
+      "data/images/field/pothole/pune__a6c61457-18f1-48a6-bca8-ead806300b70.jpg",
+      1,
+      0.3192
+    ],
+    [
+      "data/images/field/pothole/pune__a769145c-210c-4e17-b1e3-d1c335046975.jpg",
+      1,
+      0.7544
+    ],
+    [
+      "data/images/field/pothole/pune__a7f2676c-6166-4bce-9479-16e895051cf0.jpg",
+      1,
+      0.48819
+    ],
+    [
+      "data/images/field/pothole/pune__a85b3de2-0620-4d9f-8a4f-80b7327036ea.jpg",
+      1,
+      0.92722
+    ],
+    [
+      "data/images/field/pothole/pune__a8a770b1-4bf0-49b4-9857-24954558d4c0.jpg",
+      1,
+      0.94842
+    ],
+    [
+      "data/images/field/pothole/pune__a9491cbe-fbc0-4c26-b416-483981aa9c14.jpg",
+      1,
+      0.3372
+    ],
+    [
+      "data/images/field/pothole/pune__a9511042-6d03-4e25-8a08-2a98c79ed989.jpg",
+      1,
+      0.43297
+    ],
+    [
+      "data/images/field/pothole/pune__a9d3338d-708c-417e-a966-2f6b82096f5b.jpg",
+      1,
+      0.85275
+    ],
+    [
+      "data/images/field/pothole/pune__aa886e66-eab8-44fb-b701-a454137c3dce.jpg",
+      1,
+      0.9332
+    ],
+    [
+      "data/images/field/pothole/pune__ab51ce84-701b-4b3d-9c19-d9305c276bf6.jpg",
+      1,
+      0.9697
+    ],
+    [
+      "data/images/field/pothole/pune__abbee42e-3f68-497a-8792-b9b29a67afbd.jpg",
+      1,
+      0.74616
+    ],
+    [
+      "data/images/field/pothole/pune__abe63b6a-eda7-4f96-9106-8e5d86af7e7c.jpg",
+      1,
+      0.98346
+    ],
+    [
+      "data/images/field/pothole/pune__ac539206-6583-4d25-a4b7-c285f796ac00.jpg",
+      1,
+      0.71272
+    ],
+    [
+      "data/images/field/pothole/pune__ac628747-cd17-453c-9da1-d5ab633fc16f.jpg",
+      1,
+      0.67618
+    ],
+    [
+      "data/images/field/pothole/pune__ae35f761-ecc2-47bc-b7b6-af46f264cc92.jpg",
+      1,
+      0.82517
+    ],
+    [
+      "data/images/field/pothole/pune__ae5fce7e-b2bd-42a9-80cf-7b9296c75909.jpg",
+      1,
+      0.9206
+    ],
+    [
+      "data/images/field/pothole/pune__af026625-a8bc-4d6b-9388-8c51fefdb9f4.jpg",
+      1,
+      0.50948
+    ],
+    [
+      "data/images/field/pothole/pune__af0e5ff6-0d37-46be-874a-3652b82d2a63.jpg",
+      1,
+      0.9524
+    ],
+    [
+      "data/images/field/pothole/pune__af16dca9-f493-4828-b502-10afbcd557db.jpg",
+      1,
+      0.98709
+    ],
+    [
+      "data/images/field/pothole/pune__af648026-50ee-4312-861e-42f990b4be39.jpg",
+      1,
+      0.96753
+    ],
+    [
+      "data/images/field/pothole/pune__af6f2b1f-398e-43e1-9a20-03d957939be3.jpg",
+      1,
+      0.88427
+    ],
+    [
+      "data/images/field/pothole/pune__af94665a-8225-4cff-a880-da8aa76693b7.jpg",
+      1,
+      0.87317
+    ],
+    [
+      "data/images/field/pothole/pune__b00c0217-bf4c-4627-91cf-3d04c20a4a88.jpg",
+      1,
+      0.74968
+    ],
+    [
+      "data/images/field/pothole/pune__b113b091-3fbb-43ec-bcb2-d26f85a4497f.jpg",
+      1,
+      0.69019
+    ],
+    [
+      "data/images/field/pothole/pune__b1f970bc-e65a-4be7-93df-afc08f6d3761.jpg",
+      1,
+      0.95676
+    ],
+    [
+      "data/images/field/pothole/pune__b2165bf9-8b9a-4974-bfe6-4f4a48d17332.jpg",
+      1,
+      0.21269
+    ],
+    [
+      "data/images/field/pothole/pune__b23f992e-5af0-415b-8c24-6376d1a83716.jpg",
+      1,
+      0.91335
+    ],
+    [
+      "data/images/field/pothole/pune__b369a99e-3783-4931-a16d-b1b0fdbf69e4.jpg",
+      1,
+      0.70149
+    ],
+    [
+      "data/images/field/pothole/pune__b4c21db3-0ce6-4917-9497-9efddad0eec4.jpg",
+      1,
+      0.64443
+    ],
+    [
+      "data/images/field/pothole/pune__b58f05b6-734f-4e47-9222-beecf1964636.jpg",
+      1,
+      0.28495
+    ],
+    [
+      "data/images/field/pothole/pune__b5d0336a-acf2-47e6-8a67-50c26a003c3f.jpg",
+      1,
+      0.79289
+    ],
+    [
+      "data/images/field/pothole/pune__b5e47335-075b-4492-b89b-7b1b37621274.jpg",
+      1,
+      0.41819
+    ],
+    [
+      "data/images/field/pothole/pune__b6471b14-5e78-45f0-b7f4-391d95790189.jpg",
+      1,
+      0.60545
+    ],
+    [
+      "data/images/field/pothole/pune__b6e49d5f-15c9-4b85-9d0e-19aeb418eed7.jpg",
+      1,
+      0.87549
+    ],
+    [
+      "data/images/field/pothole/pune__b8125090-2164-4946-b8b6-86c359f1100c.jpg",
+      1,
+      0.79974
+    ],
+    [
+      "data/images/field/pothole/pune__b8a0daca-3470-4a04-a13d-abb12ccad2df.jpg",
+      1,
+      0.99222
+    ],
+    [
+      "data/images/field/pothole/pune__b93cf22e-04fc-408f-b377-999eb5695b16.jpg",
+      1,
+      0.42276
+    ],
+    [
+      "data/images/field/pothole/pune__b9fd556a-2072-40b6-80e9-f71e8aa8719d.jpg",
+      1,
+      0.78542
+    ],
+    [
+      "data/images/field/pothole/pune__bb26c78f-9432-44e2-8c19-d43c171471e3.jpg",
+      1,
+      0.96645
+    ],
+    [
+      "data/images/field/pothole/pune__bbb1dbb2-44ff-4807-a3b4-182611be4286.jpg",
+      1,
+      0.66106
+    ],
+    [
+      "data/images/field/pothole/pune__bbddb2aa-60d1-4108-9237-bd0bc7334052.jpg",
+      1,
+      0.82061
+    ],
+    [
+      "data/images/field/pothole/pune__bc284fda-34ab-4e55-9dcb-d81294e61430.jpg",
+      1,
+      0.52056
+    ],
+    [
+      "data/images/field/pothole/pune__bccb3316-b498-41fa-8bbb-ebc2d7592d70.jpg",
+      1,
+      0.90579
+    ],
+    [
+      "data/images/field/pothole/pune__bd74fa06-8e72-43c6-acd5-51d1e24fcbf0.jpg",
+      1,
+      0.7168
+    ],
+    [
+      "data/images/field/pothole/pune__bda901a1-cea4-41b2-8e6d-53f98d657572.jpg",
+      1,
+      0.98253
+    ],
+    [
+      "data/images/field/pothole/pune__beb78d4c-fe17-4b06-9a5e-2cb5fbcf4411.jpg",
+      1,
+      0.98859
+    ],
+    [
+      "data/images/field/pothole/pune__bf3554a2-2ace-498f-8eda-05447c4fc829.jpg",
+      1,
+      0.65324
+    ],
+    [
+      "data/images/field/pothole/pune__bf532d84-d80b-410e-967d-4fd02e172743.jpg",
+      1,
+      0.18345
+    ],
+    [
+      "data/images/field/pothole/pune__bf6774a6-7db4-43f3-9a24-b8964be5fe3b.jpg",
+      1,
+      0.9804
+    ],
+    [
+      "data/images/field/pothole/pune__bf7ada89-21ea-4474-ae69-10f4ad605e29.jpg",
+      1,
+      0.8801
+    ],
+    [
+      "data/images/field/pothole/pune__bfe4c416-732c-43b1-9fec-5f088e5727b5.jpg",
+      1,
+      0.65962
+    ],
+    [
+      "data/images/field/pothole/pune__c0c6a9f9-bbad-4996-805a-0a22430c637f.jpg",
+      1,
+      0.35306
+    ],
+    [
+      "data/images/field/pothole/pune__c22e2115-0672-4b0b-adee-64fde1420b0b.jpg",
+      1,
+      0.80087
+    ],
+    [
+      "data/images/field/pothole/pune__c2355b57-786e-4c9f-a03e-341ffb87d271.jpg",
+      1,
+      0.16867
+    ],
+    [
+      "data/images/field/pothole/pune__c25103d1-d0fb-4751-b96b-6e11c329b286.jpg",
+      1,
+      0.79693
+    ],
+    [
+      "data/images/field/pothole/pune__c25fb738-cd39-42f0-8c0a-40eb8404f155.jpg",
+      1,
+      0.19793
+    ],
+    [
+      "data/images/field/pothole/pune__c3477444-9c46-48f9-90a2-99d2bdfab42b.jpg",
+      1,
+      0.09566
+    ],
+    [
+      "data/images/field/pothole/pune__c3eab654-8276-4a32-ba37-f3c58ea7ca0e.jpg",
+      1,
+      0.05243
+    ],
+    [
+      "data/images/field/pothole/pune__c3f573e5-b571-4012-aed8-ce44fd93882b.jpg",
+      1,
+      0.48994
+    ],
+    [
+      "data/images/field/pothole/pune__c4048f87-c559-4c5c-b660-fbd8642f3697.jpg",
+      1,
+      0.80053
+    ],
+    [
+      "data/images/field/pothole/pune__c43175e7-fe2c-4fb5-aee1-013a9b830d42.jpg",
+      1,
+      0.74674
+    ],
+    [
+      "data/images/field/pothole/pune__c4d6c001-b0f4-4af8-b2ad-d1693bf73f84.jpg",
+      1,
+      0.84964
+    ],
+    [
+      "data/images/field/pothole/pune__c7785d32-532d-4354-953f-e9de61a5aad6.jpg",
+      1,
+      0.99169
+    ],
+    [
+      "data/images/field/pothole/pune__c859afd0-aec1-476b-b023-7fb392fc1d84.jpg",
+      1,
+      0.26801
+    ],
+    [
+      "data/images/field/pothole/pune__c8a12236-d9a6-4db8-bd27-3cc7576cf586.jpg",
+      1,
+      0.68903
+    ],
+    [
+      "data/images/field/pothole/pune__c8aa2a2f-4960-4036-a870-ae1070a17f0f.jpg",
+      1,
+      0.95521
+    ],
+    [
+      "data/images/field/pothole/pune__cc64a6ff-73cf-4945-a7ed-f0911a13dff5.jpg",
+      1,
+      0.93568
+    ],
+    [
+      "data/images/field/pothole/pune__cdb30e65-3bff-4bc7-821c-7a810f138331.jpg",
+      1,
+      0.81924
+    ],
+    [
+      "data/images/field/pothole/pune__cee5e3f9-3b2b-4cc1-9237-fbebfea2a73e.jpg",
+      1,
+      0.77183
+    ],
+    [
+      "data/images/field/pothole/pune__cefcb928-5523-4d03-96cd-ae39723bc12b.jpg",
+      1,
+      0.61473
+    ],
+    [
+      "data/images/field/pothole/pune__cfc824f1-384c-4e7f-88db-afdb880d27da.jpg",
+      1,
+      0.92846
+    ],
+    [
+      "data/images/field/pothole/pune__d0bd67f0-6d5e-4f50-8ad2-2465742ef781.jpg",
+      1,
+      0.5864
+    ],
+    [
+      "data/images/field/pothole/pune__d14f60b2-d9a3-4fbc-b628-043ad7827b02.jpg",
+      1,
+      0.47746
+    ],
+    [
+      "data/images/field/pothole/pune__d3014c94-8076-4fd5-9219-d08f3d057126.jpg",
+      1,
+      0.32641
+    ],
+    [
+      "data/images/field/pothole/pune__d3b7d293-d7e2-4534-acb6-5907bebd3c8a.jpg",
+      1,
+      0.94672
+    ],
+    [
+      "data/images/field/pothole/pune__d3e3d674-2551-4294-b8d0-726133e43869.jpg",
+      1,
+      0.91911
+    ],
+    [
+      "data/images/field/pothole/pune__d42e6e13-bdb9-4d5c-a1cd-3cee7934cde2.jpg",
+      1,
+      0.82746
+    ],
+    [
+      "data/images/field/pothole/pune__d451231f-45e0-40a1-8eea-eacd096d6fbd.jpg",
+      1,
+      0.77558
+    ],
+    [
+      "data/images/field/pothole/pune__d4f1ab8b-4fab-4448-8ccd-1970dbb3906b.jpg",
+      1,
+      0.98373
+    ],
+    [
+      "data/images/field/pothole/pune__d6017e60-0d54-458d-8323-a88c79511840.jpg",
+      1,
+      0.79597
+    ],
+    [
+      "data/images/field/pothole/pune__d6ed9ab8-b706-4340-8dae-88b10832b1d6.jpg",
+      1,
+      0.55252
+    ],
+    [
+      "data/images/field/pothole/pune__d7d427c8-7338-456e-b4f9-6eece1700d6d.jpg",
+      1,
+      0.57498
+    ],
+    [
+      "data/images/field/pothole/pune__d8490521-b774-4aec-ae0e-7c77fc7b7d4a.jpg",
+      1,
+      0.6432
+    ],
+    [
+      "data/images/field/pothole/pune__d857cf04-439c-411d-a217-0256ab16504e.jpg",
+      1,
+      0.47023
+    ],
+    [
+      "data/images/field/pothole/pune__d91756fa-3359-48dc-8909-82b9895d0435.jpg",
+      1,
+      0.41234
+    ],
+    [
+      "data/images/field/pothole/pune__d9f9d6f5-8703-4dd0-989c-aab13c2c541e.jpg",
+      1,
+      0.63516
+    ],
+    [
+      "data/images/field/pothole/pune__da089230-9c9f-44ee-8328-01f71a89fbc0.jpg",
+      1,
+      0.86033
+    ],
+    [
+      "data/images/field/pothole/pune__da2ecb93-1535-4008-aeb1-c3938e826493.jpg",
+      1,
+      0.92355
+    ],
+    [
+      "data/images/field/pothole/pune__daa827c5-859e-4d00-9c89-0aaf8320fe6e.jpg",
+      1,
+      0.59387
+    ],
+    [
+      "data/images/field/pothole/pune__dd1383e4-91bd-41e3-bb9b-57550d2699a8.jpg",
+      1,
+      0.89283
+    ],
+    [
+      "data/images/field/pothole/pune__dd8ad175-89ab-401a-b709-80b3c2b9a2c9.jpg",
+      1,
+      0.137
+    ],
+    [
+      "data/images/field/pothole/pune__ddd3cc73-0f49-4375-8446-c656bb45010d.jpg",
+      1,
+      0.59884
+    ],
+    [
+      "data/images/field/pothole/pune__dddbf60c-d613-4235-815b-144b716b1e66.jpg",
+      1,
+      0.73111
+    ],
+    [
+      "data/images/field/pothole/pune__ded0bc29-54a3-4e11-be41-e4b0951f00f3.jpg",
+      1,
+      0.9277
+    ],
+    [
+      "data/images/field/pothole/pune__dedd0b98-966c-442c-b3e6-be0108c10061.jpg",
+      1,
+      0.95287
+    ],
+    [
+      "data/images/field/pothole/pune__df05bd65-a3d9-43e9-8451-baa4f12a5f0e.jpg",
+      1,
+      0.85623
+    ],
+    [
+      "data/images/field/pothole/pune__df3afa78-dd72-43a8-81bb-a91524894aee.jpg",
+      1,
+      0.80364
+    ],
+    [
+      "data/images/field/pothole/pune__df61707e-12f2-4ced-8a31-f633d74a2f79.jpg",
+      1,
+      0.51957
+    ],
+    [
+      "data/images/field/pothole/pune__e00dc4c5-30f7-4f68-8bba-af711fcd19bc.jpg",
+      1,
+      0.6252
+    ],
+    [
+      "data/images/field/pothole/pune__e0249654-1239-4fff-872a-c7fc123ffada.jpg",
+      1,
+      0.86438
+    ],
+    [
+      "data/images/field/pothole/pune__e0ff22d9-3e14-4cd6-8695-cb8bac9443ba.jpg",
+      1,
+      0.64016
+    ],
+    [
+      "data/images/field/pothole/pune__e1cab0e8-1045-4345-a09e-d1d941f56b10.jpg",
+      1,
+      0.30317
+    ],
+    [
+      "data/images/field/pothole/pune__e27d99ee-95b1-40a1-a8dd-9a4643360869.jpg",
+      1,
+      0.81477
+    ],
+    [
+      "data/images/field/pothole/pune__e27e235c-a23b-4b16-bae9-e924da9da213.jpg",
+      1,
+      0.67547
+    ],
+    [
+      "data/images/field/pothole/pune__e2b1204a-b95f-4e0f-9116-5fffe11cbafd.jpg",
+      1,
+      0.96477
+    ],
+    [
+      "data/images/field/pothole/pune__e34711f2-70cc-4ff0-9db7-c142ddc01600.jpg",
+      1,
+      0.70263
+    ],
+    [
+      "data/images/field/pothole/pune__e44ee596-7d7e-4a06-876d-645d209bbe02.jpg",
+      1,
+      0.23702
+    ],
+    [
+      "data/images/field/pothole/pune__e4dc0dab-7e99-4e57-a284-230f7d45e7de.jpg",
+      1,
+      0.95849
+    ],
+    [
+      "data/images/field/pothole/pune__e4eb3633-f424-47e5-a52f-2a2ef791456c.jpg",
+      1,
+      0.97902
+    ],
+    [
+      "data/images/field/pothole/pune__e50e2549-d8bf-462b-855e-86a627fb475a.jpg",
+      1,
+      0.9486
+    ],
+    [
+      "data/images/field/pothole/pune__e533779f-f3df-435f-b761-e3b8c4d115b5.jpg",
+      1,
+      0.73157
+    ],
+    [
+      "data/images/field/pothole/pune__e54c3314-b2d7-478d-acbb-c6e02ece1b04.jpg",
+      1,
+      0.33943
+    ],
+    [
+      "data/images/field/pothole/pune__e661e0ee-d2b2-42be-9734-69e6e0b16a92.jpg",
+      1,
+      0.13326
+    ],
+    [
+      "data/images/field/pothole/pune__e7291aff-2a0a-4663-bbc2-742bc54a35ea.jpg",
+      1,
+      0.92441
+    ],
+    [
+      "data/images/field/pothole/pune__e741d570-3055-4683-8dd4-dd85b47b00f7.jpg",
+      1,
+      0.41118
+    ],
+    [
+      "data/images/field/pothole/pune__e7a59be5-ab7f-45ab-98a1-eba2c1652e9f.jpg",
+      1,
+      0.95987
+    ],
+    [
+      "data/images/field/pothole/pune__e7ed96c4-de67-4be8-850e-e00c5f5636ab.jpg",
+      1,
+      0.4044
+    ],
+    [
+      "data/images/field/pothole/pune__e8e1dd06-c1b9-463f-a17a-2fd769590fbe.jpg",
+      1,
+      0.78384
+    ],
+    [
+      "data/images/field/pothole/pune__e9c5d6fe-3330-4b83-abac-41f148084997.jpg",
+      1,
+      0.92626
+    ],
+    [
+      "data/images/field/pothole/pune__ea608a21-3e64-4aed-8fe9-43f7fea88c57.jpg",
+      1,
+      0.97655
+    ],
+    [
+      "data/images/field/pothole/pune__eae978a2-54d1-4e89-85a7-a669da85d0ab.jpg",
+      1,
+      0.82122
+    ],
+    [
+      "data/images/field/pothole/pune__eaf09c59-64e2-47ee-9af7-6bc058290318.jpg",
+      1,
+      0.77391
+    ],
+    [
+      "data/images/field/pothole/pune__ebff0ec9-6f24-4587-996a-acfd29228932.jpg",
+      1,
+      0.25952
+    ],
+    [
+      "data/images/field/pothole/pune__ec17612a-39b1-47db-96f8-0a45443c6df8.jpg",
+      1,
+      0.73496
+    ],
+    [
+      "data/images/field/pothole/pune__ecb399f6-75fb-454a-9070-a09803e26977.jpg",
+      1,
+      0.09872
+    ],
+    [
+      "data/images/field/pothole/pune__ecb8951b-02fb-46dd-8aa5-6c089abb653a.jpg",
+      1,
+      0.76031
+    ],
+    [
+      "data/images/field/pothole/pune__ecc04732-ee79-4b79-8dd3-0d9fe2aa2981.jpg",
+      1,
+      0.16371
+    ],
+    [
+      "data/images/field/pothole/pune__f07d3608-b2c8-42d1-8fba-c6f14d36f1e0.jpg",
+      1,
+      0.9034
+    ],
+    [
+      "data/images/field/pothole/pune__f16a6722-adba-4061-b19a-5c3812a7e776.jpg",
+      1,
+      0.88194
+    ],
+    [
+      "data/images/field/pothole/pune__f29a72a7-779e-444f-9188-7878f0fdf4ba.jpg",
+      1,
+      0.74002
+    ],
+    [
+      "data/images/field/pothole/pune__f2e7b2f6-2bd6-4a6f-8588-ca9950b387e3.jpg",
+      1,
+      0.89642
+    ],
+    [
+      "data/images/field/pothole/pune__f2f22649-4906-4245-9d4d-20e6b8832693.jpg",
+      1,
+      0.88441
+    ],
+    [
+      "data/images/field/pothole/pune__f30dd0d6-26d8-4dc0-ad63-0daa583b8bef.jpg",
+      1,
+      0.8298
+    ],
+    [
+      "data/images/field/pothole/pune__f356b14a-8ef9-4d58-a999-95af63a10561.jpg",
+      1,
+      0.74577
+    ],
+    [
+      "data/images/field/pothole/pune__f4b9e0ae-3a59-43b9-949d-919f6f5990c4.jpg",
+      1,
+      0.53054
+    ],
+    [
+      "data/images/field/pothole/pune__f4f67f59-36d5-4faa-b527-9278cc9bc122.jpg",
+      1,
+      0.94521
+    ],
+    [
+      "data/images/field/pothole/pune__f5563f68-868a-4456-b071-24a20dcd17a7.jpg",
+      1,
+      0.79226
+    ],
+    [
+      "data/images/field/pothole/pune__f922402b-3952-419d-a5ef-6a55475bce03.jpg",
+      1,
+      0.56368
+    ],
+    [
+      "data/images/field/pothole/pune__f9962371-1b4e-4cd8-aade-bb6721d0058a.jpg",
+      1,
+      0.73372
+    ],
+    [
+      "data/images/field/pothole/pune__f9d958e0-29d4-4980-9ab3-dca91663499a.jpg",
+      1,
+      0.82252
+    ],
+    [
+      "data/images/field/pothole/pune__fb3663a5-b117-4b52-9f8b-229bc6e06356.jpg",
+      1,
+      0.86704
+    ],
+    [
+      "data/images/field/pothole/pune__fbff1c5b-3546-4424-a49b-48fe595c44f3.jpg",
+      1,
+      0.93266
+    ],
+    [
+      "data/images/field/pothole/pune__fd4daae6-ed59-4f33-a277-e4caf82840c8.jpg",
+      1,
+      0.65777
+    ],
+    [
+      "data/images/field/pothole/pune__fd8cb7d4-ef68-4644-b907-8a07c01770d5.jpg",
+      1,
+      0.97534
+    ],
+    [
+      "data/images/field/pothole/pune__fe346497-4ac9-4b47-a7e4-c8e7c6e1fbe9.jpg",
+      1,
+      0.32652
+    ],
+    [
+      "data/images/field/pothole/pune__fec32916-2c46-4ae5-a110-7b8b47f46fff.jpg",
+      1,
+      0.39253
+    ]
+  ]
+}

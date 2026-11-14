@@ -129,6 +129,18 @@ with zipfile.ZipFile(zip_path) as z:
     z.extractall(out, members)
 print("ok", out.relative_to(ROOT), f"Japan ({len(members)} files)")
 
+# BharatPotHole (Kaggle, CC BY-SA 4.0): Indian dashcam frames with pothole boxes. Kaggle needs a login, so
+# download it yourself from https://www.kaggle.com/datasets/surbhisaswatimohanty/bharatpothole (version 2)
+# and save the zip as data/raw/bharatpothole_zip/archive.zip.
+zip_path = ROOT / "data/raw/bharatpothole_zip/archive.zip"
+if zip_path.exists():
+    with zipfile.ZipFile(zip_path) as z:
+        members = [m for m in z.namelist() if ".." not in m and not m.startswith("/")]
+        z.extractall(ROOT / "data/raw/bharatpothole", members)
+    print("ok data/raw/bharatpothole", f"({len(members)} files)")
+else:
+    print(f"missing {zip_path.relative_to(ROOT)}: download BharatPotHole from Kaggle (see the comment above)")
+
 # QR4Change (CC BY 4.0): pothole photos. Only the phone photos taken in Pune are used, and only for
 # testing (see scripts/prepare_data.py). The pothole/no folder is mixed-source and not used.
 mendeley("zndzygc3p3", ROOT / "data/raw/qr4change_pune", ["pothole/yes"], by_id=True)

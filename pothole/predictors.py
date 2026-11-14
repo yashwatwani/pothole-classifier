@@ -5,7 +5,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 # Default model: trained with Indian and Japanese vehicle-camera photos (RDD2022), 384 px input.
-DEFAULT_MODEL, DEFAULT_SIZE = "v3-mnv3-384", 384
+DEFAULT_MODEL, DEFAULT_SIZE = "v4-mnv3-384", 384
 MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 
@@ -140,6 +140,7 @@ LOADERS = {
     "v2-224": lambda: load_ours("v2-mnv3-224", 224),
     "v2-384": lambda: load_ours("v2-mnv3-384", 384),
     "v3-384": lambda: load_ours("v3-mnv3-384", 384),  # + RDD2022 Japan
+    "v4-384": lambda: load_ours("v4-mnv3-384", 384),  # + BharatPotHole
     "v1-effnet": lambda: load_ours("efficientnet_b0", 256),
     "detector": load_detector,
     "siglip-zeroshot": load_siglip,

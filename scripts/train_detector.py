@@ -2,8 +2,9 @@
 
   python scripts/train_detector.py --epochs 14
 Faster R-CNN with a MobileNetV3-Large FPN backbone (torchvision, BSD licence, COCO-pretrained).
-Uses the same India and Japan train/val/test photos as data/manifest.csv (after de-duplication) at
-720 px, with RDD2022's D40 pothole boxes. Photos without potholes are kept as negatives.
+Uses the same train/val/test photos as data/manifest.csv (after de-duplication) at 720 px, with
+RDD2022's D40 pothole boxes. Photos without potholes are kept as negatives. BharatPotHole is left out: its
+potholes are mostly smaller than this detector's smallest anchor box (32 px), and training on it didn't help.
 Saves models/det-frcnn-mnv3.pth (best validation box AP) and a training log. To ship it, save a
 half-precision copy as models/det-frcnn-mnv3.fp16.pth (what pothole/detector.py loads).
 """
@@ -25,23 +26,34 @@ RAW = ROOT / "data/raw"
 SIZE = 720
 
 
-def box_rows(split, sources=("rdd_india", "rdd_japan")):
-    """(image path, label path) for the RDD2022 photos the manifest keeps in this split."""
+def box_rows(split, sources=("rdd_india", "rdd_japan", "bharat")):
+    """(image path, label path) for the box-labelled photos the manifest keeps in this split."""
     with open(ROOT / "data/manifest.csv") as f:
         rows = [(r["source"], Path(r["path"]).stem.split("__", 1)[1]) for r in csv.DictReader(f)
                 if r["source"] in sources and r["split"] == split]
+    bharat = {p.stem: p for p in (RAW / "bharatpothole").glob("*/*/*/images/*.jpg")} if "bharat" in sources else {}
     out = []
     for source, stem in rows:
         if source == "rdd_india":  # YOLO labels, original split
             out.append((RAW / "rdd2022_india" / split / "images" / f"{stem}.jpg", RAW / "rdd2022_india" / split / "labels" / f"{stem}.txt"))
+        elif source == "bharat":  # YOLO labels, re-split by video
+            img = bharat[stem]
+            out.append((img, img.parent.parent / "labels" / f"{stem}.txt"))
         else:  # Pascal VOC labels, all in the released train folder
             base = RAW / "rdd2022_world/Japan/train"
             out.append((base / "images" / f"{stem}.jpg", base / "annotations/xmls" / f"{stem}.xml"))
     return out
 
 
+def load_photo(img_path):
+    """RGB photo; BharatPotHole frames are un-stretched from 640x640 back to 16:9 (as in prepare_data.py)."""
+    img = Image.open(img_path).convert("RGB")
+    return img.resize((round(img.height * 16 / 9), img.height)) if "bharatpothole" in img_path.parts else img
+
+
 def pothole_boxes(label_path, w, h):
-    """D40 (pothole) boxes in pixels, from a YOLO .txt (class 3) or a Pascal VOC .xml label."""
+    """Pothole boxes in pixels, from a YOLO .txt (RDD2022 India: class 3, D40; BharatPotHole: class 0,
+    some drawn as outlines) or a Pascal VOC .xml label (RDD2022 Japan: D40)."""
     boxes = []
     if label_path.suffix == ".xml":
         for o in ET.parse(label_path).getroot().iter("object"):
@@ -49,17 +61,23 @@ def pothole_boxes(label_path, w, h):
                 b = o.find("bndbox")
                 boxes.append([float(b.findtext(k)) for k in ("xmin", "ymin", "xmax", "ymax")])
     else:
+        pothole = "0" if "bharatpothole" in label_path.parts else "3"
         for line in label_path.read_text().splitlines():
             parts = line.split()
-            if parts[:1] == ["3"]:
+            if parts[:1] != [pothole]:
+                continue
+            if len(parts) == 5:
                 cx, cy, bw, bh = (float(x) for x in parts[1:5])
                 boxes.append([(cx - bw / 2) * w, (cy - bh / 2) * h, (cx + bw / 2) * w, (cy + bh / 2) * h])
+            else:  # outline: x1 y1 x2 y2 ... -> enclosing box
+                xs, ys = [float(x) for x in parts[1::2]], [float(y) for y in parts[2::2]]
+                boxes.append([min(xs) * w, min(ys) * h, max(xs) * w, max(ys) * h])
     return torch.tensor(boxes, dtype=torch.float32).reshape(-1, 4)
 
 
 class Potholes(torch.utils.data.Dataset):
     def __init__(self, split, train=False):
-        self.rows, self.train = box_rows(split), train
+        self.rows, self.train = box_rows(split, ("rdd_india", "rdd_japan")), train
         self.jitter = ColorJitter(0.3, 0.3, 0.3, 0.05)
 
     def __len__(self):
@@ -67,7 +85,7 @@ class Potholes(torch.utils.data.Dataset):
 
     def __getitem__(self, i):
         img_path, label_path = self.rows[i]
-        img = Image.open(img_path).convert("RGB")
+        img = load_photo(img_path)
         w, h = img.size
         boxes = pothole_boxes(label_path, w, h)
         if self.train:

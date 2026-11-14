@@ -1,25 +1,39 @@
 {
   "name": "detector",
-  "notes": "Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India boxes; photo score = top box",
+  "notes": "Ours: Faster R-CNN MobileNetV3 detector, trained on RDD2022 India and Japan boxes; photo score = top box",
   "device": "cpu",
   "machine": "arm64 macOS-27.0.1",
   "split": "val",
   "threshold": 0.5,
   "overall": {
-    "n": 3470,
-    "accuracy": 0.8389048991354466,
+    "n": 4102,
+    "accuracy": 0.8325207215992199,
     "precision": 0.8144329896907216,
-    "recall": 0.3194070080862534,
-    "f1": 0.45885769603097776,
-    "auc": 0.7479596635865656,
+    "recall": 0.27241379310344827,
+    "f1": 0.4082687338501292,
+    "auc": 0.7030103064185729,
     "confusion": {
       "tp": 237,
       "fp": 54,
-      "tn": 2674,
-      "fn": 505
+      "tn": 3178,
+      "fn": 633
     }
   },
   "by_source": {
+    "bharat": {
+      "n": 632,
+      "accuracy": 0.7974683544303798,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc": 0.4771360367063492,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 504,
+        "fn": 128
+      }
+    },
     "kerala": {
       "n": 89,
       "accuracy": 0.3595505617977528,
@@ -107,24 +121,24 @@
       }
     },
     "vehicle": {
-      "n": 3216,
-      "accuracy": 0.8694029850746269,
+      "n": 3848,
+      "accuracy": 0.8575883575883576,
       "precision": 0.784,
-      "recall": 0.3487544483985765,
-      "f1": 0.48275862068965514,
-      "auc": 0.7337092068106423,
+      "recall": 0.28405797101449276,
+      "f1": 0.41702127659574467,
+      "auc": 0.6764054483208047,
       "confusion": {
         "tp": 196,
         "fp": 54,
-        "tn": 2600,
-        "fn": 366
+        "tn": 3104,
+        "fn": 494
       }
     }
   },
   "latency_ms": {
-    "p50": 197.2903750720434,
-    "p95": 893.389374949038,
-    "mean": 309.7845903167002
+    "p50": 82.55454152822495,
+    "p95": 112.09287494421005,
+    "mean": 84.97771937742367
   },
   "mistakes": [
     {
@@ -2921,6 +2935,646 @@
       "path": "data/images/val/pothole/rdd_japan__Japan_005628.jpg",
       "label": "pothole",
       "p_pothole": 0.3692
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250501091722_0060_frame_00006_jpg.rf.909e4a9d0678146543b75eb64ea893e9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250501091722_0060_frame_00007_jpg.rf.afaa2bc3f3d3b7a59c33d03a06892c7f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00029_jpg.rf.8385458e6d7f3e493b3be233c484da34.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00030_jpg.rf.484de2a3f9749e86262f8f233f4436d2.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00031_jpg.rf.1806cdbe61898ef0a22740239cb5dd3e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00032_jpg.rf.d0fbd0fdf3c4014b27abed6c2fa492ea.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00071_jpg.rf.91fb661d28293f2f0956de62a0d337b6.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00072_jpg.rf.34f894a52cf03ca1a7a2a17c4e008631.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182323_0060_frame_00073_jpg.rf.f3415e2a96bf0309a574f406ed72ffd4.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182923_0060_frame_00013_jpg.rf.b7280216d1ac0061d24f51f2e908e948.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182923_0060_frame_00028_jpg.rf.e3e036e3e6b1be4bf85dda5fbc0ec860.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250506182923_0060_frame_00040_jpg.rf.85b036593ee4d1a3013fdd1ad7dd07de.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250507074526_0060_frame_00034_jpg.rf.b375fb3e23bd49756c84f35006fd7820.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250518150106_0060_frame_00057_jpg.rf.3c6c7bc0f71315c54e4d0dbc4bab7c5b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00001_jpg.rf.92574483cf52e8f607acbed3cbebbedf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00019_jpg.rf.454deb0bf7b6a9a26e56c71bfb06a033.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00020_jpg.rf.07f08d60cca4642d0de238d173eefe48.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00021_jpg.rf.71fc26044a26566e978891fbc982c473.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00022_jpg.rf.74386e0e8d3991c9cd9b4392ce8dd916.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00023_jpg.rf.75580547eb789b1e408b782bccf8e150.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00024_jpg.rf.056e53b4d54eab553e1fafa8bb972550.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00037_jpg.rf.03ba4818b405dd86bce333cecb58aefd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00042_jpg.rf.1e6e1304d408841523a4d583457bbc4d.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0166
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00052_jpg.rf.1efa2f691e9683a0b276034f6c2625c0.jpg",
+      "label": "pothole",
+      "p_pothole": 0.3573
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00053_jpg.rf.79fb28260933c9f2d73670718d1acf52.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00054_jpg.rf.7a7a6fb30edc1222d6dde6573ed7ad72.jpg",
+      "label": "pothole",
+      "p_pothole": 0.042
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00068_jpg.rf.6dd4cbfffa0c9ce83bb95b305824ca29.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00069_jpg.rf.310f79babc1c01d6ac781d9ac428d9a5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00070_jpg.rf.ca36a7cebd68a60bbeb2c9b3bc8e4a36.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00079_jpg.rf.6cd65848be49e822c0d04d1d6863dbe5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250524115152_0060_frame_00090_jpg.rf.25613ff598d50a7b974c9c78464d7041.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00029_jpg.rf.4d323696191f5d68bccb3baf7a389130.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00035_jpg.rf.54a89ade1be280b65fb7783f29169e51.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00041_jpg.rf.b17f40b01e058fe1c794d325923e891a.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00047_jpg.rf.23bcbc530e508b373087db4fa6a43e20.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00048_jpg.rf.892d6ded9e01ffa4571e995e145642c9.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00049_jpg.rf.581418c3c59f4b0cbbdb0d17740742e8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00054_jpg.rf.1fc8d4bf6efe6760dc67f78b43b28586.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00055_jpg.rf.5b42af54b5837197a089dbec279b52cc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00076_jpg.rf.005ed12dcc131690b0da6aeaa0bf4ff5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250525124300_0060_frame_00082_jpg.rf.0648ae43543d4ce0fcec9f6302eb1760.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00003_jpg.rf.13433c8f7ce3afd8eab34eae9b327ad7.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00004_jpg.rf.443520cd24715d52f532dc01d8c849bc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00006_jpg.rf.641371b1337a745bd99271356eaaa13d.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00007_jpg.rf.666580adc3adb1e22c7a805944c3f994.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00008_jpg.rf.4dbb7572af3d3565d0691f271e9cc09f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00009_jpg.rf.87d17a2454a9329eac06ceeab003aa46.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00024_jpg.rf.1ac05f40c54205f080e3bd3ddbea4fdc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00033_jpg.rf.436f18d0e93fbc576331f2e373bee48f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00034_jpg.rf.edb393b7eee24a170a8816717f77708d.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00035_jpg.rf.0e16389c0037b6b9e6595767f731076d.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00036_jpg.rf.cdd4e94454c1e44c0ea69c923d5d50c2.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00037_jpg.rf.3f3f37b179ac14403b3f09c8c3afbe08.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00038_jpg.rf.2b0053eaaafcbcbfa797387acb151eba.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00039_jpg.rf.2eb82051fa6319fa567e71440c425fb8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00040_jpg.rf.6309fdfb33a166cad05650fde37be330.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00041_jpg.rf.1f4c11a3b315d33a55b12243ce6f3976.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00042_jpg.rf.19d651cc7ac3efb6663a8d0e4205743b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00044_jpg.rf.43fabbccaf63713b0faaa33e42d5fcfc.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00045_jpg.rf.16c74704b3e9739f3e03d61ffd4d2d34.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00046_jpg.rf.66aa80aebb9472cc01d056c9b5c0988f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00049_jpg.rf.5bf03bb06c9c66fd275153a01635dc88.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00050_jpg.rf.03bd9065814012bc0840737bc3f81493.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00051_jpg.rf.37991e674c9931f31a616b2982124f4e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00053_jpg.rf.1c89b8e15ddf17c16e7f154a526adf27.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00066_jpg.rf.5dc872be9217c9382cd5b08b5355a57c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00067_jpg.rf.87fe4cbc248c1bc0fb443c60515abb9e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00080_jpg.rf.05891c34380181a31690b9a5c73b93aa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00081_jpg.rf.114530e865d96368cf513e2f62a4ace8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00082_jpg.rf.a82ad81d1c4775762c204ab88005e813.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00089_jpg.rf.9871c176db02dfc601e9be5fcc83551e.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00090_jpg.rf.128cae581c1b4c9b4760e82c7087dfac.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528093819_0060_frame_00095_jpg.rf.e66a15e8e236f16c394668d870efee23.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00000_jpg.rf.1a5456ceb7c21317724b66a2af660adf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00001_jpg.rf.6235c7cea81cf1560425481a62bc5373.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00002_jpg.rf.342124b2b5abd0e3b1a06cc2e9292f11.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00003_jpg.rf.1758f4850a3961ab26fad87cc06a5a1c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00004_jpg.rf.25d2bd7c609e8c72ec0f7ba2a979598c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00005_jpg.rf.23a6285275e236a4fa2c59d2d3d3f0b8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00006_jpg.rf.06af2209f7946809c88acbab2256a99b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00007_jpg.rf.3ef33e990bd7a4cbc0b6ab53b28cec99.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00008_jpg.rf.582304d11702e17a3d37ded7101d6c81.jpg",
+      "label": "pothole",
+      "p_pothole": 0.05
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00009_jpg.rf.dd29af8c3e8e8d69b6fa956419f0edd8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0639
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00010_jpg.rf.08d7df12e34ede1d72554cb4b7426f85.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00011_jpg.rf.1998233bfcd816f82499ed66810f389a.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00012_jpg.rf.2e82e419f20a2054cf6ce7cb6eac8b32.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00013_jpg.rf.2e1165e4ef67d8544db1dfec3f0738a6.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00014_jpg.rf.73527950a106be493107a43907e05bfa.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00015_jpg.rf.69c65efea99c5be376343a7c1b4bd802.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00016_jpg.rf.dc2c054d6760684db989a2206e8b9eec.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00017_jpg.rf.19559107df6461240d7dc85fb917d6ca.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0181
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00018_jpg.rf.07f5e9d9cffcd33aa37f5e16553a82dd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00019_jpg.rf.154931259215193c84358d77292b311f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00020_jpg.rf.5815ecbd7365b088b4445f35e1c1026c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00025_jpg.rf.3f2e3cbfec9e514476afac2310c18a96.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00026_jpg.rf.7762de165476fd9b351ad1c0fccd603b.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00027_jpg.rf.709d22a9a54efdf4e8b519d12ce1af30.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00028_jpg.rf.7a2fd25d8a52672458c566c230acc276.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00032_jpg.rf.496cc7450a5ba39d11a488ca35b32088.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00040_jpg.rf.0674b73b4e9d7d75da2b0e769925d0bf.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00041_jpg.rf.654a9cd441569d467e44f631e433d1bd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00042_jpg.rf.37b3fadb6f01573897b4aabcc396e480.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250528110923_0060_frame_00043_jpg.rf.370ae4c88689d09e2fa31b88f632ee96.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00042_jpg.rf.2678d26e479bcc8596d41b0fbcdb2a64.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00062_jpg.rf.799c8b19d3d99bcac6504a19e0219d35.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00063_jpg.rf.2f2c82da2e9c83105acf651d3e754cc2.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00064_jpg.rf.28de482f73a7f53f72cea2d971eb341f.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00066_jpg.rf.61a45e1b5909bcb1e19954b017889422.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00068_jpg.rf.2653b9c2efccd7222e87112e0b4ba893.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00069_jpg.rf.0a7d923ba0278c5a75abe51e6b4b7775.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00070_jpg.rf.12009f3fa9f6ad9751e794c68ef91ce8.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00071_jpg.rf.147f4c65f2fc2cb2976571a6d4948cd6.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00073_jpg.rf.3138318afa11a3c1426257cc346ba0fd.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00075_jpg.rf.3a55ce4e3c7990aa5a3462c61d4373c3.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00076_jpg.rf.045fbc78c27a07f1d901ce2eff62cbb1.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00077_jpg.rf.523c2878a6692397f96ac7a4f5690175.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00078_jpg.rf.6b1ca9199558f924aa7b265c4da2c6ad.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00079_jpg.rf.5b3fca3542684c32d52672f13e992f9a.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00083_jpg.rf.46c9252d790d773a0f8f48fc769a0950.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__20250530153209_0060_frame_00099_jpg.rf.588135d33e9b57327c6e96188a15f8f5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00011_jpg.rf.3c229772b0be2fbe0e9fb0bc07149196.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00012_jpg.rf.18c4d2ec6343cb0162e0d8560df2a964.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00018_jpg.rf.1d6e2808f6e91b0dbb12aa0568a85bf5.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00022_jpg.rf.ae1c6f9cf5944f71edbd3a6c5dace759.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00030_jpg.rf.9a32f651fcf61e4d98725f71957a2a75.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0273
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00033_jpg.rf.10ba7c2eb89d21de65091bc5c8649a6a.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00046_jpg.rf.dbe13d98750fc7413deb02f75fff30af.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
+    },
+    {
+      "path": "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00051_jpg.rf.09ebc9d00bb370ea4efe28461900965c.jpg",
+      "label": "pothole",
+      "p_pothole": 0.0
     }
   ],
   "scores": [
@@ -20271,6 +20925,3166 @@
     ],
     [
       "data/images/val/normal/rdd_japan__Japan_005629.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091722_0060_frame_00004_jpg.rf.596c7532426c1c63d666f77338b543bd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091722_0060_frame_00005_jpg.rf.bedabc0c992346527f8beb737c0a8108.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250501091722_0060_frame_00006_jpg.rf.909e4a9d0678146543b75eb64ea893e9.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250501091722_0060_frame_00007_jpg.rf.afaa2bc3f3d3b7a59c33d03a06892c7f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091722_0060_frame_00008_jpg.rf.dc9fc47678e59e85c4bd9ade52da8458.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091722_0060_frame_00009_jpg.rf.54d2bd023f2b27246edbe5662bddfe99.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091722_0060_frame_00010_jpg.rf.1a0a3c53f70db008afca45edf1c21f9c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00002_jpg.rf.2229211559da26a77c92f8eb2f64c247.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00004_jpg.rf.a1695faa5b84915a76ff054b0441ca16.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00005_jpg.rf.c0d1df4fbcbb88817ed81c64d0d179ba.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00006_jpg.rf.4089dbddbedbf04fd5418d4b01960ce0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00009_jpg.rf.88031eb01ebf7d47cee947e3bf820098.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00020_jpg.rf.b19556befe98c90eabf007d9a711ae72.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00021_jpg.rf.5b0c19144874e900e7127b3da0cd04c4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00022_jpg.rf.a0ba8ae251793495666502ff85c77523.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00027_jpg.rf.8f134cbb3a71ba042ad362df9e222f20.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00028_jpg.rf.77919846bfac5e5d2fc08461a12b3005.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00029_jpg.rf.9cd192b9fc42247b5b8b37effca61e40.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00030_jpg.rf.669f612761ffb3ffacd25bd1c1194fdf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00031_jpg.rf.54531576a5d6859229a20b4a02b3edda.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00032_jpg.rf.b89db8b32cbe48ac95cb21e41f68b713.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00033_jpg.rf.deb5ebc14f1b19162189d479e8cb98c7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00034_jpg.rf.862407a04a695759d4c8114bee72e306.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00035_jpg.rf.6a65cf59735f5b36b0799642ea42938b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00036_jpg.rf.6adf77484c4e2b75204034a847d93689.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00037_jpg.rf.0620ad9245f61dce6709bbbd9a2388f9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00038_jpg.rf.c4259449116f0ab0d54777aef27af23f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00039_jpg.rf.b47e8e20e7b68318a8b40770c71f8f63.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00040_jpg.rf.1abcc8ff2712d8f906ef07c5b3cfbfaa.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00042_jpg.rf.dd02de4a1e32d33271cf33401fd6b8c9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00043_jpg.rf.a21f49adbf90b45e3baa9a467a8333cf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00044_jpg.rf.3cb9965d64e152c50e3f2304c6ac1da0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00045_jpg.rf.ca6577e35d323e5d43842c84d605b616.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00046_jpg.rf.ff3402b3977cadccc79e2af665909214.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00047_jpg.rf.f7b05b2526954d22963c1d4d7c013eac.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00048_jpg.rf.64709e2eadc597e6b9e41ec0f556631d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00049_jpg.rf.67aa2c68560a3a09525e386942fdf18b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00050_jpg.rf.01a31992eeef5c32d4b39a351be2ad2b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00051_jpg.rf.287ae5121435bbf97184fc918cf0216e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00052_jpg.rf.29d1a6ab35a65b7a45cbf0202e2d2a40.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00053_jpg.rf.458422f252bdd2cc411ae19e223e11db.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00054_jpg.rf.282168645031347add0a05bdeda7b99e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00055_jpg.rf.a6920755812b8e42c24f77145e251ffb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00056_jpg.rf.ee615347107afd80445d291821623af9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00057_jpg.rf.b3c3e2e2e8f5a40a5615a71312030a49.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00058_jpg.rf.a77e0b6e44bbe6ee3d0cefaf47db0dbf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00059_jpg.rf.b13694ac1c21356e2bf975bd1dda7a03.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00064_jpg.rf.eed54ae511eed0c22cf1c40735d93b31.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00065_jpg.rf.2c2ecec677ad0162c822ea2380379bd5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00066_jpg.rf.3ad790fe82b498eca37af58ffdbd3fec.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00067_jpg.rf.42972c735a2186ad550aec806837fc1b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00068_jpg.rf.6a4dd86488dac7c4f46c648faa285d9d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00069_jpg.rf.1a3bc6080f809f564e04b57407b98b81.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00070_jpg.rf.4b05c993a310013aa848c81e2ada96f6.jpg",
+      0,
+      0.01246
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00071_jpg.rf.114287108163ed0765e2c98c5c07185d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00072_jpg.rf.717f4314852a6dbb5917aa77f7a706db.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00073_jpg.rf.9cb72304f428d577f96145e8027be13e.jpg",
+      0,
+      0.06673
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00074_jpg.rf.f78e6660d1c8cf1c0e86ddda9c046c1f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00075_jpg.rf.bdff6809221447d6b3e6b5b1bcc7900b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00076_jpg.rf.35a4a4fa3ec63e225e59e0e3908d3f1f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00077_jpg.rf.4bd01f309dcec2453e379d248a15a255.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501091922_0060_frame_00078_jpg.rf.0b4c510028cded457e1fe0e3a05cb713.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501141617_0060_frame_00011_jpg.rf.2e5af3dd04174730e27087f02c510218.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501141617_0060_frame_00066_jpg.rf.dee795c7b302e5450a15c1b01151148d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501143317_0060_frame_00096_jpg.rf.c7c7cc369c0a78b8432f858287c9686f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250501143317_0060_frame_00097_jpg.rf.38d97c50352fec6793fba8f69c57ad2d.jpg",
+      0,
+      0.01088
+    ],
+    [
+      "data/images/val/normal/bharat__20250503144127_0060_frame_00006_jpg.rf.228c8d7028c34e6ad87ac59c11566589.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250503144127_0060_frame_00028_jpg.rf.65f0201ca683841b9bdc43ac027db8fd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250503144127_0060_frame_00085_jpg.rf.215919978ec19a1f5d1fb6f52fa99039.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506110851_0060_frame_00035_jpg.rf.522d004c4d122af8a7d6b4568d94a714.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506112751_0060_frame_00013_jpg.rf.a0696a903ee002b0d634aa2898ee1cff.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00019_jpg.rf.97490780fb574a357dd52d9da7a587cd.jpg",
+      0,
+      0.01593
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00069_jpg.rf.f88e9e4c487b22601af20bffa35db541.jpg",
+      0,
+      0.01021
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00084_jpg.rf.17d313a4ef0287710d9d05abae94aac8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00086_jpg.rf.75e856bc5f3363b1523fa0f1cec103d3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00096_jpg.rf.52e5d983865c8582daeff0673c2ab6f9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175123_0060_frame_00099_jpg.rf.81d3b041a582519a1426c6e7a6ca5ce4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175523_0060_frame_00001_jpg.rf.894efa02834684a5a85f0e586e55a92a.jpg",
+      0,
+      0.01486
+    ],
+    [
+      "data/images/val/normal/bharat__20250506175523_0060_frame_00099_jpg.rf.2fec75480d065f2db5b374dd299c9304.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00000_jpg.rf.99c641ce9a18e83b2a8e700592ac52ba.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00001_jpg.rf.42087fb40eb4353494646e89280e315f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00002_jpg.rf.2ed632a8c9f9c98f6481be3e0e8a7949.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00003_jpg.rf.10318def3235263c7b28a5eb1a9f7f84.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00004_jpg.rf.f37eaee7e211aa770763cf385d6e7aa4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00005_jpg.rf.9355cf404834325bfcae09cb7d07122c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00006_jpg.rf.ea8e928154d8343e0ce14648ddce82d1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00007_jpg.rf.9a45d3fd0bf3c5d95b749afc3a003f95.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00008_jpg.rf.d4b681f57f8bbb6eb9a7491b96fb4b39.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00009_jpg.rf.404b552be463487100fac6585f384db9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00010_jpg.rf.20338e84695b4fcab08eb74cc429c719.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00011_jpg.rf.9e563bbea6ac22a8e5aa46193a2124d3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00012_jpg.rf.8336dc92b1ebff737d09a8f5ed34d731.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00013_jpg.rf.33fb124e8aa1f6747602a4ee7f3741b6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00014_jpg.rf.cbba75fc54c7a2c01240b0f1c7432582.jpg",
+      0,
+      0.01378
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00015_jpg.rf.7710a4ed50ee77acc9603615fe9e0055.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00016_jpg.rf.70f3785f10b3aecabb15fc27cc8ec70b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00017_jpg.rf.e963e1159d423303571c9385011ac79e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00018_jpg.rf.1c970761efc56d1bf281c28b20c0cf94.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00019_jpg.rf.8dd48f7f5e1ab0be65b7af3a129e4cb2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00020_jpg.rf.f3850bf31a75f98f28037364394d83e4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00021_jpg.rf.8f708be08908269cfc4fec7340d320d1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00022_jpg.rf.fdca5405a3c63545ecbf7fe6d7d1b763.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00023_jpg.rf.cda90e724bf382640ca7fc50f76268ec.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00024_jpg.rf.ba068de6834cef9657b9f9f0c550a6cd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00025_jpg.rf.3415ca4b95859e417b47e6b58e48a432.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00026_jpg.rf.fcfd7cf90c01f4ba4993e906caeb19f1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00027_jpg.rf.8f359daf6c46bf25d7ffe4c6304b9795.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00028_jpg.rf.451117fe21ad41eae0eaeb3c4a4493f6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00029_jpg.rf.8385458e6d7f3e493b3be233c484da34.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00030_jpg.rf.484de2a3f9749e86262f8f233f4436d2.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00031_jpg.rf.1806cdbe61898ef0a22740239cb5dd3e.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00032_jpg.rf.d0fbd0fdf3c4014b27abed6c2fa492ea.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00033_jpg.rf.141c30830500d57c9b7ef3e3d51c9bc5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00034_jpg.rf.e8e72d62607287cd54353669cfdf0644.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00035_jpg.rf.87d992b9374ac3cd99488ce7867fd45c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00036_jpg.rf.027c4631710d3127b2aaa45bab9ea9d3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00037_jpg.rf.b66b23eb446da561a2e164878dacf3f5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00038_jpg.rf.cb8d80888f221aa06ba00f57bdab2c3b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00039_jpg.rf.583c11961204d4f350efdbb47d21bb84.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00040_jpg.rf.8b883e838490c2486e90e4d258ef57b7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00042_jpg.rf.c9ef412031d81145585c8bc4754b1965.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00043_jpg.rf.e897a67615d5b1a58daf03f7e89c2906.jpg",
+      0,
+      0.01569
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00044_jpg.rf.eaf00804e81fd70632b8cc1ccc4ca641.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00045_jpg.rf.44c76f74f4951bb98f59207166588c31.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00046_jpg.rf.f68db5ffddee9b41c666db8ffe4b40c7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00047_jpg.rf.afb61320c7302e48911c74d820d5f771.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00048_jpg.rf.c583804199a61cd3072b5d4f52b245e5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00049_jpg.rf.59d1891f0cc05ed95baf6e42a5d1212d.jpg",
+      0,
+      0.01442
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00050_jpg.rf.d413e2dcd432ca3c405179e2c3fd5cf8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00051_jpg.rf.6bb5335bab2957d957ab4151f3a6b6a4.jpg",
+      0,
+      0.02806
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00052_jpg.rf.0aecb49be6002e5d0e4324faa28c7d0a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00053_jpg.rf.c854bbd34c13acd5e3322805fcaf95a7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00054_jpg.rf.b30c67395d446d6e6cd38e22100940fd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00055_jpg.rf.6ac4e6bf281463dbf5903084c2a4ef25.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00056_jpg.rf.d9c9932abbd6f1b141f6816418531411.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00057_jpg.rf.c30e0b182729813d42e724e868306649.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00058_jpg.rf.f63a7f6f033dc3c3df5b0093a595032b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00059_jpg.rf.e93e647c1d9b82cb8e5863334494c4fe.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00060_jpg.rf.f9f1cbfb1ce4b510123953bee3a8118f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00061_jpg.rf.ef6f4028ad95817684c076108a6fd4ea.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00062_jpg.rf.26f457fa8f6b5d782b4f96dacc283588.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00063_jpg.rf.638764452b02799184d0412590927064.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00064_jpg.rf.bdd8c463c36224c48241814fe218065c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00065_jpg.rf.0ba32fcdd0179a82ecad012a59571cf0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00066_jpg.rf.17a83c86f971b1847cf3c49f5b2eaf0c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00067_jpg.rf.ea0fbf43a7dc7054a6a8011df416ce9e.jpg",
+      0,
+      0.02104
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00068_jpg.rf.d2a216d85840cf2cbb7486f9fc42ae4b.jpg",
+      0,
+      0.02236
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00069_jpg.rf.b09088d68b643703d717e5d378bed13d.jpg",
+      0,
+      0.02918
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00070_jpg.rf.affbac4f1c547e2dc293f966fce11225.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00071_jpg.rf.91fb661d28293f2f0956de62a0d337b6.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00072_jpg.rf.34f894a52cf03ca1a7a2a17c4e008631.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182323_0060_frame_00073_jpg.rf.f3415e2a96bf0309a574f406ed72ffd4.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00074_jpg.rf.128c0e74c8cf9093b9b5c8d94dce76bf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00075_jpg.rf.93ef933ffbd3ed5122de66340953cd28.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00076_jpg.rf.d488587b9fbca818229389fbd00fae2c.jpg",
+      0,
+      0.02483
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00077_jpg.rf.3d3a0cedf4b2b35d5e15f3cc117e2db3.jpg",
+      0,
+      0.0182
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00078_jpg.rf.1af056562db7075e245e7c918eac46f3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00079_jpg.rf.f84dacb35f32a423931b8cb4afc8f192.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00080_jpg.rf.ccabd5ea254015a7dcb0336c3804452f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00081_jpg.rf.a51f31419af45d71da1f5b362e9f008a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00082_jpg.rf.b28753f7113f1b218371317692996b0f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00083_jpg.rf.4175e33666d8321cddfe118122aa85fb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00084_jpg.rf.694779962c27e262f757facfa3ddd681.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00085_jpg.rf.524f7397982de212b7341f50f56e44e0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00086_jpg.rf.b23038e50be071dc1d08b052e306bdca.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00087_jpg.rf.4555135cc9b11dc3cd34bbf6142e2dd4.jpg",
+      0,
+      0.0116
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00088_jpg.rf.a125febc51e156c33161036b708f0313.jpg",
+      0,
+      0.01349
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00089_jpg.rf.7ca4b79520259bed7510973303226546.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00090_jpg.rf.1290f4ebfd11d9f76f850acac263af17.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00091_jpg.rf.8941d68d6713700994fdee217168b09e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00092_jpg.rf.35842209d47ccdaf09ab7ae0be15751d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00093_jpg.rf.c70d00dd7473dd8d0bfc719b2bf14d2d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00094_jpg.rf.fa4c5593429792e9783d6551c97f1715.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00095_jpg.rf.da18ef4bebb0d0a33129b2d8c1179c5d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00096_jpg.rf.f0ab646fc70e29741bfb5c58afb061a5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00097_jpg.rf.538d616f5063ab1f5a9f1642e6a3687c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00098_jpg.rf.3db90a33b6ab087918b1e495dd2a198b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182323_0060_frame_00099_jpg.rf.d4aa99bf9393f13153e4edf1bc6317b4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00000_jpg.rf.08a00f6ce3afb09ac3ae8ad731433eca.jpg",
+      0,
+      0.01572
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00001_jpg.rf.32dac2feb99bf5e887f4bde0e07c44b1.jpg",
+      0,
+      0.01656
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00002_jpg.rf.a12eefeeb27dc6bccd3f4a3ba3bc8407.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00007_jpg.rf.1295947c78f712e5437472870dc5b252.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00008_jpg.rf.8d0bece2ef824e090bad345a20be1b18.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00011_jpg.rf.62f780e5a5677bf1d7fc93f38b223595.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00012_jpg.rf.0fcf4d97fc5ca003ff6ae74b61767660.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182923_0060_frame_00013_jpg.rf.b7280216d1ac0061d24f51f2e908e948.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00014_jpg.rf.117d70943c59a3e8174c1b0abf1e3587.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00016_jpg.rf.7977a74b998fd75d49fdbe9ec9e16925.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00017_jpg.rf.5b8acfa5540bb3fc6a655654608e52ce.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00018_jpg.rf.357b1340c58c37ed955e97faa1b8bad6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00019_jpg.rf.910a0c6170005a6873fe7e822f266ef4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00020_jpg.rf.e9b2a3f510b055007cd64d16c270961a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00021_jpg.rf.be139acc0002e1b5de60e37345134a59.jpg",
+      0,
+      0.01237
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00022_jpg.rf.cb2351bbcaab515076984a98bf92fff2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00023_jpg.rf.48e1b9b448ae052d337be9e02ffabcf0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00024_jpg.rf.f0b965f9d02db6098f1400ec9add8671.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00025_jpg.rf.11d20d614ab56fa6fcd14c48bbcd8901.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00026_jpg.rf.b0e8f7275c0dd7bdd78a36dd37f4bce4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00027_jpg.rf.4d9c0c3a835ec01088373a7209eaf92d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182923_0060_frame_00028_jpg.rf.e3e036e3e6b1be4bf85dda5fbc0ec860.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00029_jpg.rf.dff16aef6869b1d9d10988417098db08.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00030_jpg.rf.b8da89c6765d59f4ef65107dff18fc88.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00031_jpg.rf.5ff9e73b1ce2d0c50bab34a1fd3d1d87.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00032_jpg.rf.cf92e18ca74a6e0a3221fdd3205d9143.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00033_jpg.rf.74f1df53190168bdeb7bdbe85a3c07a6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00034_jpg.rf.8579b0ec09d448b0498446700e30b289.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00035_jpg.rf.37995b52abbb88bab0d059d91d043cb8.jpg",
+      0,
+      0.01367
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00036_jpg.rf.75ec0ed68fd4f4bcc2719231396987be.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00037_jpg.rf.bc2f2e3a91dd15860875d8a231f70f8f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00038_jpg.rf.d1019852822a64cb12c57afea7e86582.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00039_jpg.rf.b610686ca6f531db9a90d7e4aa4a919d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250506182923_0060_frame_00040_jpg.rf.85b036593ee4d1a3013fdd1ad7dd07de.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00041_jpg.rf.22ff0b1dae5b612cb5a42e5ab1f2858a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00042_jpg.rf.9ae50027a8cb9e8d6894de7afe97d194.jpg",
+      0,
+      0.0137
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00043_jpg.rf.b26b4d0fac524e139fd76778e59785b2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00044_jpg.rf.cbb215fbe2d31a68ebdd5d224504b642.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00045_jpg.rf.621de6bd5b00a773612043303dc6335a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00046_jpg.rf.51cd1514a6c6b171f1a5223b375a4013.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00047_jpg.rf.0421442595f957324d14f85656e89654.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00048_jpg.rf.0d1ecfdff501080b122134ffe8c77574.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00049_jpg.rf.cf40da4076db06779d5dccb10816e409.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00050_jpg.rf.d92edf6e531772d0a2cba31831d377d5.jpg",
+      0,
+      0.01198
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00051_jpg.rf.9e1d8c8d69e985fb9fcb0f3eac4dcc6d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00052_jpg.rf.7f1bb3709c44e4a12de1a0f611a62de3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00053_jpg.rf.89da0db0d6e2cbdee1785112d5d5b831.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00054_jpg.rf.989597e7d372b7a03cae84a155f2ff5c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00055_jpg.rf.594ad736157c96cf2e9f7b04a677b8f9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00056_jpg.rf.2b75adcd497b96bf668d2a90da20883c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00057_jpg.rf.c9388cceaf08df86daba72eefd44f1fb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00058_jpg.rf.ebd8fb5d23fbd44b79c1cf86a5aade91.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00059_jpg.rf.46edc57f8c489d915643e4bf74420c12.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00060_jpg.rf.6dd8b954906e68a2c4c97678f803c5bf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00061_jpg.rf.0c0160f021716ec28eb997bd0031ab2e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00062_jpg.rf.f3d14d22ec1dadb6484e5745c7f456d3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00063_jpg.rf.452e023ca39c0377de91a9a217119f5f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00064_jpg.rf.b5fc97aa9356f4c67b0051fe837fac42.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00065_jpg.rf.285ae812371f592682b0bf9edf5e1f05.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00066_jpg.rf.80f980ab2ee15b3da1409a5e5f8e395a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00067_jpg.rf.c14f98aee1d43a27777de497ad0e26b3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00068_jpg.rf.1d8aa50ff54e0abab908516005afdb64.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00069_jpg.rf.a3dcc7f05b43b0263b348b030e6ab7f3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00070_jpg.rf.967e9356a0996e0fd7bb3bbed1821d99.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00071_jpg.rf.491b90ce438c81711312f93a817542ec.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00072_jpg.rf.d1b2e8a96f9b480414bdc994c7072bd4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00073_jpg.rf.819076eff0bf4c8930f87545a520fab0.jpg",
+      0,
+      0.0208
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00074_jpg.rf.76f0c40968d75d1d413222d1ab264eee.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00075_jpg.rf.2b5051d4f4f2cfc3eb42552f1dc5cdd0.jpg",
+      0,
+      0.01094
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00076_jpg.rf.9f24303caa1aeb84a1a4af76822cbd7c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00077_jpg.rf.302375fcdc585b8fe90d78255147c14f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00078_jpg.rf.2ab873c7d63ce48967500842d0008b4f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00079_jpg.rf.017e5568479f442dd99a95fa25f8a1e2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00080_jpg.rf.6b4671263c3dc0f77d826b651c94580c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00081_jpg.rf.4c833dbf96d6a988361e8b5c7950e236.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00082_jpg.rf.a8ed11a812a172089e37c1cdf77ef774.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00083_jpg.rf.0240cd12cb7b28496348db0ac485410c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00084_jpg.rf.e2dcadaf16ed6e1ed1c866c74721e8dd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00085_jpg.rf.d94df667974167716c7903625b40ed7e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00086_jpg.rf.df8dbb583cc31a5aa0e2cc421a1f624a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00087_jpg.rf.2fd2fcf57e7ab00672117a94fac5104f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00088_jpg.rf.873f81934e440b62f7fd7a2543389873.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00089_jpg.rf.11a6153279f6099ebd966a2e963d8311.jpg",
+      0,
+      0.03359
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00090_jpg.rf.93fc1d9ccb00591b9deb327cc82947cf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00091_jpg.rf.6c9c3e7516dc5028c8eb68d01e2e114c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00092_jpg.rf.cbf81818d56dadde1cda816f748e0710.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00093_jpg.rf.80488605aea5a589cd6279758b123659.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00094_jpg.rf.691a7ea5a6aaf9afe64176105c39d122.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00095_jpg.rf.0d1fef00e6b1af6a62641e671c910197.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00096_jpg.rf.6c27f52ce4f85b70c88b689da72c467c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00098_jpg.rf.458b50883ba16b1a3adf3ff37dbe1bb6.jpg",
+      0,
+      0.01087
+    ],
+    [
+      "data/images/val/normal/bharat__20250506182923_0060_frame_00099_jpg.rf.a2943bb091b3bb1df36e957a8991e7da.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00000_jpg.rf.a0bb91fb7c0216142a5725759a7ca596.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00001_jpg.rf.586f066ebd8dd3bba245a916d45b468f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00002_jpg.rf.8dc9e09ae956a720482629e558ec5e53.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00003_jpg.rf.52fb067e002384385b8da690be2574aa.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00005_jpg.rf.64153dc24183dc5a48dc1405353593bf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00006_jpg.rf.f65ef901f0b242196c3bc18006eb410c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00008_jpg.rf.5b12a70812ee96995b159efc3f3e435d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00010_jpg.rf.b3961eca5e99e156e53b01b1eb3f218f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00011_jpg.rf.b78f55079edec10f4c86e78d2b691e50.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00012_jpg.rf.08e4a3cf1aa8c13daf348f77cfa9532d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00013_jpg.rf.65b4830c4456e67c0e3280209f2baffc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00014_jpg.rf.45596f1d8073894d2d3597d201318f52.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00015_jpg.rf.524624eedc1bc03e6751bfafd6082e3b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00016_jpg.rf.51aafb4fdf36b882a2e1bd6a2bfca1d8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00017_jpg.rf.66c4880a321b66f84dd53478eed05082.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00018_jpg.rf.a1e0d335931c1ca5d0f7f549546739e6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00029_jpg.rf.8a672ab80cc08e0789d80f2f5a86c74f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00030_jpg.rf.dfe1f3ac8d518b753fd7527e629081a5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00031_jpg.rf.58b38ab9ab64a4ce95fd53176ba19245.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00032_jpg.rf.a4422b9fc46154e05d85daecd5a499bc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00033_jpg.rf.1141caec373e5b372f5ecf8f73069621.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250507074526_0060_frame_00034_jpg.rf.b375fb3e23bd49756c84f35006fd7820.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00035_jpg.rf.ea400e6cc0f2dc6ca9a941f20c49ebbc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00036_jpg.rf.280be6b16fce317ffd571f743f4592f7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00037_jpg.rf.6b2fb8f59a112f3719e56be7b6bdb564.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00038_jpg.rf.46efdc77939b9d555907f2a04dceb809.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00039_jpg.rf.6ef82e35e35778a193d432a779accd9d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00040_jpg.rf.5977c9a66270c55324987ef8cde94687.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00041_jpg.rf.9ad22a71446cad1af0089cbf823b208c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00042_jpg.rf.31d3406d1a9e712349d026fe75bffe1c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00043_jpg.rf.37a69dccf99eb40d92dcfd349a5f7423.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00044_jpg.rf.3e2abd801dff6d35d6d469f3cb9cc76a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00045_jpg.rf.c6773f9d9e7dec609bd79e116d65ee38.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00046_jpg.rf.61a9f997aa2e1daac7d01b75e1e419e2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00047_jpg.rf.bf6ce81a24c560fdcbf9d07a3a740715.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00048_jpg.rf.0a5081b58b5434bdbd74edf49e4343a0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00049_jpg.rf.c0b00babc2033e5c6c2408dd16bf9e5b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00050_jpg.rf.6fadf05f436589e0d622dfddf463bec4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00051_jpg.rf.f8209386551b25fdc769090af1991db8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250507074526_0060_frame_00052_jpg.rf.fb2779778885e1ab7b6a0c7dbc62aeee.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00016_jpg.rf.f0981668e8d52a0b203d8c5a734db922.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00017_jpg.rf.8032e81788c57b7977be8352173ef5c5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00018_jpg.rf.1a42c4511e416fed8cfb4a145a31842c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00019_jpg.rf.5480d6b662f83f2f8d1bdcf32afab1a1.jpg",
+      0,
+      0.07014
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00020_jpg.rf.67b0a1e2fd7a2574523d24be3d58538c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00021_jpg.rf.18e7aaf3558ad06c884ac442871fd048.jpg",
+      0,
+      0.05352
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00022_jpg.rf.734161763d281b33f13a6f3a771cfe36.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00023_jpg.rf.54c6d98a2edbc9110606a6b1100ad698.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00024_jpg.rf.70b029b8c825e33183db6bf2ec615cc7.jpg",
+      0,
+      0.01043
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00027_jpg.rf.26e9f0a136843816be528f9eff2fdd9d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00028_jpg.rf.040d03bb9ec32efa372f0bca2738d1ce.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00029_jpg.rf.23ab3a80d9ac9bf3ebb6f51b4335e458.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00030_jpg.rf.67d249454f2a38c1dc04384b2df4a3bc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00031_jpg.rf.b9db5f93f7926886686040ec71eef70e.jpg",
+      0,
+      0.03925
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00034_jpg.rf.2b481ce74309acdf6fe48b52958b6cf9.jpg",
+      0,
+      0.02433
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00035_jpg.rf.f9a225ae59aece21122081a4911c62fb.jpg",
+      0,
+      0.01577
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00036_jpg.rf.9e3c94b730d20e8dfec1de38ff9d06a7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00037_jpg.rf.7bcb93fc3804abc163ab861ac6a5e864.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00042_jpg.rf.a18fbe711333fe20b8420922e0e1eb85.jpg",
+      0,
+      0.08775
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00043_jpg.rf.f8d0b239525f0fd58f2cf37309de890d.jpg",
+      0,
+      0.01893
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00046_jpg.rf.6ac1b8e03b7a62d16b2bb30bc96025e6.jpg",
+      0,
+      0.01658
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00047_jpg.rf.cb828355f2d6723e79a8b187a0ae22a7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00052_jpg.rf.ad146bd2007616096b1180ba3f23f7fd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00054_jpg.rf.ef1f292049b57631203fb0c1f47c9f7b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250518150106_0060_frame_00057_jpg.rf.3c6c7bc0f71315c54e4d0dbc4bab7c5b.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00060_jpg.rf.2a84b4e9d58f8cca0728fe1e9c37859f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00061_jpg.rf.384ccc5a59d9f4030ac1221699827829.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00062_jpg.rf.edf45f649935e9642ef86a62487df003.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00063_jpg.rf.8942ca773e7e7ffdd16135cbb4392ec0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00066_jpg.rf.39360e830d41287410ace0999ae80c17.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00067_jpg.rf.e18e144806f97931101e4dbbbbc01552.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00068_jpg.rf.1148aea28f1a43c90fd0a711364eb893.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00072_jpg.rf.e70e4b024fb73e61e6cb62b81735a5f0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00073_jpg.rf.a9d69f1a7b8e235d95e699c255189ce7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00074_jpg.rf.63a4c972074c541fafdfd7f1dd85d862.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00075_jpg.rf.31c609f6eb58a3aa6709f2c956c4da76.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00076_jpg.rf.6fc913c1991676a24fb79d9407aaa8a8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00077_jpg.rf.048b9b66b0533dff8a5336008e039ea9.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00078_jpg.rf.7f98793b609ddbd780b889628aa5e8e7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00080_jpg.rf.95816c297d2d2d64bcf5a570a21f3659.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00081_jpg.rf.63d81f5641a321c806468d2d9cf15599.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00083_jpg.rf.955544ec08cd74f352996f4fb2254e16.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00084_jpg.rf.a5a3618b989dfcce49b46bc74f50a8d5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00085_jpg.rf.8e5a72119fe4f6e1793fe6ea50b68c4a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00087_jpg.rf.9aed671b1db2130cdeeecf8611cabdf0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00088_jpg.rf.169fe52cb435fe79b896f5da7aae3b7a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00089_jpg.rf.aebcecc7545cbb7ba93678a7d8052875.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00090_jpg.rf.99e22b8e701146ee6ed79bb55e1c51ad.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00091_jpg.rf.c832776445b66d4ffc5289bf4f2feffa.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00093_jpg.rf.27078ebfb989aa130584fe0774fb6ac8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00095_jpg.rf.77513b6db7485d734af785a291780fca.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00097_jpg.rf.f1f87b258f390e91df81c593d300e2ba.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00098_jpg.rf.ab3407888fdb026329fa899cf9e97c9d.jpg",
+      0,
+      0.01979
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150106_0060_frame_00099_jpg.rf.56430fe9a12759086721965d02a92188.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00000_jpg.rf.d6a42ad44645900586615070d8933ef6.jpg",
+      0,
+      0.05305
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00001_jpg.rf.e7ce9c013a2ee1fb76745c1c5e072b49.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00003_jpg.rf.54a8f850204a8b3aa692af520b3ab200.jpg",
+      0,
+      0.01869
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00004_jpg.rf.698a678b7076fda9b9a0f7db11f1a786.jpg",
+      0,
+      0.02946
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00005_jpg.rf.3fcbe44e614b3c25e92fbb9ed5814a5b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00006_jpg.rf.615e5497c4061f1a2dff483298928916.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00007_jpg.rf.9caf4dd1419305e358cd05db13cc4f01.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00008_jpg.rf.b53f3d57ef785a0914c57ac9c7e0c6e7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00011_jpg.rf.95489ab32505332dc52f5fb46315cfa5.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00012_jpg.rf.c5d078888ef8177fa98b0a7edbb440d3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00013_jpg.rf.8f9f58c497187d17bba9894b12513baf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00016_jpg.rf.8415cc72939dce34b9196dd083f5ea26.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00017_jpg.rf.24018db09d1fa1f3656277f8cf132762.jpg",
+      0,
+      0.01052
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00018_jpg.rf.389b773e7ec4ba8f8b1405ed4a8c6a7e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00019_jpg.rf.97751982dfc81c807a2f3f17c0ecaf31.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00020_jpg.rf.0bae678f25ab78b24976d0172e79b927.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00021_jpg.rf.df31eb7fc3ab964d29fb6bdfe09edb7b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00022_jpg.rf.64a038f57af6bad9e995782498f55b09.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00024_jpg.rf.36652318ab5e71792b8eeada303f2ddf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00026_jpg.rf.a821ffd12765230be1d8ed440687b6f7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00027_jpg.rf.e9fe96c72f81df6707af92fd996dc7de.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00028_jpg.rf.10fd04cfe1e338ee908fe06e47fed71d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00029_jpg.rf.4edd3ea0b630b27fba150d155961376c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00030_jpg.rf.4021f8c3ce9f2c5e6c94fdb8bc8b2a75.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00031_jpg.rf.e9ca4ca76238be9e7f66dcaec1617e48.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00032_jpg.rf.6f66eb1ab54ea24c377b426ba9844b5a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00033_jpg.rf.e63e7e45396163b684bb4e3db867e000.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00034_jpg.rf.8725bc97acc0d96a5c8dde1484b3996e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00035_jpg.rf.092ba596c9d2d557f841c300271be68a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00036_jpg.rf.82eec061b99e40a4ab4f3826b1795e64.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00037_jpg.rf.d8945f2e37b7e5a5d00f727c2f43de77.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00038_jpg.rf.d9bf7505e0711df3802107c2fa935354.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00039_jpg.rf.ad685e5335cbe976606b825dec3e74d8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00040_jpg.rf.57185ee537eb923d87e11989d2ccb276.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00041_jpg.rf.be80723dfaff363ca85d3e76111c5a05.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00042_jpg.rf.5b948a476529859bfb15f93dbc24ab16.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00043_jpg.rf.f98a7ba26dfdeeab5edabc7f1556fe34.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00044_jpg.rf.14777564f9a9a2f81115986a01ef09bf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00045_jpg.rf.328724ff285c485c17c5a4f5395977d1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00046_jpg.rf.783df10a4f25f11b731a2faa32b4490b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00047_jpg.rf.144bf4624c18a5d05e562148f8149e42.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00048_jpg.rf.5dba81fad48fcf4ecfd2642cca760238.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00049_jpg.rf.f3b59a495c5ffa7b0b7ee9eeab867789.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00050_jpg.rf.9fc939f057fad7952884335ce2745f4a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00051_jpg.rf.e6307cccf59aad14e9a21c5e7f30696a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00052_jpg.rf.05797bf42160fd69365d2e5655ea4bb1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00053_jpg.rf.510f644473c970fb37881df08033197e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00054_jpg.rf.111f48ba2c61b5d8265222b7d314ea07.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00055_jpg.rf.027a2641d0b7b1697e935bd962118da1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00056_jpg.rf.d713b03d7e6f30017a98a05fb3050e87.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00057_jpg.rf.a4faaf534645ba5040d43e762ac325b1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00060_jpg.rf.861a3867e55d263db495924e35fd0e15.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00061_jpg.rf.f541c828dc5ca221bda4bc5ebd1c1537.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00062_jpg.rf.7543bb6ffcbd6119712c62d4f20b0ecc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00063_jpg.rf.3188ccb2332065f20ad4909eca785628.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00065_jpg.rf.fa8c6fde5558c7cb52e1a45899cab400.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00066_jpg.rf.31fa2b6d575042d959f232310f6695dd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00067_jpg.rf.8dc07c14709cd582474ff74f6e05f2b2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00068_jpg.rf.b6676b825e27f915c65baacf2820c8bc.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00070_jpg.rf.b647a12831ed8f1ddefb1a369ba4eb2d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00071_jpg.rf.1e4a50a2e3c49b00c1a023abd6297fca.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00072_jpg.rf.1f86c8c15fe7014029a4ab7422298d50.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00073_jpg.rf.c2a3d5f665b2afda5af3da119163bcdd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00074_jpg.rf.be333c5b2afba7d5b53a5e494aa79a27.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00075_jpg.rf.dab2deeb8634dfc02c1f69fa84a47e1e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00076_jpg.rf.ddd1f9df2d3e9be92a576d853f3087c6.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00077_jpg.rf.5953ed43bf7b4f67af3842085d0522ec.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00078_jpg.rf.b444549e54274787950d58d53e87c447.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00079_jpg.rf.33f8fa20063e48612764af2742b80471.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00080_jpg.rf.977e3d23d016d8d82d7459e21ba3c5ca.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00081_jpg.rf.ecaec63a5cf33faceaa60fadb1c92665.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00082_jpg.rf.97feca2d42adebc837f0b6de3f497f13.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00083_jpg.rf.c5d5fe7f20e0db37e29a5fa8a21e2610.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00084_jpg.rf.c9f6f8d9646c49f19da469d4127561e0.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00085_jpg.rf.cfaf6f2653e4ab21a8e8ee73a0068db2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00086_jpg.rf.0e22b3d2203e5385b0bfa0d28839c7fa.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00095_jpg.rf.226b021c57cec9a4881552a28d44fc1c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00096_jpg.rf.f8c524941f60a38e371334cb0248024c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00097_jpg.rf.513d645fdf3b66ba3b58219dc3bd9dc3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250518150306_0060_frame_00099_jpg.rf.aaa842a584f41033db97e5fd47e444ed.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00000_jpg.rf.cd74bdfe1de146dddd78bf4846f87516.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00001_jpg.rf.e9d54d1e9534d126b9cdf31046b8d228.jpg",
+      0,
+      0.02089
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00002_jpg.rf.4755c16c495e8ca0f7abd09410be7232.jpg",
+      0,
+      0.01703
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00003_jpg.rf.5c8aa3d4110eba86ebcfcdf6fc904578.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00004_jpg.rf.363d998dca9678cb992d23236dd25049.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00005_jpg.rf.575c27091df0aef7bc3270ffd531a5b3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00008_jpg.rf.8201d0b560237076e81105d567c9b37e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00009_jpg.rf.331c0ff741bd84b5ba8085687eaa08ee.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00010_jpg.rf.de7fbeb3abd4e653341de7329dbfde0f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00013_jpg.rf.3c463ba0f23d967d2b204bdad06a55f8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250524113452_0060_frame_00014_jpg.rf.5c5c02fa819bf41196004c74abfa9838.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00001_jpg.rf.92574483cf52e8f607acbed3cbebbedf.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00019_jpg.rf.454deb0bf7b6a9a26e56c71bfb06a033.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00020_jpg.rf.07f08d60cca4642d0de238d173eefe48.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00021_jpg.rf.71fc26044a26566e978891fbc982c473.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00022_jpg.rf.74386e0e8d3991c9cd9b4392ce8dd916.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00023_jpg.rf.75580547eb789b1e408b782bccf8e150.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00024_jpg.rf.056e53b4d54eab553e1fafa8bb972550.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00037_jpg.rf.03ba4818b405dd86bce333cecb58aefd.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00042_jpg.rf.1e6e1304d408841523a4d583457bbc4d.jpg",
+      1,
+      0.01657
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00052_jpg.rf.1efa2f691e9683a0b276034f6c2625c0.jpg",
+      1,
+      0.35734
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00053_jpg.rf.79fb28260933c9f2d73670718d1acf52.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00054_jpg.rf.7a7a6fb30edc1222d6dde6573ed7ad72.jpg",
+      1,
+      0.04196
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00068_jpg.rf.6dd4cbfffa0c9ce83bb95b305824ca29.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00069_jpg.rf.310f79babc1c01d6ac781d9ac428d9a5.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00070_jpg.rf.ca36a7cebd68a60bbeb2c9b3bc8e4a36.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00079_jpg.rf.6cd65848be49e822c0d04d1d6863dbe5.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250524115152_0060_frame_00090_jpg.rf.25613ff598d50a7b974c9c78464d7041.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00029_jpg.rf.4d323696191f5d68bccb3baf7a389130.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00035_jpg.rf.54a89ade1be280b65fb7783f29169e51.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00041_jpg.rf.b17f40b01e058fe1c794d325923e891a.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00047_jpg.rf.23bcbc530e508b373087db4fa6a43e20.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00048_jpg.rf.892d6ded9e01ffa4571e995e145642c9.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00049_jpg.rf.581418c3c59f4b0cbbdb0d17740742e8.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00054_jpg.rf.1fc8d4bf6efe6760dc67f78b43b28586.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00055_jpg.rf.5b42af54b5837197a089dbec279b52cc.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00076_jpg.rf.005ed12dcc131690b0da6aeaa0bf4ff5.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250525124300_0060_frame_00082_jpg.rf.0648ae43543d4ce0fcec9f6302eb1760.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00003_jpg.rf.13433c8f7ce3afd8eab34eae9b327ad7.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00004_jpg.rf.443520cd24715d52f532dc01d8c849bc.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00006_jpg.rf.641371b1337a745bd99271356eaaa13d.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00007_jpg.rf.666580adc3adb1e22c7a805944c3f994.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00008_jpg.rf.4dbb7572af3d3565d0691f271e9cc09f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00009_jpg.rf.87d17a2454a9329eac06ceeab003aa46.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00024_jpg.rf.1ac05f40c54205f080e3bd3ddbea4fdc.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00033_jpg.rf.436f18d0e93fbc576331f2e373bee48f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00034_jpg.rf.edb393b7eee24a170a8816717f77708d.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00035_jpg.rf.0e16389c0037b6b9e6595767f731076d.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00036_jpg.rf.cdd4e94454c1e44c0ea69c923d5d50c2.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00037_jpg.rf.3f3f37b179ac14403b3f09c8c3afbe08.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00038_jpg.rf.2b0053eaaafcbcbfa797387acb151eba.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00039_jpg.rf.2eb82051fa6319fa567e71440c425fb8.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00040_jpg.rf.6309fdfb33a166cad05650fde37be330.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00041_jpg.rf.1f4c11a3b315d33a55b12243ce6f3976.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00042_jpg.rf.19d651cc7ac3efb6663a8d0e4205743b.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00044_jpg.rf.43fabbccaf63713b0faaa33e42d5fcfc.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00045_jpg.rf.16c74704b3e9739f3e03d61ffd4d2d34.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00046_jpg.rf.66aa80aebb9472cc01d056c9b5c0988f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00049_jpg.rf.5bf03bb06c9c66fd275153a01635dc88.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00050_jpg.rf.03bd9065814012bc0840737bc3f81493.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00051_jpg.rf.37991e674c9931f31a616b2982124f4e.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00053_jpg.rf.1c89b8e15ddf17c16e7f154a526adf27.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00066_jpg.rf.5dc872be9217c9382cd5b08b5355a57c.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00067_jpg.rf.87fe4cbc248c1bc0fb443c60515abb9e.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00080_jpg.rf.05891c34380181a31690b9a5c73b93aa.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00081_jpg.rf.114530e865d96368cf513e2f62a4ace8.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00082_jpg.rf.a82ad81d1c4775762c204ab88005e813.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00089_jpg.rf.9871c176db02dfc601e9be5fcc83551e.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00090_jpg.rf.128cae581c1b4c9b4760e82c7087dfac.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528093819_0060_frame_00095_jpg.rf.e66a15e8e236f16c394668d870efee23.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00000_jpg.rf.1a5456ceb7c21317724b66a2af660adf.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00001_jpg.rf.6235c7cea81cf1560425481a62bc5373.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00002_jpg.rf.342124b2b5abd0e3b1a06cc2e9292f11.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00003_jpg.rf.1758f4850a3961ab26fad87cc06a5a1c.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00004_jpg.rf.25d2bd7c609e8c72ec0f7ba2a979598c.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00005_jpg.rf.23a6285275e236a4fa2c59d2d3d3f0b8.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00006_jpg.rf.06af2209f7946809c88acbab2256a99b.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00007_jpg.rf.3ef33e990bd7a4cbc0b6ab53b28cec99.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00008_jpg.rf.582304d11702e17a3d37ded7101d6c81.jpg",
+      1,
+      0.04998
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00009_jpg.rf.dd29af8c3e8e8d69b6fa956419f0edd8.jpg",
+      1,
+      0.06387
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00010_jpg.rf.08d7df12e34ede1d72554cb4b7426f85.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00011_jpg.rf.1998233bfcd816f82499ed66810f389a.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00012_jpg.rf.2e82e419f20a2054cf6ce7cb6eac8b32.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00013_jpg.rf.2e1165e4ef67d8544db1dfec3f0738a6.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00014_jpg.rf.73527950a106be493107a43907e05bfa.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00015_jpg.rf.69c65efea99c5be376343a7c1b4bd802.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00016_jpg.rf.dc2c054d6760684db989a2206e8b9eec.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00017_jpg.rf.19559107df6461240d7dc85fb917d6ca.jpg",
+      1,
+      0.01814
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00018_jpg.rf.07f5e9d9cffcd33aa37f5e16553a82dd.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00019_jpg.rf.154931259215193c84358d77292b311f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00020_jpg.rf.5815ecbd7365b088b4445f35e1c1026c.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00025_jpg.rf.3f2e3cbfec9e514476afac2310c18a96.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00026_jpg.rf.7762de165476fd9b351ad1c0fccd603b.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00027_jpg.rf.709d22a9a54efdf4e8b519d12ce1af30.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00028_jpg.rf.7a2fd25d8a52672458c566c230acc276.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00032_jpg.rf.496cc7450a5ba39d11a488ca35b32088.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00040_jpg.rf.0674b73b4e9d7d75da2b0e769925d0bf.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00041_jpg.rf.654a9cd441569d467e44f631e433d1bd.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00042_jpg.rf.37b3fadb6f01573897b4aabcc396e480.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250528110923_0060_frame_00043_jpg.rf.370ae4c88689d09e2fa31b88f632ee96.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250530153209_0060_frame_00005_jpg.rf.4f9f2c9232228c96bf8c9059eebe673f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00042_jpg.rf.2678d26e479bcc8596d41b0fbcdb2a64.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00062_jpg.rf.799c8b19d3d99bcac6504a19e0219d35.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00063_jpg.rf.2f2c82da2e9c83105acf651d3e754cc2.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00064_jpg.rf.28de482f73a7f53f72cea2d971eb341f.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00066_jpg.rf.61a45e1b5909bcb1e19954b017889422.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00068_jpg.rf.2653b9c2efccd7222e87112e0b4ba893.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00069_jpg.rf.0a7d923ba0278c5a75abe51e6b4b7775.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00070_jpg.rf.12009f3fa9f6ad9751e794c68ef91ce8.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00071_jpg.rf.147f4c65f2fc2cb2976571a6d4948cd6.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00073_jpg.rf.3138318afa11a3c1426257cc346ba0fd.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00075_jpg.rf.3a55ce4e3c7990aa5a3462c61d4373c3.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00076_jpg.rf.045fbc78c27a07f1d901ce2eff62cbb1.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00077_jpg.rf.523c2878a6692397f96ac7a4f5690175.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00078_jpg.rf.6b1ca9199558f924aa7b265c4da2c6ad.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00079_jpg.rf.5b3fca3542684c32d52672f13e992f9a.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00083_jpg.rf.46c9252d790d773a0f8f48fc769a0950.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__20250530153209_0060_frame_00099_jpg.rf.588135d33e9b57327c6e96188a15f8f5.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250701090257_0060_frame_00002_jpg.rf.6fa8f13753e3b0bfa3ea54bbfdc8afba.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__20250701090257_0060_frame_00003_jpg.rf.04fbfd90339cd5df95a7d9132abe7457.jpg",
+      0,
+      0.01671
+    ],
+    [
+      "data/images/val/normal/bharat__20250701090257_0060_frame_00006_jpg.rf.6f8b4b7f9fafe5e98b4dc01fceaaf049.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00010_jpg.rf.94e99654d09965432e8f5e8f4d79c996.jpg",
+      0,
+      0.03128
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00011_jpg.rf.3c229772b0be2fbe0e9fb0bc07149196.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00012_jpg.rf.18c4d2ec6343cb0162e0d8560df2a964.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00016_jpg.rf.3e093c67ce2ace935511a2931f3884e5.jpg",
+      0,
+      0.03751
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00018_jpg.rf.1d6e2808f6e91b0dbb12aa0568a85bf5.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00020_jpg.rf.21fc1ec28db193068c8d1a427b2e6955.jpg",
+      0,
+      0.4987
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00022_jpg.rf.ae1c6f9cf5944f71edbd3a6c5dace759.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00027_jpg.rf.cfbffcb7f2ae276a5433309c96e27098.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00028_jpg.rf.3a37653c6f3103ba08145d5ad6db984b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00030_jpg.rf.9a32f651fcf61e4d98725f71957a2a75.jpg",
+      1,
+      0.02729
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00033_jpg.rf.10ba7c2eb89d21de65091bc5c8649a6a.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00035_jpg.rf.7251ea409dbbcd235c2e3afbefaacb14.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00036_jpg.rf.949bf9d838fb4d10a97264c1576cfae1.jpg",
+      0,
+      0.01742
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00037_jpg.rf.f07b06d6767e6ff4a08ef8e5bdef0298.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00038_jpg.rf.e00a4059dbf080d8cde512606bbdf179.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00039_jpg.rf.8ba1a78c63ffc823e48fdaf67bc2dcc2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00040_jpg.rf.a469b165f091051b807863450c4f0df8.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00041_jpg.rf.239c9decbcc8d8fb7313a3da12878b32.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00042_jpg.rf.0c434d9e4cd686b6acdd1d9e49864754.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00043_jpg.rf.b3ca6dba2253d14493d9a43122879e75.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00045_jpg.rf.4493a53faecabe666588f11609619fa3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00046_jpg.rf.dbe13d98750fc7413deb02f75fff30af.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00048_jpg.rf.2fbf945acc23bc356767cefa558fb30d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00049_jpg.rf.512756aa59d9da68569e17eb5aab44f7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00050_jpg.rf.ebcebdacaf1dbcebe5e8285ad0771a5a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/pothole/bharat__signal-2025-06-25-151313_frame_00051_jpg.rf.09ebc9d00bb370ea4efe28461900965c.jpg",
+      1,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00052_jpg.rf.5b211780ffad3fe12dd42f0d300e4fd4.jpg",
+      0,
+      0.02297
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00053_jpg.rf.35490df65b75129a9a7820c94f8ccbc7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00054_jpg.rf.1ba18c0ddebfe9111252949fca82d751.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00055_jpg.rf.d96efe3daeddb9e253cfd324a18ab668.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00056_jpg.rf.022255439e0b32a677b64ca61b4512cb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00057_jpg.rf.5b7a7376d1dc1d93439c8a97c824b5f7.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00058_jpg.rf.2962e4a8c5c8f1251ab79ff2b2f25edf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00059_jpg.rf.a2b54d3a8387947f3947ccf367ca6c97.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00061_jpg.rf.5eefda46f78225d7dc4904789cd73fdf.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00062_jpg.rf.326ed1a4d7d866e12fb7328aa23582e3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00063_jpg.rf.12fffa95a2072dbb7e77cd8f96d84d4a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00064_jpg.rf.23cc936220a6e047471b07cf69484ccd.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00065_jpg.rf.953a76c33b10699a384f592a9b7267e7.jpg",
+      0,
+      0.07522
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00066_jpg.rf.159e95ac6c60dddd48f9ca27672c6732.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00067_jpg.rf.bc7f040f127813a045b67d74b2dcd0b4.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00068_jpg.rf.d669ea5d0cfda997788885d4e2a31249.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00069_jpg.rf.8f491daed11673df26517a31fb6ace15.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00070_jpg.rf.b7fdc5c61f7c0c8e36eb61eef1ae57c3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00071_jpg.rf.9c9655bc97ebebe551514c38957de790.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00072_jpg.rf.4f6040f31a23908db9eb85774f0edcbb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00075_jpg.rf.c0434db5d22b4c9825520a3d22a1a04b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00076_jpg.rf.5d40f949ef2d18990442e0644badd111.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00078_jpg.rf.3752c824c4c090bffe1c25813152f0cb.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00079_jpg.rf.27c107ab9e5fc37aba4cc3a2ddd54f2c.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00081_jpg.rf.fbdb11a38792927b61e766917615cf23.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00082_jpg.rf.d5817512f8aa402692009f6e1e66b892.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00083_jpg.rf.fcbffc91f1b15803c89d269cceefaec1.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00084_jpg.rf.e21bf01fc633659369f18dd1ba727eb3.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00086_jpg.rf.ad488b26f1ba83fd72e6fd7822bda2db.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00087_jpg.rf.913078204201346fa4b05db19de8051e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00088_jpg.rf.a4366a0caba7ac588750a8abfb680981.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00089_jpg.rf.6d53144d6a3846301274ea96def66060.jpg",
+      0,
+      0.02957
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00090_jpg.rf.65e19584aa788d00337d3e8cb3065e4f.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00091_jpg.rf.e0e1a23177952dba31dbe05e28e88cd2.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00092_jpg.rf.3131704da0b5fade0dbb8c482e5d249e.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00093_jpg.rf.1dd7c611abeedc809e0cefaa1d47fa64.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00095_jpg.rf.8a757cfe35da9e5285b0744c4e66153b.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00096_jpg.rf.b1ee9e9e56f90dd9f0bbc237547fd91a.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00097_jpg.rf.3b99dac6b8bec5cd3dae4d9bcb1b567f.jpg",
+      0,
+      0.01898
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00098_jpg.rf.e749f7009bcfd3b37757ab685137b70d.jpg",
+      0,
+      0.0
+    ],
+    [
+      "data/images/val/normal/bharat__signal-2025-06-25-151313_frame_00099_jpg.rf.30e86a7f7c954bbc9a3db93324ff6919.jpg",
       0,
       0.0
     ]

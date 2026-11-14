@@ -119,7 +119,7 @@ dd.miss { color: var(--bad); }
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Held-out test set + Pune street photos · v3 model · vehicle photos also use the box detector</div>
+    <div class="eyebrow">Held-out test set + Pune street photos · v4 model · vehicle photos also use the box detector</div>
     <h1>Pothole Test Gallery</h1>
     <p class="lede" id="lede"></p>
   </header>
@@ -133,6 +133,7 @@ dd.miss { color: var(--bad); }
         <option value="cam:vehicle">All vehicle cameras</option>
         <option value="cam:handheld">All handheld phones</option>
         <option value="rdd_india">India, vehicle camera (RDD2022)</option>
+        <option value="bharat">India, dashcam (BharatPotHole)</option>
         <option value="rdd_japan">Japan, vehicle camera (RDD2022)</option>
         <option value="pune">Pune street photos, handheld (potholes only)</option>
         <option value="miia">South Africa dashcam (MIIA)</option>
@@ -164,7 +165,7 @@ dd.miss { color: var(--bad); }
 const DATA = /*DATA*/[];
 const PAGE = 48;
 const SOURCE_NAME = { miia: "South Africa dashcam", kerala: "Kerala, handheld", taroii: "taroii, handheld", rdd_india: "India, vehicle camera",
-                      rdd_japan: "Japan, vehicle camera", pune: "Pune street photo, handheld" };
+                      rdd_japan: "Japan, vehicle camera", bharat: "India, dashcam (BharatPotHole)", pune: "Pune street photo, handheld" };
 const OUTCOMES = [
   { id: "tp", k: "Potholes caught", d: "pothole, model said pothole", cls: "ok", test: i => i.truth && i.pred },
   { id: "fn", k: "Potholes missed", d: "pothole, model said no", cls: "err", test: i => i.truth && !i.pred },

@@ -2,43 +2,55 @@
   "rule": "max(classifier, detector)",
   "chosen_on": "val",
   "target_recall": 0.85,
-  "cutoff": 0.3877,
+  "cutoff": 0.3176,
   "test": {
     "india_classifier_only": {
-      "auc": 0.876,
-      "caught": 0.691,
-      "alerts_real": 0.505,
-      "false_alarms_per_100_normal": 10.0
+      "auc": 0.875,
+      "caught": 0.758,
+      "alerts_real": 0.43,
+      "false_alarms_per_100_normal": 14.8
     },
     "india_combined": {
-      "auc": 0.887,
-      "caught": 0.658,
-      "alerts_real": 0.516,
-      "false_alarms_per_100_normal": 9.1
+      "auc": 0.882,
+      "caught": 0.732,
+      "alerts_real": 0.443,
+      "false_alarms_per_100_normal": 13.5
+    },
+    "india_bharat_classifier_only": {
+      "auc": 0.776,
+      "caught": 0.811,
+      "alerts_real": 0.399,
+      "false_alarms_per_100_normal": 47.9
+    },
+    "india_bharat_combined": {
+      "auc": 0.777,
+      "caught": 0.789,
+      "alerts_real": 0.426,
+      "false_alarms_per_100_normal": 41.6
     },
     "japan_classifier_only": {
-      "auc": 0.939,
-      "caught": 0.816,
-      "alerts_real": 0.69,
-      "false_alarms_per_100_normal": 5.5
+      "auc": 0.933,
+      "caught": 0.783,
+      "alerts_real": 0.64,
+      "false_alarms_per_100_normal": 6.5
     },
     "japan_combined": {
-      "auc": 0.963,
+      "auc": 0.959,
       "caught": 0.889,
-      "alerts_real": 0.705,
-      "false_alarms_per_100_normal": 5.5
+      "alerts_real": 0.648,
+      "false_alarms_per_100_normal": 7.2
     },
     "all_vehicle_classifier_only": {
-      "auc": 0.943,
-      "caught": 0.85,
-      "alerts_real": 0.707,
-      "false_alarms_per_100_normal": 7.7
+      "auc": 0.917,
+      "caught": 0.844,
+      "alerts_real": 0.562,
+      "false_alarms_per_100_normal": 16.0
     },
     "all_vehicle_combined": {
-      "auc": 0.955,
-      "caught": 0.859,
-      "alerts_real": 0.734,
-      "false_alarms_per_100_normal": 6.8
+      "auc": 0.929,
+      "caught": 0.862,
+      "alerts_real": 0.591,
+      "false_alarms_per_100_normal": 14.5
     }
   }
 }

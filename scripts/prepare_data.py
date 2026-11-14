@@ -10,6 +10,10 @@ Sources:
   RDD2022 Japan                    10,506 vehicle-camera images, same labels and licence. No split is
                                     given, and neighbouring photos come from the same drive, so blocks
                                     of 100 consecutive photos are split 70/15/15.
+  BharatPotHole (Kaggle)            7,074 Indian dashcam frames (4,219 after dropping edited copies), CC BY-SA 4.0.
+                                    Pothole = any box. The given split puts frames of the same video in train and
+                                    test, so videos are re-split 70/15/15. Frames were stretched to 640x640;
+                                    they are restored to 16:9.
   QR4Change (Mendeley)                389 pothole photos taken on two phones in Pune, CC BY 4.0. Test only
                                     (split "field"): the set's no-pothole photos come from other cameras,
                                     so training on them would teach camera, not pothole.
@@ -77,9 +81,42 @@ def items():
             names = [o.findtext("name") for o in ET.parse(base / "annotations/xmls" / f"{p.stem}.xml").getroot().iter("object")]
             yield "rdd_japan", split, "pothole" if "D40" in names else "normal", p.name, p.read_bytes
 
+    for split, label, name, get in bharat_items():
+        yield "bharat", split, label, name, get
+
     for p in sorted((RAW / "qr4change_pune/pothole/yes").glob("*.jpg")):
         if str(Image.open(p).getexif().get(271, "")).startswith("realme"):  # the Pune survey phones
             yield "pune", "field", "pothole", p.name, p.read_bytes
+
+
+def bharat_photo(path):
+    """A BharatPotHole frame, un-stretched from 640x640 back to 16:9 (boxes are fractions, so they still fit)."""
+    img = Image.open(path)
+    return img.resize((round(img.height * 16 / 9), img.height))
+
+
+def bharat_items():
+    base = RAW / "bharatpothole/BharatPotHole/BharatPotHole"
+    frames = {}  # one copy per frame: the train copies are lightly edited duplicates, so prefer valid/test
+    for folder in ("valid", "test", "train"):
+        for p in sorted((base / folder / "images").glob("*.jpg")):
+            frames.setdefault(p.name.split("_jpg.rf.")[0], p)
+    videos = sorted({key.split("_frame_")[0] for key in frames})
+    random.Random(42).shuffle(videos)
+    per_video = Counter(key.split("_frame_")[0] for key in frames)
+    split_of, done = {}, 0
+    for v in videos:
+        split_of[v] = "test" if done < 0.15 * len(frames) else "val" if done < 0.30 * len(frames) else "train"
+        done += per_video[v]
+    for key, p in sorted(frames.items()):
+        label = p.parent.parent / "labels" / f"{p.stem}.txt"
+        pothole = any(line.strip() for line in label.read_text().splitlines())
+
+        def get(p=p):
+            buf = io.BytesIO()
+            bharat_photo(p).convert("RGB").save(buf, "JPEG", quality=95)
+            return buf.getvalue()
+        yield split_of[key.split("_frame_")[0]], "pothole" if pothole else "normal", p.name, get
 
 
 def main():

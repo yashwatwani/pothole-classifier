@@ -62,5 +62,37 @@
       "found_total": "129/332",
       "boxes_per_100_clean_photos": 1.1
     }
+  },
+  "india_bharat": {
+    "photos": 639,
+    "potholes": 494,
+    "box_ap50": 0.0,
+    "score_cutoff_0.3": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "0/408 (0%)",
+        "medium (0.8-2%)": "0/52 (0%)",
+        "large (>2%)": "0/34 (0%)"
+      },
+      "found_total": "0/494",
+      "boxes_per_100_clean_photos": 0.0
+    },
+    "score_cutoff_0.5": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "0/408 (0%)",
+        "medium (0.8-2%)": "0/52 (0%)",
+        "large (>2%)": "0/34 (0%)"
+      },
+      "found_total": "0/494",
+      "boxes_per_100_clean_photos": 0.0
+    },
+    "score_cutoff_0.7": {
+      "found_by_size": {
+        "small (<0.8% of frame)": "0/408 (0%)",
+        "medium (0.8-2%)": "0/52 (0%)",
+        "large (>2%)": "0/34 (0%)"
+      },
+      "found_total": "0/494",
+      "boxes_per_100_clean_photos": 0.0
+    }
   }
 }
